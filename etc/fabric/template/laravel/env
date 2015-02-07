@@ -1,0 +1,11 @@
+APP_ENV=%(app_env)s
+APP_DEBUG=%(app_debug)s
+APP_KEY=%(app_key)s
+
+DB_HOST=localhost
+DB_DATABASE=%(db_database)s
+DB_USERNAME=%(db_user_name)s
+DB_PASSWORD=%(db_password)s
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file

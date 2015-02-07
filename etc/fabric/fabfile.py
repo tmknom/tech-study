@@ -7,18 +7,34 @@
 from fabric.api import env, run, sudo, put
 from fabric.colors import green
 from fabric.decorators import task
-from fabric.contrib.files import upload_template
+from fabric.contrib.files import upload_template, exists
 
 import time
+import random
+import string
 
 ########  基本設定  ########
 
+# MySQLのデータベース名
+MYSQL_DATABASE = 'app_db'
 # MySQLのユーザ名
-MYSQL_USER_NAME = 'app_user'            # ← 必ず変更する！
+MYSQL_USER_NAME = 'app_user'
 # MySQLのユーザパスワード
-MYSQL_USER_PASSWORD  = 'password' # ← 必ず変更する！
+MYSQL_USER_PASSWORD  = 'password'
 # MySQLのルートパスワード
-MYSQL_ROOT_PASSWORD  = 'root_password' # ← 必ず変更する！
+MYSQL_ROOT_PASSWORD  = 'root_password'
+
+# Laravelの環境設定
+LARAVEL_APP_ENV = 'local'
+# Laravelのデバッグフラグ
+LARAVEL_APP_DEBUG = 'true'
+
+# プロジェクトルート
+PROJECT_ROOT = '/vagrant'
+# Apacheのドキュメントルート
+APACHE_DOCUMENT_ROOT = PROJECT_ROOT + '/src/public'
+# Laravelのstorageディレクトリのパス
+LARAVEL_STORAGE_PATH = PROJECT_ROOT + '/src/storage'
 
 
 ########  デコレータの定義  ########
@@ -50,6 +66,8 @@ def setup():
     install_mysql()
     initialize_mysql()
     install_beanstalkd()
+    link_document_root()
+    setup_laravel()
 
   server_web_setup()
 
@@ -73,8 +91,8 @@ def add_remi_repository():
 
 @measure_time
 def insatll_base_tools():
-    sudo('yum -y update')
-    sudo('yum -y install wget')
+  sudo('yum -y update')
+  sudo('yum -y install wget')
 
 
 @measure_time
@@ -108,9 +126,9 @@ def install_httpd():
 def install_mysql():
   sudo('rpm -i http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm')
   sudo('yum install -y mysql mysql-devel mysql-server mysql-utilities')
-
   sudo('cp -p /etc/my.cnf /etc/my.cnf.org')
-  upload_template('etc/fabric/template/my.cnf',
+
+  upload_template('etc/fabric/template/mysql/my.cnf',
                   '/etc/my.cnf',
                   context={
                             'charset' : 'utf8mb4',
@@ -124,15 +142,52 @@ def install_mysql():
 
 
 @measure_time
-def initialize_mysql(user_name=MYSQL_USER_NAME, user_password=MYSQL_USER_PASSWORD, root_password=MYSQL_ROOT_PASSWORD):
+def initialize_mysql(database=MYSQL_DATABASE, user_name=MYSQL_USER_NAME, user_password=MYSQL_USER_PASSWORD, root_password=MYSQL_ROOT_PASSWORD):
   sudo('mysqladmin -u root password "%s"' % (root_password) )
   sudo('mysql -u root -p%s -e "GRANT ALL PRIVILEGES ON *.* TO %s@localhost IDENTIFIED BY \'%s\' WITH GRANT OPTION;FLUSH PRIVILEGES;"' % (root_password, user_name, user_password))
-  sudo('mysql -u %s -p%s -e "CREATE DATABASE app_db CHARACTER SET utf8mb4;"' % (user_name, user_password) )
+  sudo('mysql -u %s -p%s -e "CREATE DATABASE %s CHARACTER SET utf8mb4;"' % (user_name, user_password, database) )
 
 
 @measure_time
 def install_beanstalkd():
-    sudo('yum install -y beanstalkd')
-    sudo('chkconfig beanstalkd on')
-    sudo('service beanstalkd start')
+  sudo('yum install -y beanstalkd')
+  sudo('chkconfig beanstalkd on')
+  sudo('service beanstalkd start')
+
+
+@measure_time
+def link_document_root(document_root=APACHE_DOCUMENT_ROOT):
+  sudo('rm -rf /var/www/html')
+  sudo('ln -fs %s /var/www/html' % (document_root))
+
+
+@measure_time
+def setup_laravel():
+  change_owner_laravel_storage_directory()
+  create_laravel_env()
+
+def change_owner_laravel_storage_directory(storage_path=LARAVEL_STORAGE_PATH):
+  sudo('chown -R apache:apache %s' % (storage_path))
+
+def create_laravel_env(app_env=LARAVEL_APP_ENV, app_debug=LARAVEL_APP_DEBUG,
+                       database=MYSQL_DATABASE, user_name=MYSQL_USER_NAME, user_password=MYSQL_USER_PASSWORD):
+
+  env_file_path = PROJECT_ROOT + '/src/.env'
+
+  if not exists(env_file_path):
+    # アプリケーションキーとしてランダム文字列を生成
+    app_key = ''.join([random.choice(string.digits + string.letters) for i in range(32)])
+    # .envファイルの生成
+    upload_template('etc/fabric/template/laravel/env',
+                    env_file_path,
+                    context={
+                      'app_env' : app_env,
+                      'app_debug' : app_debug,
+                      'app_key' : app_key,
+                      'db_database' : database,
+                      'db_user_name' : user_name,
+                      'db_password' : user_password,
+                    },
+                    use_sudo=True,
+                    backup=False)
 
