@@ -1,0 +1,21 @@
+### OSX ###
+.DS_Store
+Thumbs.db
+
+### Laravel ###
+/bootstrap/compiled.php
+.env.*.php
+.env.php
+
+### Composer ###
+composer.phar
+composer.lock
+vendor/
+
+### Intellij ###
+*.iml
+.idea/
+
+### Vagrant ###
+.vagrant/
+
