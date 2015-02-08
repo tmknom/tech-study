@@ -16,4 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
   end
 
+  # Laravelはstorageディレクトリ配下にApacheのWrite権が必要なのでマウントオプションを変更する
+  config.vm.synced_folder ".", "/vagrant", :owner => 'vagrant', :group => 'vagrant', :mount_options => ["dmode=777","fmode=766"]
+
 end
