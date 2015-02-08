@@ -2,11 +2,7 @@
 
 class ExampleTest extends TestCase {
 
-	/**
-	 * A basic functional test example.
-	 *
-	 * @return void
-	 */
+	/** @test */
 	public function testBasicExample()
 	{
 		$response = $this->call('GET', '/');
@@ -14,11 +10,9 @@ class ExampleTest extends TestCase {
 		$this->assertEquals(200, $response->getStatusCode());
 	}
 
-    public function testDbExample()
+    /** @test */
+    public function dbExample()
     {
-        // テーブル作成
-        Artisan::call('migrate');
-
         // 実行
         $insertArray = array(
             'name' => '森鴎外',
@@ -30,11 +24,6 @@ class ExampleTest extends TestCase {
         // 確認
         $result = DB::table('users')->where('id', '=', $id)->first();
         $this->assertEquals('森鴎外', $result->name);
-
-        // テーブル削除
-        Artisan::call('migrate:reset');
-        // DB切断
-        DB::disconnect();
     }
 
     /** @test */
