@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 5.6
+
+before_script:
+  - mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO travis_user@localhost IDENTIFIED BY 'travis_password' WITH GRANT OPTION;FLUSH PRIVILEGES;"
+  - mysql -utravis_user -ptravis_password -e "CREATE DATABASE travis_db CHARACTER SET utf8mb4;"
+  - cd src/
+  - composer self-update
+  - composer install
+  - chmod -R 777 storage
+  - cp .env.travis .env
+
+script:
+  - vendor/bin/phpunit
