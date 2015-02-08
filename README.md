@@ -1,5 +1,8 @@
 # tech-study
 
+[![Build Status](https://travis-ci.org/tmknom/tech-study.svg?branch=master)](https://travis-ci.org/tmknom/tech-study)
+[![Coverage Status](https://coveralls.io/repos/tmknom/tech-study/badge.svg?branch=feature%2Fsetup-coveralls)](https://coveralls.io/r/tmknom/tech-study?branch=feature%2Fsetup-coveralls)
+
 ## 実行方法
 
 ### Vagrantの環境構築
