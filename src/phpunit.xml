@@ -21,4 +21,10 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
     </php>
+    <filter>
+        <whitelist>
+            <directory>./app</directory>
+            <directory>./config</directory>
+        </whitelist>
+    </filter>
 </phpunit>

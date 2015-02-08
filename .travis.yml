@@ -9,11 +9,14 @@ before_script:
   - cd src/
   - composer self-update
   - composer install
+  - composer require satooshi/php-coveralls:dev-master --dev
   - chmod -R 777 storage
   - cp .env.travis .env
 
 script:
-  - vendor/bin/phpunit
+  - mkdir -p build/logs
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - cat storage/logs/*
+  - vendor/bin/coveralls -v -c .coveralls.yml
