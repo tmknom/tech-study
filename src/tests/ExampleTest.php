@@ -37,4 +37,11 @@ class ExampleTest extends TestCase {
         DB::disconnect();
     }
 
+    /** @test */
+    public function environment()
+    {
+        $this->assertEquals('testing', App::environment());
+        //$this->assertEquals(array(), $_ENV);
+    }
+
 }
