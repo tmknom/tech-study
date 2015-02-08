@@ -16,6 +16,8 @@ class ExampleTest extends TestCase {
 
     public function testDbExample()
     {
+        // テーブル作成
+        Artisan::call('migrate');
 
         // 実行
         $insertArray = array(
@@ -28,6 +30,11 @@ class ExampleTest extends TestCase {
         // 確認
         $result = DB::table('users')->where('id', '=', $id)->first();
         $this->assertEquals('森鴎外', $result->name);
+
+        // テーブル削除
+        Artisan::call('migrate:reset');
+        // DB切断
+        DB::disconnect();
     }
 
 }
