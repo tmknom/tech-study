@@ -1,5 +1,6 @@
 # tech-study
 
+[![Circle CI](https://circleci.com/gh/tmknom/tech-study.svg?style=svg)](https://circleci.com/gh/tmknom/tech-study)
 [![Build Status](https://travis-ci.org/tmknom/tech-study.svg?branch=master)](https://travis-ci.org/tmknom/tech-study)
 [![Coverage Status](https://coveralls.io/repos/tmknom/tech-study/badge.svg?branch=feature%2Fsetup-coveralls)](https://coveralls.io/r/tmknom/tech-study?branch=feature%2Fsetup-coveralls)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/tmknom/tech-study/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/tmknom/tech-study/?branch=master)
