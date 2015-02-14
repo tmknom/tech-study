@@ -26,19 +26,25 @@ test:
 
   override:
     # PHPUnit実行
-    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-html $CIRCLE_ARTIFACTS/coverage --coverage-clover build/logs/clover.xml --log-json $CIRCLE_ARTIFACTS/logs/junit.json
+    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml --log-junit $CIRCLE_TEST_REPORTS/junit.xml --log-json $CIRCLE_ARTIFACTS/logs/junit.json # --coverage-html $CIRCLE_ARTIFACTS/coverage
 
   post:
     # Coveralls連携
-    - cd src; vendor/bin/coveralls -v -c .coveralls.yml > $CIRCLE_ARTIFACTS/logs/coveralls.txt
+    - cd src; vendor/bin/coveralls -v -c .coveralls.yml > $CIRCLE_TEST_REPORTS/coveralls.txt
     # Chatwork連携
     - chmod 755 etc/circle-ci/chatwork.sh
     - etc/circle-ci/chatwork.sh
 
 
-general:
-  artifacts:
-    - "src/storage/logs/"
-    - "src/build/logs/clover.xml"
+deployment:
+  production:
+    branch: master
+    commands:
+      - sudo pip install fabric
+      - fab production deploy -f etc/circle-ci/deploy/fabfile.py -H $PRODUCTION_HOST -u $PRODUCTION_USER_NAME --port=$PRODUCTION_SSH_PORT > $CIRCLE_ARTIFACTS/logs/deploy.log
 
-
+  staging:
+    branch: feature/setup-deploy
+    commands:
+      - sudo pip install fabric
+      - fab staging deploy -f etc/circle-ci/deploy/fabfile.py -H $PRODUCTION_HOST -u $PRODUCTION_USER_NAME --port=$PRODUCTION_SSH_PORT > $CIRCLE_ARTIFACTS/logs/deploy.log
