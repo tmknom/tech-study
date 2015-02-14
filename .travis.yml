@@ -19,4 +19,4 @@ script:
 
 after_script:
   - cat storage/logs/*
-  - vendor/bin/coveralls -v -c .coveralls.yml
+  #- vendor/bin/coveralls -v -c .coveralls.yml

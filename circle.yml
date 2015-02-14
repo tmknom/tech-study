@@ -1,0 +1,32 @@
+machine:
+  php:
+    version: 5.6.2
+
+  timezone:
+    Asia/Tokyo
+
+
+dependencies:
+  pre:
+    # XDebugの有効化（https://circleci.com/docs/language-php#xdebug）
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+
+  override:
+    - sudo composer self-update
+    - cd src; composer install --prefer-source --no-interaction
+    - cd src; composer require satooshi/php-coveralls:dev-master --dev --prefer-source --no-interaction
+
+
+test:
+  pre:
+    # Laravel向けのセットアップ処理
+    - chmod -R 777 src/storage
+    - cp src/.env.circle src/.env
+
+  override:
+    - mkdir -p src/build/logs
+    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml
+
+  post:
+    - cd src; vendor/bin/coveralls -v -c .coveralls.yml
+    #- cat src/storage/logs/* 2>no_logs.txt | cat no_logs.txt
