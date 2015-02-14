@@ -14,7 +14,6 @@ dependencies:
   override:
     - sudo composer self-update
     - cd src; composer install --prefer-source --no-interaction
-    - cd src; composer require satooshi/php-coveralls:dev-master --dev --prefer-source --no-interaction
 
 
 test:
@@ -25,8 +24,10 @@ test:
 
   override:
     - mkdir -p src/build/logs
-    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml
+    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml --log-json build/logs/junit.json
 
   post:
     - cd src; vendor/bin/coveralls -v -c .coveralls.yml
     #- cat src/storage/logs/* 2>no_logs.txt | cat no_logs.txt
+    - chmod 755 etc/circle-ci/chatwork.sh
+    - etc/circle-ci/chatwork.sh

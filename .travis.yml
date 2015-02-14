@@ -8,15 +8,16 @@ before_script:
   - mysql -utravis_user -ptravis_password -e "CREATE DATABASE travis_db CHARACTER SET utf8mb4;"
   - cd src/
   - composer self-update
-  - composer install
-  - composer require satooshi/php-coveralls:dev-master --dev
+  - composer install --prefer-source --no-interaction
   - chmod -R 777 storage
   - cp .env.travis .env
 
 script:
   - mkdir -p build/logs
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml --log-json build/logs/junit.json
 
 after_script:
   - cat storage/logs/*
   #- vendor/bin/coveralls -v -c .coveralls.yml
+  #- sudo apt-get install jq
+  #- cat build/logs/coveralls-upload.json | jq . | grep -v "source"
