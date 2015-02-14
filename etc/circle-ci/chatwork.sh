@@ -6,7 +6,7 @@
 #  exit 0
 #fi
 
-if [ `cat src/build/logs/junit.json | grep '"status": "fail"'`} ]; then
+if [ `cat $CIRCLE_ARTIFACTS/logs/junit.json | grep '"status": "fail"'`} ]; then
   result="BUILD SUCCESS (cracker)"
   emotion="(cracker)"
 else
@@ -17,6 +17,7 @@ fi
 body="[info][title]${result} - ${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH} [/title]commit: ${CIRCLE_COMPARE_URL}/
 build: https://circleci.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}[/info]"
 echo "$body"
+echo ""
 
 script="puts URI.encode_www_form_component('${body}')"
 encoded=`ruby -r uri -e "${script}"`

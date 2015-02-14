@@ -18,16 +18,27 @@ dependencies:
 
 test:
   pre:
-    # Laravel向けのセットアップ処理
+    # Laravel向けのセットアップ
     - chmod -R 777 src/storage
     - cp src/.env.circle src/.env
+    # Coveralls向けのセットアップ
+    - mkdir -p src/build/logs
 
   override:
-    - mkdir -p src/build/logs
-    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-clover build/logs/clover.xml --log-json build/logs/junit.json
+    # PHPUnit実行
+    - cd src; vendor/bin/phpunit -v -c phpunit.xml --coverage-html $CIRCLE_ARTIFACTS/coverage --coverage-clover build/logs/clover.xml --log-json $CIRCLE_ARTIFACTS/logs/junit.json
 
   post:
-    - cd src; vendor/bin/coveralls -v -c .coveralls.yml
-    #- cat src/storage/logs/* 2>no_logs.txt | cat no_logs.txt
+    # Coveralls連携
+    - cd src; vendor/bin/coveralls -v -c .coveralls.yml > $CIRCLE_ARTIFACTS/logs/coveralls.txt
+    # Chatwork連携
     - chmod 755 etc/circle-ci/chatwork.sh
     - etc/circle-ci/chatwork.sh
+
+
+general:
+  artifacts:
+    - "src/storage/logs/"
+    - "src/build/logs/clover.xml"
+
+
