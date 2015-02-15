@@ -6,7 +6,16 @@ machine:
     Asia/Tokyo
 
 
+general:
+  artifacts:
+    - "src/storage/"
+    - "src/build/logs/clover.xml"
+
+
 dependencies:
+  cache_directories:
+    - "~/.composer"
+
   pre:
     # XDebugの有効化（https://circleci.com/docs/language-php#xdebug）
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
@@ -14,6 +23,7 @@ dependencies:
   override:
     - sudo composer self-update
     - cd src; composer install --prefer-source --no-interaction
+    - cd src; composer dump-autoload
 
 
 test:
