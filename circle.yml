@@ -42,8 +42,8 @@ test:
     # Coveralls連携
     - cd src; vendor/bin/coveralls -v -c .coveralls.yml > $CIRCLE_TEST_REPORTS/coveralls.txt
     # Chatwork連携
-    - chmod 755 etc/circle-ci/chatwork.sh
-    - etc/circle-ci/chatwork.sh
+    #- chmod 755 etc/circle-ci/chatwork.sh
+    #- etc/circle-ci/chatwork.sh
 
 
 deployment:
@@ -54,7 +54,7 @@ deployment:
       - fab production deploy -f etc/circle-ci/deploy/fabfile.py -H $PRODUCTION_HOST -u $PRODUCTION_USER_NAME --port=$PRODUCTION_SSH_PORT > $CIRCLE_ARTIFACTS/logs/deploy.log
 
   staging:
-    branch: feature/setup-deploy
+    branch: develop
     commands:
       - sudo pip install fabric
       - fab staging deploy -f etc/circle-ci/deploy/fabfile.py -H $PRODUCTION_HOST -u $PRODUCTION_USER_NAME --port=$PRODUCTION_SSH_PORT > $CIRCLE_ARTIFACTS/logs/deploy.log
