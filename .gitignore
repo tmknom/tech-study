@@ -8,8 +8,6 @@ Thumbs.db
 .env.php
 
 ### Composer ###
-composer.phar
-composer.lock
 vendor/
 
 ### Intellij ###
