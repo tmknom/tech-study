@@ -22,3 +22,6 @@ vendor/
 
 ### SSH Key ###
 id_rsa*
+
+### NetBeans ###
+/nbproject/
