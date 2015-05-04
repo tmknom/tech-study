@@ -12,6 +12,7 @@ from fabric.contrib.files import upload_template, exists
 import time
 import random
 import string
+import os
 
 ########  基本設定  ########
 
@@ -35,6 +36,8 @@ PROJECT_ROOT = '/vagrant'
 APACHE_DOCUMENT_ROOT = PROJECT_ROOT + '/src/public'
 # Laravelのstorageディレクトリのパス
 LARAVEL_STORAGE_PATH = PROJECT_ROOT + '/src/storage'
+# テンプレートディレクトリ
+TEMPLATE_DIR = os.path.abspath(os.path.dirname(__file__)) + '/template'
 
 
 ########  デコレータの定義  ########
@@ -128,7 +131,7 @@ def install_mysql():
   sudo('yum install -y mysql mysql-devel mysql-server mysql-utilities')
   sudo('cp -p /etc/my.cnf /etc/my.cnf.org')
 
-  upload_template('etc/fabric/template/mysql/my.cnf',
+  upload_template(TEMPLATE_DIR + '/mysql/my.cnf',
                   '/etc/my.cnf',
                   context={
                             'charset' : 'utf8mb4',
@@ -178,7 +181,7 @@ def create_laravel_env(app_env=LARAVEL_APP_ENV, app_debug=LARAVEL_APP_DEBUG,
     # アプリケーションキーとしてランダム文字列を生成
     app_key = ''.join([random.choice(string.digits + string.letters) for i in range(32)])
     # .envファイルの生成
-    upload_template('etc/fabric/template/laravel/env',
+    upload_template(TEMPLATE_DIR + '/laravel/env',
                     env_file_path,
                     context={
                       'app_env' : app_env,
