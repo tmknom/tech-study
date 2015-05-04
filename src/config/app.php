@@ -145,6 +145,12 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		/*
+		 * laravel-ide-helper
+                 * http://qiita.com/michiomochi@github/items/fc70230402972c99472f
+		 */
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+
 	],
 
 	/*
