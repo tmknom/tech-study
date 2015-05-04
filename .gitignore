@@ -22,3 +22,9 @@ vendor/
 
 ### SSH Key ###
 id_rsa*
+
+### NetBeans ###
+/nbproject/
+
+### Laravel IDE Helper ###
+_ide_helper.php

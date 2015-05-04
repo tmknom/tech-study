@@ -14,7 +14,7 @@
 
 ```bash
 $ vagrant up
-$ fab -H 192.168.0.10 -u vagrant -p vagrant -f etc/fabric/fabfile.py setup
+$ fab setup -H 192.168.0.10 -u vagrant -p vagrant -f etc/configuration/fabfile.py
 ```
 
 ### ライブラリのインストール
