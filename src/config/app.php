@@ -156,6 +156,7 @@ return [
 		 */
 		'App\Providers\ApplicationServiceProvider',
 		'App\Providers\DomainServiceProvider',
+		'App\Providers\LibraryServiceProvider',
 
 	],
 

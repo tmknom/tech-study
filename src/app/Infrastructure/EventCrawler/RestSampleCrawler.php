@@ -3,28 +3,27 @@
 namespace App\Infrastructure\EventCrawler;
 
 use App\Domain\EventCrawler\SampleCrawler;
-use GuzzleHttp\Client;
+use App\Library\Http\HttpClient;
 
 
 class RestSampleCrawler implements SampleCrawler
 {
 
-    /** @var Client */
+    /** @var HttpClient */
     private $httpClient;
 
     /** @var string APIのURL */
     const URL = 'http://api.atnd.org/events/?format=json&count=30';
 
     /** コンストラクタ */
-    public function __construct()
+    public function __construct(HttpClient $httpClient)
     {
-        $this->httpClient = new Client();
+        $this->httpClient = $httpClient;
     }
 
     public function crawl()
     {
-        $response = $this->httpClient->get(self::URL);
-        return $response->getBody();
+        return $this->httpClient->request(self::URL);
 //        return $this->atndJsonMapper->createEventList($this->requestApi());
     }
 
