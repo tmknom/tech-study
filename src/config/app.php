@@ -151,6 +151,11 @@ return [
 		 */
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
+		/*
+		 * 自作のサービスプロバイダー
+		 */
+		'App\Providers\ApplicationServiceProvider',
+
 	],
 
 	/*

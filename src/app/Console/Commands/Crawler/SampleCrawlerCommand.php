@@ -19,18 +19,17 @@ class SampleCrawlerCommand extends Command
     /** @var SampleCrawlerApplication */
     private $sampleCrawlerApplication;
 
-    public function __construct()
+    public function __construct(SampleCrawlerApplication $sampleCrawlerApplication)
     {
         parent::__construct();
 
-        $this->sampleCrawlerApplication = new SampleCrawlerApplication();
+        $this->sampleCrawlerApplication = $sampleCrawlerApplication;
     }
 
     public function fire()
     {
         $startTime = microtime(true);
         $result = $this->sampleCrawlerApplication->crawl();
-        sleep(1);
         $resultTime = " : 実行時間" . number_format(microtime(true) - $startTime, 3) . '秒だぜぇ';
         $this->info($result . $resultTime);
     }
