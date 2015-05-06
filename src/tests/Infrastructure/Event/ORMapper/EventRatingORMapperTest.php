@@ -10,9 +10,9 @@ use App\Domain\Event\Rating\PocketCount;
 use App\Domain\Event\Rating\TwitterCount;
 use App\Infrastructure\Event\ORMapper\EventRatingORMapper;
 use DB;
-use TestCase;
+use Tests\Base\TestCase;
+use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventRatingSeeder;
-use Tests\Infrastructure\Event\TestEventBuilder;
 
 class EventRatingORMapperTest extends TestCase
 {

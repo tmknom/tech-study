@@ -5,7 +5,7 @@ namespace Tests\Fixture\Seeder;
 use App\Infrastructure\Event\ORMapper\EventORMapper;
 use DB;
 use Illuminate\Database\Seeder;
-use Tests\Infrastructure\Event\TestEventBuilder;
+use Tests\Fixture\Builder\TestEventBuilder;
 
 class EventSeeder extends Seeder
 {

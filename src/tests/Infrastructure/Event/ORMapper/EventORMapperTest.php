@@ -6,9 +6,9 @@ use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\EventId;
 use App\Infrastructure\Event\ORMapper\EventORMapper;
 use DB;
-use TestCase;
+use Tests\Base\TestCase;
+use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventSeeder;
-use Tests\Infrastructure\Event\TestEventBuilder;
 
 class EventORMapperTest extends TestCase
 {
