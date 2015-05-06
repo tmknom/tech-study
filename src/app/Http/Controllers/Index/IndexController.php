@@ -10,6 +10,7 @@ class IndexController extends Controller
     /** コンストラクタ */
     public function __construct()
     {
+        
     }
 
     public function index()
