@@ -6,6 +6,7 @@ use App\Library\Http\HttpClient;
 
 class SampleHttpClient implements HttpClient
 {
+
     const FIXTURE_PATH = '/tests/Fixture/Response/Atnd/test.json';
 
     public function request($url)
