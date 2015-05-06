@@ -8,7 +8,7 @@ use App\Infrastructure\EventCrawler\RestAtndCrawler;
 use App\Infrastructure\EventCrawler\RestSampleCrawler;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\EventDispatcher\Event;
-use Tests\Infrastructure\EventCrawler\Stub\AtndHttpClient;
+use Tests\Infrastructure\EventCrawler\Stub\AtndJsonHttpClient;
 
 class RestAtndCrawlerTest extends PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class RestAtndCrawlerTest extends PHPUnit_Framework_TestCase
     /** @before */
     public function setUp()
     {
-        $this->sut = new RestAtndCrawler(new AtndHttpClient());
+        $this->sut = new RestAtndCrawler(new AtndJsonHttpClient());
     }
 
     /** @test */

@@ -4,7 +4,7 @@ namespace Tests\Infrastructure\EventCrawler\Stub;
 
 use App\Library\Http\JsonHttpClient;
 
-class AtndHttpClient implements JsonHttpClient
+class AtndJsonHttpClient implements JsonHttpClient
 {
 
     const FIXTURE_PATH = '/tests/Fixture/Response/Atnd/test.json';

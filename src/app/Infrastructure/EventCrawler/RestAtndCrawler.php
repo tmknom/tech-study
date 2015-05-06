@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\EventCrawler;
 
+use App\Domain\Event\EventList;
 use App\Domain\EventCrawler\AtndCrawler;
 use App\Infrastructure\EventCrawler\Mapper\AtndMapper;
 use App\Library\Http\JsonHttpClient;
@@ -25,6 +26,9 @@ class RestAtndCrawler implements AtndCrawler
         $this->atndMapper = new AtndMapper();
     }
 
+    /**
+     * @return EventList
+     */
     public function crawl()
     {
         $json = $this->jsonHttpClient->request(self::URL);
