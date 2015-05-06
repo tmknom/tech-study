@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\Event;
+namespace Tests\Fixture\Builder;
 
 use App\Domain\Event\Core\SourceType;
 use App\Infrastructure\Event\Builder\EventAreaBuilder;

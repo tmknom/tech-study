@@ -10,6 +10,7 @@ use App\Infrastructure\Event\ORMapper\EventORMapper;
 use App\Infrastructure\Event\ORMapper\EventRatingORMapper;
 use DB;
 use Tests\Base\TestCase;
+use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventCapacitySeeder;
 use Tests\Fixture\Seeder\EventGeolocationSeeder;
 use Tests\Fixture\Seeder\EventRatingSeeder;

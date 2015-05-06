@@ -6,7 +6,7 @@ use App\Domain\Event\EventId;
 use App\Infrastructure\Event\ORMapper\EventGeolocationORMapper;
 use DB;
 use Tests\Base\TestCase;
-use Tests\Infrastructure\Event\TestEventBuilder;
+use Tests\Fixture\Builder\TestEventBuilder;
 
 class EventGeolocationORMapperTest extends TestCase
 {
