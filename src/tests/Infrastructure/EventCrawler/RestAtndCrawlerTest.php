@@ -23,7 +23,7 @@ class RestAtndCrawlerTest extends PHPUnit_Framework_TestCase
     public function crawl_正常系()
     {
         // 実行
-        $actual = json_decode($this->sut->crawl(), true);
+        $actual = $this->sut->crawl();
 
         // 確認
         $this->assertCount(3, $actual['events']);

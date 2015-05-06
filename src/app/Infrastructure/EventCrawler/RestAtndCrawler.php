@@ -3,26 +3,27 @@
 namespace App\Infrastructure\EventCrawler;
 
 use App\Domain\EventCrawler\AtndCrawler;
-use App\Library\Http\HttpClient;
+use App\Library\Http\JsonHttpClient;
 
 class RestAtndCrawler implements AtndCrawler
 {
 
-    /** @var HttpClient */
-    private $httpClient;
+    /** @var JsonHttpClient */
+    private $jsonHttpClient;
 
     /** @var string APIのURL */
     const URL = 'http://api.atnd.org/events/?format=json&count=30';
 
     /** コンストラクタ */
-    public function __construct(HttpClient $httpClient)
+    public function __construct(JsonHttpClient $jsonHttpClient)
     {
-        $this->httpClient = $httpClient;
+        $this->jsonHttpClient = $jsonHttpClient;
     }
 
     public function crawl()
     {
-        return $this->httpClient->request(self::URL);
+        $json = $this->jsonHttpClient->request(self::URL);
+        return $json;
 //        return $this->atndJsonMapper->createEventList($this->requestApi());
     }
 

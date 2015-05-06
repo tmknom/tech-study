@@ -2,16 +2,16 @@
 
 namespace Tests\Infrastructure\EventCrawler\Stub;
 
-use App\Library\Http\HttpClient;
+use App\Library\Http\JsonHttpClient;
 
-class AtndHttpClient implements HttpClient
+class AtndHttpClient implements JsonHttpClient
 {
 
     const FIXTURE_PATH = '/tests/Fixture/Response/Atnd/test.json';
 
     public function request($url)
     {
-        return file_get_contents(base_path() . self::FIXTURE_PATH);
+        return json_decode(file_get_contents(base_path() . self::FIXTURE_PATH), true);
     }
 
 }
