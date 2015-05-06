@@ -18,7 +18,7 @@ class EventGeolocationBuilderTest extends PHPUnit_Framework_TestCase
     {
         // 実行
         $actual = EventGeolocationBuilder::builder()
-                ->setAddress('place1')
+                ->setAddress('address1')
                 ->setPlace('plase1')
                 ->setLatitude(2.1)
                 ->setLongitude(3.3)
@@ -26,7 +26,7 @@ class EventGeolocationBuilderTest extends PHPUnit_Framework_TestCase
 
         // 確認
         $expected = new EventGeolocation(
-                new Address('place1'),
+                new Address('address1'),
                 new Place('plase1'),
                 new Latitude(2.1),
                 new Longitude(3.3)
