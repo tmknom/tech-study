@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Capacity;
+namespace Tests\Infrastructure\Event\Core;
 
 use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Core\EventTitle;

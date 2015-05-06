@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Capacity;
+namespace Tests\Infrastructure\Event\Detail;
 
 use App\Domain\Event\Detail\CatchCopy;
 use App\Domain\Event\Detail\EventDescription;
