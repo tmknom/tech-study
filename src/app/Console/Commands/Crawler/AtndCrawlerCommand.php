@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Crawler;
 
 use App\Application\EventCrawler\AtndCrawlerApplication;
+use App\Application\EventCrawler\CrawlerApplication;
 use Illuminate\Console\Command;
 
 /**
@@ -13,25 +14,24 @@ use Illuminate\Console\Command;
 class AtndCrawlerCommand extends Command
 {
 
+    use CrawlerCommand;
+
     protected $name = 'crawler:atnd';
     protected $description = "クローラコマンド：Atnd";
 
-    /** @var AtndCrawlerApplication */
-    private $atndCrawlerApplication;
+    /** @var CrawlerApplication */
+    private $crawlerApplication;
 
-    public function __construct(AtndCrawlerApplication $atndCrawlerApplication)
+    public function __construct(AtndCrawlerApplication $crawlerApplication)
     {
         parent::__construct();
 
-        $this->atndCrawlerApplication = $atndCrawlerApplication;
+        $this->crawlerApplication = $crawlerApplication;
     }
 
     public function fire()
     {
-        $startTime = microtime(true);
-        $result = $this->atndCrawlerApplication->crawl();
-        $resultTime = " : 実行時間" . number_format(microtime(true) - $startTime, 3) . '秒だぜぇ';
-        $this->info(var_dump($result) . $resultTime);
+        $this->executeWithMeasureTime($this->crawlerApplication);
     }
 
 }
