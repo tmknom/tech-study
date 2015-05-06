@@ -5,7 +5,6 @@ namespace Tests\Infrastructure\EventCrawler;
 use App\Domain\Event\Core\SourceType;
 use App\Domain\Event\EventList;
 use App\Infrastructure\EventCrawler\RestAtndCrawler;
-use App\Infrastructure\EventCrawler\RestSampleCrawler;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\EventDispatcher\Event;
 use Tests\Infrastructure\EventCrawler\Stub\AtndJsonHttpClient;
@@ -13,7 +12,7 @@ use Tests\Infrastructure\EventCrawler\Stub\AtndJsonHttpClient;
 class RestAtndCrawlerTest extends PHPUnit_Framework_TestCase
 {
 
-    /** @var RestSampleCrawler */
+    /** @var RestAtndCrawler */
     private $sut;
 
     /** @before */

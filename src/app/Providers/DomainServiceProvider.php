@@ -3,9 +3,7 @@
 namespace App\Providers;
 
 use App\Domain\EventCrawler\AtndCrawler;
-use App\Domain\EventCrawler\SampleCrawler;
 use App\Infrastructure\EventCrawler\RestAtndCrawler;
-use App\Infrastructure\EventCrawler\RestSampleCrawler;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,7 +19,6 @@ class DomainServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bindif(SampleCrawler::class, RestSampleCrawler::class);
         $this->app->bindif(AtndCrawler::class, RestAtndCrawler::class);
     }
 
