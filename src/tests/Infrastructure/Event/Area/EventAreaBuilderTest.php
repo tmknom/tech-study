@@ -11,20 +11,11 @@ use PHPUnit_Framework_TestCase;
 class EventAreaBuilderTest extends PHPUnit_Framework_TestCase
 {
 
-    /** @var EventAreaBuilder */
-    private $sut;
-
-    /** @before */
-    public function setUp()
-    {
-        $this->sut = EventAreaBuilder::builder();
-    }
-
     /** @test */
     public function build_正常系()
     {
         // 実行
-        $actual = $this->sut
+        $actual = EventAreaBuilder::builder()
                 ->setPrefectureCode(1)
                 ->setRegionCode(2)
                 ->build();

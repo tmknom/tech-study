@@ -12,15 +12,6 @@ use PHPUnit_Framework_TestCase;
 class EventCapacityBuilderTest extends PHPUnit_Framework_TestCase
 {
 
-    /** @var EventCapacityBuilder */
-    private $sut;
-
-    /** @before */
-    public function setUp()
-    {
-        $this->sut = EventCapacityBuilder::builder();
-    }
-
     /** @test */
     public function build_正常系()
     {
