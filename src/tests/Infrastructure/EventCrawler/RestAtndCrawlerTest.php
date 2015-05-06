@@ -25,16 +25,16 @@ class RestAtndCrawlerTest extends PHPUnit_Framework_TestCase
     public function crawl_正常系()
     {
         // 実行
+        /** @var EventList $actual */
         $actual = $this->sut->crawl();
 
-        // 確認
         // 確認：全件チェック
         $this->assertTrue($actual instanceof EventList);
-        $this->assertCount(2, $actual->getValue());
+        $this->assertEquals(2, $actual->count());
 
         // 確認：１件チェック
         /** @var Event $event */
-        $event = $actual->getValue()[0];
+        $event = $actual->get(0);
         $this->assertEquals("undefined", $event->getEventId());
 
         $eventCore = $event->getEventCore();

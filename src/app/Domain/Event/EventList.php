@@ -2,14 +2,15 @@
 
 namespace App\Domain\Event;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\DomainCollection;
+use Illuminate\Support\Collection;
 
 class EventList
 {
 
-    use ValueObject;
+    use DomainCollection;
 
-    /** @var array */
+    /** @var Collection */
     private $value;
 
 }

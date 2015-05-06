@@ -28,14 +28,15 @@ class AtndCrawlerApplicationTest extends TestCase
     public function crawl_正常系()
     {
         // 実行
+        /** @var EventList $actual */
         $actual = $this->sut->crawl();
 
         // 確認
         $this->assertTrue($actual instanceof EventList);
-        $this->assertCount(2, $actual->getValue());
+        $this->assertEquals(2, $actual->count());
 
-        /** @var Event */
-        $event = $actual->getValue()[0];
+        /** @var Event $event */
+        $event = $actual->get(0);
         $this->assertEquals('サンプルイベント1', $event->getEventCore()->getEventTitle());
     }
 
