@@ -2,7 +2,7 @@
 
 namespace App\Domain\Event\Area;
 
-use App\Library\Domain\Entity;
+use App\Library\Domain\Aggregate;
 
 /**
  * 地域
@@ -10,7 +10,7 @@ use App\Library\Domain\Entity;
 class EventArea
 {
 
-    use Entity;
+    use Aggregate;
 
     /** @var PrefectureCode */
     private $prefectureCode;

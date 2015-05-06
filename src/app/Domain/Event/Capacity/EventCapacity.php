@@ -2,12 +2,12 @@
 
 namespace App\Domain\Event\Capacity;
 
-use App\Library\Domain\Entity;
+use App\Library\Domain\Aggregate;
 
 class EventCapacity
 {
 
-    use Entity;
+    use Aggregate;
 
     /** @var CapacityLimit */
     private $capacityLimit;

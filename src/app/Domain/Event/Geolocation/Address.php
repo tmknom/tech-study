@@ -12,6 +12,9 @@ class Address
     /** @var string */
     private $value;
 
+    /**
+     * @return boolean
+     */
     public function isTokyo()
     {
         if (mb_strpos($this->value, '東京') === false) {

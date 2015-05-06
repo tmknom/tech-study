@@ -2,12 +2,12 @@
 
 namespace App\Domain\Event\Core;
 
-use App\Library\Domain\Entity;
+use App\Library\Domain\Aggregate;
 
 class EventCore
 {
 
-    use Entity;
+    use Aggregate;
 
     /** @var EventTitle */
     private $eventTitle;
