@@ -5,7 +5,7 @@ namespace App\Application\EventCrawler;
 use App\Domain\Event\EventRepository;
 use App\Domain\EventCrawler\AtndCrawler;
 
-class AtndCrawlerApplication
+class AtndCrawlerApplication implements CrawlerApplication
 {
 
     use TransactionCrawlerApplication;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Event\Geolocation;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Geolocation\Address;
 use App\Domain\Event\Geolocation\EventGeolocation;

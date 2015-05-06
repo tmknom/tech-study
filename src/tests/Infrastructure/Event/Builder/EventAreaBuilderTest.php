@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Area;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Area\EventArea;
 use App\Domain\Event\Area\PrefectureCode;
 use App\Domain\Event\Area\RegionCode;
-use App\Infrastructure\Event\Area\EventAreaBuilder;
+use App\Infrastructure\Event\Builder\EventAreaBuilder;
 use PHPUnit_Framework_TestCase;
 
 class EventAreaBuilderTest extends PHPUnit_Framework_TestCase

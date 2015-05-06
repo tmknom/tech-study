@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Capacity;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Capacity\Accepted;
 use App\Domain\Event\Capacity\CapacityLimit;
 use App\Domain\Event\Capacity\EventCapacity;
 use App\Domain\Event\Capacity\Waiting;
-use App\Infrastructure\Event\Capacity\EventCapacityBuilder;
+use App\Infrastructure\Event\Builder\EventCapacityBuilder;
 use PHPUnit_Framework_TestCase;
 
 class EventCapacityBuilderTest extends PHPUnit_Framework_TestCase

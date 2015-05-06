@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Event\Capacity;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Capacity\Accepted;
 use App\Domain\Event\Capacity\CapacityLimit;

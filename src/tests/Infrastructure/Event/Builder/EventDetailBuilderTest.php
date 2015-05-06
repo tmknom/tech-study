@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Detail;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Detail\CatchCopy;
 use App\Domain\Event\Detail\EventDescription;
 use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Detail\OwnerId;
 use App\Domain\Event\Detail\SourceEventId;
-use App\Infrastructure\Event\Detail\EventDetailBuilder;
+use App\Infrastructure\Event\Builder\EventDetailBuilder;
 use PHPUnit_Framework_TestCase;
 
 class EventDetailBuilderTest extends PHPUnit_Framework_TestCase

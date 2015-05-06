@@ -12,9 +12,9 @@ use App\Domain\Event\Event;
 use App\Domain\Event\EventList;
 use App\Domain\Event\Geolocation\EventGeolocation;
 use App\Domain\Event\Rating\EventRating;
-use App\Infrastructure\Event\Area\EventAreaBuilder;
-use App\Infrastructure\Event\EventBuilder;
-use App\Infrastructure\Event\Rating\EventRatingBuilder;
+use App\Infrastructure\Event\Builder\EventAreaBuilder;
+use App\Infrastructure\Event\Builder\EventBuilder;
+use App\Infrastructure\Event\Builder\EventRatingBuilder;
 
 trait EventMapper
 {

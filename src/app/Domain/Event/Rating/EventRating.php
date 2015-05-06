@@ -2,12 +2,12 @@
 
 namespace App\Domain\Event\Rating;
 
-use App\Library\Domain\Entity;
+use App\Library\Domain\Aggregate;
 
 class EventRating
 {
 
-    use Entity;
+    use Aggregate;
 
     /** @var HatenaBookmarkCount */
     private $hatenaBookmarkCount;

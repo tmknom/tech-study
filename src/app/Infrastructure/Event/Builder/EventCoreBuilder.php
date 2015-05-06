@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Infrastructure\Event\Core;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Core\EventTitle;
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\Core\SourceType;
 use App\Domain\Event\Core\StartDateTime;
+use DateTimeImmutable;
 
 class EventCoreBuilder
 {
@@ -35,7 +36,7 @@ class EventCoreBuilder
         return $this;
     }
 
-    public function setStartDateTime($value)
+    public function setStartDateTime(DateTimeImmutable $value)
     {
         $this->startDateTime = new StartDateTime($value);
         return $this;

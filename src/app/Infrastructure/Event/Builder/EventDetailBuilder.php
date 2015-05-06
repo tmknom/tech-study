@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Event\Detail;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Detail\CatchCopy;
 use App\Domain\Event\Detail\EventDescription;

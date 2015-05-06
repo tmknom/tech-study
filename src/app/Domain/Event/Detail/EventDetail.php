@@ -2,12 +2,12 @@
 
 namespace App\Domain\Event\Detail;
 
-use App\Library\Domain\Entity;
+use App\Library\Domain\Aggregate;
 
 class EventDetail
 {
 
-    use Entity;
+    use Aggregate;
 
     /** @var SourceEventId */
     private $sourceEventId;

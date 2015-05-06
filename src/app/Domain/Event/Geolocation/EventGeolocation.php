@@ -2,12 +2,12 @@
 
 namespace App\Domain\Event\Geolocation;
 
-use App\Library\Domain\Entity;
+use App\Library\Domain\Aggregate;
 
 class EventGeolocation
 {
 
-    use Entity;
+    use Aggregate;
 
     /** @var Address */
     private $address;
