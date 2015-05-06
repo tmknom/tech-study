@@ -11,6 +11,7 @@ use App\Infrastructure\Event\Capacity\EventCapacityBuilder;
 use App\Infrastructure\Event\Core\EventCoreBuilder;
 use App\Infrastructure\Event\Detail\EventDetailBuilder;
 use App\Infrastructure\Event\Geolocation\EventGeolocationBuilder;
+use DateTimeImmutable;
 
 class AtndMapper
 {
@@ -35,7 +36,7 @@ class AtndMapper
         return EventCoreBuilder::builder()
                         ->setEventTitle($json['title'])
                         ->setEventUrl($json['event_url'])
-                        ->setStartDateTime(strtotime($json['started_at']))
+                        ->setStartDateTime(new DateTimeImmutable($json['started_at']))
                         ->setSourceType(SourceType::ATND)
                         ->build();
     }

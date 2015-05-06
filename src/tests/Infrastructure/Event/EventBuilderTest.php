@@ -12,6 +12,7 @@ use App\Infrastructure\Event\Detail\EventDetailBuilder;
 use App\Infrastructure\Event\EventBuilder;
 use App\Infrastructure\Event\Geolocation\EventGeolocationBuilder;
 use App\Infrastructure\Event\Rating\EventRatingBuilder;
+use DateTimeImmutable;
 use PHPUnit_Framework_TestCase;
 
 class EventBuilderTest extends PHPUnit_Framework_TestCase
@@ -69,7 +70,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                         ->setEventTitle('タイトル1')
                         ->setEventUrl('url1')
                         ->setSourceType(SourceType::ATND)
-                        ->setStartDateTime('now')
+                        ->setStartDateTime(new DateTimeImmutable())
                         ->build();
     }
 

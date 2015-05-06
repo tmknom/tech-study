@@ -10,6 +10,7 @@ use App\Infrastructure\Event\Detail\EventDetailBuilder;
 use App\Infrastructure\Event\EventBuilder;
 use App\Infrastructure\Event\Geolocation\EventGeolocationBuilder;
 use App\Infrastructure\Event\Rating\EventRatingBuilder;
+use DateTimeImmutable;
 
 class TestEventBuilder
 {
@@ -228,7 +229,7 @@ class TestEventBuilder
         return EventCoreBuilder::builder()
                         ->setEventTitle($this->eventTitle)
                         ->setEventUrl($this->eventUrl)
-                        ->setStartDateTime(strtotime($this->startDateTime))
+                        ->setStartDateTime(new DateTimeImmutable($this->startDateTime))
                         ->setSourceType($this->sourceType)
                         ->build();
     }
