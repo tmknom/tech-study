@@ -16,7 +16,9 @@ class SampleCrawlerApplication
         $this->sampleCrawler = $sampleCrawler;
     }
 
-    public function crawl(){
+    public function crawl()
+    {
         return $this->sampleCrawler->crawl();
     }
+
 }
