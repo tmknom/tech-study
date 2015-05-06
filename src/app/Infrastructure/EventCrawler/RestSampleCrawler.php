@@ -5,7 +5,6 @@ namespace App\Infrastructure\EventCrawler;
 use App\Domain\EventCrawler\SampleCrawler;
 use App\Library\Http\HttpClient;
 
-
 class RestSampleCrawler implements SampleCrawler
 {
 
@@ -32,4 +31,5 @@ class RestSampleCrawler implements SampleCrawler
 ////        return new JsonHttpResponse(json_decode(file_get_contents(app_path() . '/tests/fixtures/Atnd/atnd.json'), true), 200);
 //        return $this->jsonRequest->request(self::URL);
     }
+
 }
