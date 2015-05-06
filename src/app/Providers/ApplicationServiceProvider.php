@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Application\EventCrawler\SampleCrawlerApplication;
+use App\Application\EventCrawler\AtndCrawlerApplication;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -18,7 +18,7 @@ class ApplicationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bindif(SampleCrawlerApplication::class, SampleCrawlerApplication::class);
+        $this->app->bindif(AtndCrawlerApplication::class, AtndCrawlerApplication::class);
     }
 
     /**

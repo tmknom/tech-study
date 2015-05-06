@@ -31,17 +31,14 @@ class EventDetailBuilder
 
     public function setEventDescription($value)
     {
-        if (empty($value)) {
-            $value = '';
-        }
-        $partialValue = mb_substr($value, 0, 16384);
+        $partialValue = mb_substr($this->getValueOrEmpty($value), 0, 16384);
         $this->eventDescription = new EventDescription($partialValue);
         return $this;
     }
 
     public function setCatchCopy($value)
     {
-        $this->catchCopy = new CatchCopy($value);
+        $this->catchCopy = new CatchCopy($this->getValueOrEmpty($value));
         return $this;
     }
 
@@ -57,6 +54,11 @@ class EventDetailBuilder
         return new EventDetail(
                 $this->sourceEventId, $this->eventDescription, $this->catchCopy, $this->ownerId
         );
+    }
+
+    private function getValueOrEmpty($value)
+    {
+        return empty($value) ? '' : $value;
     }
 
     /** @return EventDetailBuilder */

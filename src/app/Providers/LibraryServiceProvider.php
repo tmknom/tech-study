@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Library\Http\GuzzleHttpClient;
+use App\Library\Http\GuzzleJsonHttpClient;
 use App\Library\Http\HttpClient;
+use App\Library\Http\JsonHttpClient;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -20,6 +22,7 @@ class LibraryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bindif(HttpClient::class, GuzzleHttpClient::class);
+        $this->app->bindif(JsonHttpClient::class, GuzzleJsonHttpClient::class);
     }
 
     /**
