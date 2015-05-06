@@ -1,17 +1,17 @@
 <?php
 
-namespace Tests\Infrastructure\Event;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Core\SourceType;
 use App\Domain\Event\Event;
 use App\Domain\Event\EventId;
-use App\Infrastructure\Event\Area\EventAreaBuilder;
-use App\Infrastructure\Event\Capacity\EventCapacityBuilder;
-use App\Infrastructure\Event\Core\EventCoreBuilder;
-use App\Infrastructure\Event\Detail\EventDetailBuilder;
-use App\Infrastructure\Event\EventBuilder;
-use App\Infrastructure\Event\Geolocation\EventGeolocationBuilder;
-use App\Infrastructure\Event\Rating\EventRatingBuilder;
+use App\Infrastructure\Event\Builder\EventAreaBuilder;
+use App\Infrastructure\Event\Builder\EventBuilder;
+use App\Infrastructure\Event\Builder\EventCapacityBuilder;
+use App\Infrastructure\Event\Builder\EventCoreBuilder;
+use App\Infrastructure\Event\Builder\EventDetailBuilder;
+use App\Infrastructure\Event\Builder\EventGeolocationBuilder;
+use App\Infrastructure\Event\Builder\EventRatingBuilder;
 use DateTimeImmutable;
 use PHPUnit_Framework_TestCase;
 

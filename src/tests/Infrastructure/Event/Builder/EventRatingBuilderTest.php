@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Rating;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Rating\EventRating;
 use App\Domain\Event\Rating\FacebookCount;
@@ -8,7 +8,7 @@ use App\Domain\Event\Rating\GooglePlusCount;
 use App\Domain\Event\Rating\HatenaBookmarkCount;
 use App\Domain\Event\Rating\PocketCount;
 use App\Domain\Event\Rating\TwitterCount;
-use App\Infrastructure\Event\Rating\EventRatingBuilder;
+use App\Infrastructure\Event\Builder\EventRatingBuilder;
 use PHPUnit_Framework_TestCase;
 
 class EventRatingBuilderTest extends PHPUnit_Framework_TestCase

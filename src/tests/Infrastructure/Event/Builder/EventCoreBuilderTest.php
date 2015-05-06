@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Core;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Core\EventTitle;
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\Core\SourceType;
 use App\Domain\Event\Core\StartDateTime;
-use App\Infrastructure\Event\Core\EventCoreBuilder;
+use App\Infrastructure\Event\Builder\EventCoreBuilder;
 use DateTimeImmutable;
 use PHPUnit_Framework_TestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Event;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Area\EventArea;
 use App\Domain\Event\Capacity\EventCapacity;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Geolocation;
+namespace Tests\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Geolocation\Address;
 use App\Domain\Event\Geolocation\EventGeolocation;
 use App\Domain\Event\Geolocation\Latitude;
 use App\Domain\Event\Geolocation\Longitude;
 use App\Domain\Event\Geolocation\Place;
-use App\Infrastructure\Event\Geolocation\EventGeolocationBuilder;
+use App\Infrastructure\Event\Builder\EventGeolocationBuilder;
 use PHPUnit_Framework_TestCase;
 
 class EventGeolocationBuilderTest extends PHPUnit_Framework_TestCase

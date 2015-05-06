@@ -7,10 +7,10 @@ use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Core\SourceType;
 use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Infrastructure\Event\Capacity\EventCapacityBuilder;
-use App\Infrastructure\Event\Core\EventCoreBuilder;
-use App\Infrastructure\Event\Detail\EventDetailBuilder;
-use App\Infrastructure\Event\Geolocation\EventGeolocationBuilder;
+use App\Infrastructure\Event\Builder\EventCapacityBuilder;
+use App\Infrastructure\Event\Builder\EventCoreBuilder;
+use App\Infrastructure\Event\Builder\EventDetailBuilder;
+use App\Infrastructure\Event\Builder\EventGeolocationBuilder;
 use DateTimeImmutable;
 
 class AtndMapper

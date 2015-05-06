@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Event\Rating;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Rating\EventRating;
 use App\Domain\Event\Rating\FacebookCount;

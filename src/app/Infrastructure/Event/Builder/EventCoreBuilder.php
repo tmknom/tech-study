@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Event\Core;
+namespace App\Infrastructure\Event\Builder;
 
 use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Core\EventTitle;
