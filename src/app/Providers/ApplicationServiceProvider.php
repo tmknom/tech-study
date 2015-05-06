@@ -1,4 +1,6 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use App\Application\EventCrawler\SampleCrawlerApplication;
 use Illuminate\Support\ServiceProvider;
@@ -6,7 +8,8 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Application層のサービスプロバイダー
  */
-class ApplicationServiceProvider extends ServiceProvider {
+class ApplicationServiceProvider extends ServiceProvider
+{
 
     /**
      * コンテナへの結合を登録する

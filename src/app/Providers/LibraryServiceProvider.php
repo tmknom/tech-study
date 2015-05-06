@@ -1,4 +1,6 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use App\Library\Http\GuzzleHttpClient;
 use App\Library\Http\HttpClient;
@@ -7,7 +9,8 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Library層のサービスプロバイダー
  */
-class LibraryServiceProvider extends ServiceProvider {
+class LibraryServiceProvider extends ServiceProvider
+{
 
     /**
      * コンテナへの結合を登録する
