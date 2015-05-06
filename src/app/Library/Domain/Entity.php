@@ -2,7 +2,8 @@
 
 namespace App\Library\Domain;
 
-trait Entity {
+trait Entity
+{
 
     use \App\Library\Fundamental\CompleteConstructor;
 

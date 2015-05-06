@@ -2,7 +2,8 @@
 
 namespace App\Library\Fundamental;
 
-trait OneArgumentCompleteConstructor {
+trait OneArgumentCompleteConstructor
+{
 
     /**
      * 引数一個の完全コンストラクタ
@@ -13,7 +14,8 @@ trait OneArgumentCompleteConstructor {
      * @param $propertyName クラスのプロパティ名
      * @param $value コンストラクタの引数
      */
-    public function completeConstruct($propertyName, $value) {
+    public function completeConstruct($propertyName, $value)
+    {
         // プロパティ名のチェック
         $this->verifyPropertyName($propertyName);
 
@@ -24,7 +26,8 @@ trait OneArgumentCompleteConstructor {
     /**
      * コンストラクタの引数のチェック
      */
-    private function verifyPropertyName($propertyName) {
+    private function verifyPropertyName($propertyName)
+    {
         $firstObjectVarsName = array_keys(get_object_vars($this))[0];
         if ($firstObjectVarsName !== $propertyName) {
             $message = get_class() . " class : Invalid property name '$" . $firstObjectVarsName . "', Please define property name '$" . $propertyName . "'.";
