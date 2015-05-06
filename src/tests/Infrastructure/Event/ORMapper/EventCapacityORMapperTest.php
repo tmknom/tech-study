@@ -5,7 +5,7 @@ namespace Tests\Infrastructure\Event\ORMapper;
 use App\Domain\Event\EventId;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
 use DB;
-use TestCase;
+use Tests\Base\TestCase;
 use Tests\Infrastructure\Event\TestEventBuilder;
 
 class EventCapacityORMapperTest extends TestCase

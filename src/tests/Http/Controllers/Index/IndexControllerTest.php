@@ -2,7 +2,7 @@
 
 namespace Tests\Http\Controllers\Index;
 
-use TestCase;
+use Tests\Base\TestCase;
 
 class IndexControllerTest extends TestCase
 {
