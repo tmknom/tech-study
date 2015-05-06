@@ -17,6 +17,7 @@ class PrefectureCode
 
     const UNDEFINED = 0;
 
+    /** @var int */
     private $value;
 
     /*

@@ -16,6 +16,7 @@ class RegionCode
 
     const UNDEFINED = 0;
 
+    /** @var int */
     private $value;
 
     /*
