@@ -7,7 +7,7 @@ use App\Library\Http\JsonHttpClient;
 class AtndJsonHttpClient implements JsonHttpClient
 {
 
-    const FIXTURE_PATH = '/tests/Fixture/Response/Atnd/test.json';
+    const FIXTURE_PATH = '/tests/Fixture/Response/Event/Atnd/test.json';
 
     public function request($url)
     {
