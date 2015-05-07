@@ -24,6 +24,15 @@ class EventRating
     /** @var PocketCount */
     private $pocketCount;
 
+    /**
+     * コンストラクタ
+     *
+     * @param HatenaBookmarkCount $hatenaBookmarkCount
+     * @param TwitterCount $twitterCount
+     * @param FacebookCount $facebookCount
+     * @param GooglePlusCount $googlePlusCount
+     * @param PocketCount $pocketCount
+     */
     public function __construct(HatenaBookmarkCount $hatenaBookmarkCount,
                                 TwitterCount $twitterCount, FacebookCount $facebookCount,
                                 GooglePlusCount $googlePlusCount, PocketCount $pocketCount)

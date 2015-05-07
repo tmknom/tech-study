@@ -13,7 +13,9 @@ class Address
     private $value;
 
     /**
-     * @return boolean
+     * 東京かどうか判定する
+     *
+     * @return boolean 東京だったらtrue、そうでければfalse
      */
     public function isTokyo()
     {

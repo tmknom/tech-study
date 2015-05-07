@@ -18,6 +18,13 @@ class EventCapacity
     /** @var Waiting */
     private $waiting;
 
+    /**
+     * コンストラクタ
+     *
+     * @param CapacityLimit $capacityLimit
+     * @param Accepted $accepted
+     * @param Waiting $waiting
+     */
     public function __construct(CapacityLimit $capacityLimit, Accepted $accepted, Waiting $waiting)
     {
         $this->completeConstruct(func_get_args());
