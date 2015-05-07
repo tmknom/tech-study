@@ -27,6 +27,7 @@ class SocialCrawlerCommand extends Command
      * コンストラクタ
      *
      * @param EventUrlListReferenceApplication $eventUrlListReferenceApplication
+     * @param TwitterCrawlerApplication $twitterCrawlerApplication
      */
     public function __construct(EventUrlListReferenceApplication $eventUrlListReferenceApplication,
                                 TwitterCrawlerApplication $twitterCrawlerApplication)
