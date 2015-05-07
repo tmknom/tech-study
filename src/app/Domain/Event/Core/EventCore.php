@@ -38,7 +38,7 @@ class EventCore
     /**
      * 開始日が一年以内かどうか判定する
      *
-     * @return boolean 一年以内だったらtrue、そうでければfalse
+     * @return boolean 一年以内だったらtrue、そうでなければfalse
      */
     public function isStartWithinOneYear()
     {
