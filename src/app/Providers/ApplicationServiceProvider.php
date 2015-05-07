@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Application\EventCrawler\AtndCrawlerApplication;
+use App\Application\EventCrawler\ConnpassCrawlerApplication;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -19,6 +20,7 @@ class ApplicationServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bindif(AtndCrawlerApplication::class, AtndCrawlerApplication::class);
+        $this->app->bindif(ConnpassCrawlerApplication::class, ConnpassCrawlerApplication::class);
     }
 
     /**
