@@ -28,8 +28,6 @@ checks:
         avoid_useless_overridden_methods: true
         avoid_conflicting_incrementers: true
         assignment_of_null_return: true
-        no_long_variable_names:
-            maximum: '20'
         no_goto: true
         return_doc_comments: true
         parameter_doc_comments: true
