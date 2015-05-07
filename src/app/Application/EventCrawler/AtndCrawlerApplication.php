@@ -10,7 +10,12 @@ class AtndCrawlerApplication implements CrawlerApplication
 
     use TransactionCrawlerApplication;
 
-    /** コンストラクタ */
+    /**
+     * コンストラクタ
+     *
+     * @param AtndCrawler $crawler
+     * @param EventRepository $eventRepository
+     */
     public function __construct(AtndCrawler $crawler, EventRepository $eventRepository)
     {
         $this->constructByCaller($crawler, $eventRepository);
