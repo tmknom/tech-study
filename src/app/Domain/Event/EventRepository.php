@@ -2,6 +2,9 @@
 
 namespace App\Domain\Event;
 
+use App\Domain\Event\Core\EventUrl;
+use App\Domain\Event\Rating\TwitterCount;
+
 interface EventRepository
 {
 
@@ -12,5 +15,14 @@ interface EventRepository
      * @return EventList
      */
     public function saveAll(EventList $eventList);
+
+    /**
+     * ツイート数保存
+     *
+     * @param EventUrl $eventUrl
+     * @param TwitterCount $count
+     * @return TwitterCount
+     */
+    public function saveTwitterCount(EventUrl $eventUrl, TwitterCount $count);
 
 }

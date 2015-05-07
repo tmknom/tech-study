@@ -2,13 +2,17 @@
 
 namespace App\Infrastructure\Event;
 
+use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\Event;
+use App\Domain\Event\EventId;
 use App\Domain\Event\EventList;
 use App\Domain\Event\EventRepository;
+use App\Domain\Event\Rating\TwitterCount;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
 use App\Infrastructure\Event\ORMapper\EventGeolocationORMapper;
 use App\Infrastructure\Event\ORMapper\EventORMapper;
 use App\Infrastructure\Event\ORMapper\EventRatingORMapper;
+use InvalidArgumentException;
 
 class DbEventRepository implements EventRepository
 {
@@ -82,6 +86,32 @@ class DbEventRepository implements EventRepository
 
         // event_rating テーブルにレコードを追加
         $this->eventRatingORMapper->insert($eventId, $event->getEventRating());
+    }
+
+    /**
+     * ツイート数保存
+     *
+     * @param EventUrl $eventUrl
+     * @param TwitterCount $count
+     * @return TwitterCount
+     */
+    public function saveTwitterCount(EventUrl $eventUrl, TwitterCount $count)
+    {
+        $eventId = $this->getEventId($eventUrl);
+        return $this->eventRatingORMapper->updateTwitterCount($eventId, $count);
+    }
+
+    /**
+     * @return EventId
+     * @throws InvalidArgumentException
+     */
+    private function getEventId(EventUrl $eventUrl)
+    {
+        $eventId = $this->eventORMapper->findEventId($eventUrl);
+        if ($eventId->isUndefined()) {
+            throw new InvalidArgumentException('not exist url : ' . $eventUrl);
+        }
+        return $eventId;
     }
 
 }
