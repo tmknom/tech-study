@@ -35,6 +35,6 @@ checks:
         parameter_doc_comments: true
 
 filter:
-    excluded_paths:
-        - src/tests/*
+    paths:
+        - src/app/*
 
