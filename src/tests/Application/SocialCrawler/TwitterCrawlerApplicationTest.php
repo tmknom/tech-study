@@ -3,10 +3,12 @@
 namespace Tests\Application\SocialCrawler;
 
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
-use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\Rating\TwitterCount;
 use App\Library\Http\JsonHttpClient;
 use Tests\Base\TestCase;
+use Tests\Fixture\Builder\TestEventBuilder;
+use Tests\Fixture\Seeder\EventRatingSeeder;
+use Tests\Fixture\Seeder\EventSeeder;
 use Tests\Infrastructure\SocialCrawler\Stub\TwitterJsonHttpClient;
 
 class TwitterCrawlerApplicationTest extends TestCase
@@ -27,8 +29,12 @@ class TwitterCrawlerApplicationTest extends TestCase
     /** @test */
     public function crawl_正常系()
     {
+        // 事前準備：DBに初期データをセット
+        $this->seed(EventSeeder::class);
+        $this->seed(EventRatingSeeder::class);
+
         // 事前準備
-        $eventUrl = new EventUrl('http://localhost/');
+        $eventUrl = TestEventBuilder::builder()->build()->getEventCore()->getEventUrl();
 
         // 実行
         $actual = $this->sut->crawl($eventUrl);
