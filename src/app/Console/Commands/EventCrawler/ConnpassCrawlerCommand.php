@@ -3,7 +3,6 @@
 namespace App\Console\Commands\EventCrawler;
 
 use App\Application\EventCrawler\ConnpassCrawlerApplication;
-use App\Application\EventCrawler\CrawlerApplication;
 use Illuminate\Console\Command;
 
 /**
@@ -19,9 +18,6 @@ class ConnpassCrawlerCommand extends Command
     protected $name = 'crawler:connpass';
     protected $description = "クローラコマンド：Connpass";
 
-    /** @var CrawlerApplication */
-    private $crawlerApplication;
-
     /**
      * コンストラクタ
      *
@@ -30,16 +26,7 @@ class ConnpassCrawlerCommand extends Command
     public function __construct(ConnpassCrawlerApplication $crawlerApplication)
     {
         parent::__construct();
-
-        $this->crawlerApplication = $crawlerApplication;
-    }
-
-    /**
-     * コマンド呼び出し時に実行
-     */
-    public function fire()
-    {
-        $this->executeWithMeasureTime($this->crawlerApplication);
+        $this->construct($crawlerApplication);
     }
 
 }
