@@ -7,6 +7,11 @@ use App\Application\EventCrawler\CrawlerApplication;
 trait CrawlerCommand
 {
 
+    /**
+     * 実行時間の計測をしながら、クロール処理を実行
+     *
+     * @param CrawlerApplication $crawlerApplication
+     */
     public function executeWithMeasureTime(CrawlerApplication $crawlerApplication)
     {
         $startTime = microtime(true);

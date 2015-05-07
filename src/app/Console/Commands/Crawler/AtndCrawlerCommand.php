@@ -22,6 +22,11 @@ class AtndCrawlerCommand extends Command
     /** @var CrawlerApplication */
     private $crawlerApplication;
 
+    /**
+     * コンストラクタ
+     *
+     * @param AtndCrawlerApplication $crawlerApplication
+     */
     public function __construct(AtndCrawlerApplication $crawlerApplication)
     {
         parent::__construct();
@@ -29,6 +34,9 @@ class AtndCrawlerCommand extends Command
         $this->crawlerApplication = $crawlerApplication;
     }
 
+    /**
+     * コマンド呼び出し時に実行
+     */
     public function fire()
     {
         $this->executeWithMeasureTime($this->crawlerApplication);
