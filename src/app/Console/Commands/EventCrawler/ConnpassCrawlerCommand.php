@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Console\Commands\Crawler;
+namespace App\Console\Commands\EventCrawler;
 
-use App\Application\EventCrawler\AtndCrawlerApplication;
+use App\Application\EventCrawler\ConnpassCrawlerApplication;
 use App\Application\EventCrawler\CrawlerApplication;
 use Illuminate\Console\Command;
 
 /**
  * 注意）app/Console/Kernel.phpへの追加を忘れないこと！
  *
- * 実行方法：php artisan crawler:atnd
+ * 実行方法：php artisan crawler:connpass
  */
-class AtndCrawlerCommand extends Command
+class ConnpassCrawlerCommand extends Command
 {
 
     use CrawlerCommand;
 
-    protected $name = 'crawler:atnd';
-    protected $description = "クローラコマンド：Atnd";
+    protected $name = 'crawler:connpass';
+    protected $description = "クローラコマンド：Connpass";
 
     /** @var CrawlerApplication */
     private $crawlerApplication;
@@ -25,9 +25,9 @@ class AtndCrawlerCommand extends Command
     /**
      * コンストラクタ
      *
-     * @param AtndCrawlerApplication $crawlerApplication
+     * @param ConnpassCrawlerApplication $crawlerApplication
      */
-    public function __construct(AtndCrawlerApplication $crawlerApplication)
+    public function __construct(ConnpassCrawlerApplication $crawlerApplication)
     {
         parent::__construct();
 

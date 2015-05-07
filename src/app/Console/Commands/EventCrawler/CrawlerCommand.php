@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Crawler;
+namespace App\Console\Commands\EventCrawler;
 
 use App\Application\EventCrawler\CrawlerApplication;
 
