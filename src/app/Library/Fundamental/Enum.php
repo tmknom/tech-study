@@ -15,7 +15,8 @@ trait Enum
 
     private $value;
 
-    function __construct($value)
+    /** コンストラクタ */
+    public function __construct($value)
     {
         $ref = new ReflectionObject($this);
         $constants = $ref->getConstants();
@@ -27,18 +28,34 @@ trait Enum
         $this->value = $value;
     }
 
-    final static function __callStatic($label, $args)
+    /**
+     * 静的メソッド呼び出しであたかもEnumの定数を取得するマジックメソッド
+     *
+     * @param string $label
+     * @param array $args
+     * @return mixed
+     */
+    final public static function __callStatic($label, $args)
     {
+        // 静的メソッドのコール元のクラス名を取得
         $class = get_called_class();
+        // $labelと名前が一致する定数の値を取得する
         $const = constant("$class::$label");
+        // コール元のクラスのインスタンスを、$labelの値を使って作成する
         return new $class($const);
     }
 
+    /**
+     * @return mixed
+     */
     public function getValue()
     {
         return $this->value;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return strval($this->value);
