@@ -21,7 +21,7 @@ class TwitterCrawlerApplication
     private $updatedCount;
 
     /** コンストラクタ */
-    function __construct(TwitterCountCrawler $twitterCountCrawler, EventRepository $eventRepository)
+    public function __construct(TwitterCountCrawler $twitterCountCrawler, EventRepository $eventRepository)
     {
         $this->twitterCountCrawler = $twitterCountCrawler;
         $this->eventRepository = $eventRepository;
