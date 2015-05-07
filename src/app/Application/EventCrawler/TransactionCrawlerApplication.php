@@ -19,7 +19,12 @@ trait TransactionCrawlerApplication
     /**  @var EventList */
     private $savedEventList;
 
-    /** 呼び出し元クラスから呼び出すコンストラクタ */
+    /**
+     * 呼び出し元クラスから呼び出すコンストラクタ
+     *
+     * @param EventCrawler $crawler
+     * @param EventRepository $eventRepository
+     */
     private function constructByCaller(EventCrawler $crawler, EventRepository $eventRepository)
     {
         $this->crawler = $crawler;

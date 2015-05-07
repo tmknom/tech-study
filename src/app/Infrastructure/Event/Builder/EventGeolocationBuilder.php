@@ -23,24 +23,28 @@ class EventGeolocationBuilder
     /** @var Longitude */
     private $longitude;
 
+    /** @return EventGeolocationBuilder */
     public function setAddress($value)
     {
         $this->address = new Address($this->getValueOrEmpty($value));
         return $this;
     }
 
+    /** @return EventGeolocationBuilder */
     public function setPlace($value)
     {
         $this->place = new Place($this->getValueOrEmpty($value));
         return $this;
     }
 
+    /** @return EventGeolocationBuilder */
     public function setLatitude($value)
     {
         $this->latitude = new Latitude($this->getValueOrNull($value));
         return $this;
     }
 
+    /** @return EventGeolocationBuilder */
     public function setLongitude($value)
     {
         $this->longitude = new Longitude($this->getValueOrNull($value));

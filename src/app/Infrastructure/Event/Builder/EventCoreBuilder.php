@@ -24,24 +24,28 @@ class EventCoreBuilder
     /** @var SourceType */
     private $sourceType;
 
+    /** @return EventCoreBuilder */
     public function setEventTitle($value)
     {
         $this->eventTitle = new EventTitle($value);
         return $this;
     }
 
+    /** @return EventCoreBuilder */
     public function setEventUrl($value)
     {
         $this->eventUrl = new EventUrl($value);
         return $this;
     }
 
+    /** @return EventCoreBuilder */
     public function setStartDateTime(DateTimeImmutable $value)
     {
         $this->startDateTime = new StartDateTime($value);
         return $this;
     }
 
+    /** @return EventCoreBuilder */
     public function setSourceType($value)
     {
         $this->sourceType = new SourceType($value);

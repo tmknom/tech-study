@@ -18,6 +18,12 @@ class EventArea
     /** @var RegionCode */
     private $regionCode;
 
+    /**
+     * コンストラクタ
+     *
+     * @param PrefectureCode $prefectureCode
+     * @param RegionCode $regionCode
+     */
     public function __construct(PrefectureCode $prefectureCode, RegionCode $regionCode)
     {
         $this->completeConstruct(func_get_args());

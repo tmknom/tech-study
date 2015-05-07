@@ -21,6 +21,14 @@ class EventCore
     /** @var SourceType */
     private $sourceType;
 
+    /**
+     * コンストラクタ
+     *
+     * @param EventTitle $eventTitle
+     * @param EventUrl $eventUrl
+     * @param StartDateTime $startDateTime
+     * @param SourceType $sourceType
+     */
     public function __construct(EventTitle $eventTitle, EventUrl $eventUrl,
                                 StartDateTime $startDateTime, SourceType $sourceType)
     {
@@ -28,7 +36,9 @@ class EventCore
     }
 
     /**
-     * @return bool
+     * 開始日が一年以内かどうか判定する
+     *
+     * @return boolean 一年以内だったらtrue、そうでければfalse
      */
     public function isStartWithinOneYear()
     {

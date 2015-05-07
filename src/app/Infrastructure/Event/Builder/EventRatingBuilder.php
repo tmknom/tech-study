@@ -27,30 +27,35 @@ class EventRatingBuilder
     /** @var PocketCount */
     private $pocketCount;
 
+    /** @return EventRatingBuilder */
     public function setHatenaBookmarkCount($hatenaBookmarkCount)
     {
         $this->hatenaBookmarkCount = new HatenaBookmarkCount($hatenaBookmarkCount);
         return $this;
     }
 
+    /** @return EventRatingBuilder */
     public function setTwitterCount($twitterCount)
     {
         $this->twitterCount = new TwitterCount($twitterCount);
         return $this;
     }
 
+    /** @return EventRatingBuilder */
     public function setFacebookCount($facebookCount)
     {
         $this->facebookCount = new FacebookCount($facebookCount);
         return $this;
     }
 
+    /** @return EventRatingBuilder */
     public function setGooglePlusCount($googlePlusCount)
     {
         $this->googlePlusCount = new GooglePlusCount($googlePlusCount);
         return $this;
     }
 
+    /** @return EventRatingBuilder */
     public function setPocketCount($pocketCount)
     {
         $this->pocketCount = new PocketCount($pocketCount);

@@ -15,12 +15,14 @@ class EventAreaBuilder
     /** @var RegionCode */
     private $regionCode;
 
+    /** @return EventAreaBuilder */
     public function setPrefectureCode($value)
     {
         $this->prefectureCode = new PrefectureCode($value);
         return $this;
     }
 
+    /** @return EventAreaBuilder */
     public function setRegionCode($value)
     {
         $this->regionCode = new RegionCode($value);

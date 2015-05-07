@@ -21,10 +21,16 @@ class EventGeolocation
     /** @var Longitude */
     private $longitude;
 
-    public function __construct(Address $address, Place $place, Latitude $latitude,
-                                Longitude $longitude)
+    /**
+     * コンストラクタ
+     *
+     * @param Address $address
+     * @param Place $place
+     * @param Latitude $latitude
+     * @param Longitude $longitude
+     */
+    public function __construct(Address $address, Place $place, Latitude $latitude, Longitude $longitude)
     {
-
         $this->completeConstruct(func_get_args());
     }
 

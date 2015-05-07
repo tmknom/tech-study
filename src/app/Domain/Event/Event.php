@@ -36,6 +36,17 @@ class Event
     /** @var EventArea */
     private $eventArea;
 
+    /**
+     * コンストラクタ
+     *
+     * @param EventId $eventId
+     * @param EventCore $eventCore
+     * @param EventDetail $eventDetail
+     * @param EventCapacity $eventCapacity
+     * @param EventRating $eventRating
+     * @param EventGeolocation $eventGeolocation
+     * @param EventArea $eventArea
+     */
     public function __construct(EventId $eventId, EventCore $eventCore, EventDetail $eventDetail,
                                 EventCapacity $eventCapacity, EventRating $eventRating,
                                 EventGeolocation $eventGeolocation, EventArea $eventArea)
@@ -44,7 +55,9 @@ class Event
     }
 
     /**
-     * @return bool
+     * 開始日が一年以内かどうか判定する
+     *
+     * @return boolean 一年以内だったらtrue、そうでければfalse
      */
     public function isStartWithinOneYear()
     {

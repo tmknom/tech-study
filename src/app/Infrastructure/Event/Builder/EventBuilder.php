@@ -35,48 +35,56 @@ class EventBuilder
     /** @var EventArea */
     private $eventArea;
 
+    /** @return EventBuilder */
     public function setUndefinedEventId()
     {
         $this->eventId = EventId::createUndefinedInstance();
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventId($value)
     {
         $this->eventId = new EventId($value);
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventCore(EventCore $value)
     {
         $this->eventCore = $value;
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventDetail(EventDetail $value)
     {
         $this->eventDetail = $value;
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventCapacity(EventCapacity $value)
     {
         $this->eventCapacity = $value;
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventRating(EventRating $value)
     {
         $this->eventRating = $value;
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventGeolocation(EventGeolocation $value)
     {
         $this->eventGeolocation = $value;
         return $this;
     }
 
+    /** @return EventBuilder */
     public function setEventArea(EventArea $eventArea)
     {
         $this->eventArea = $eventArea;

@@ -21,6 +21,14 @@ class EventDetail
     /** @var OwnerId */
     private $ownerId;
 
+    /**
+     * コンストラクタ
+     *
+     * @param SourceEventId $sourceEventId
+     * @param EventDescription $eventDescription
+     * @param CatchCopy $catchCopy
+     * @param OwnerId $ownerId
+     */
     public function __construct(SourceEventId $sourceEventId, EventDescription $eventDescription,
                                 CatchCopy $catchCopy, OwnerId $ownerId)
     {
