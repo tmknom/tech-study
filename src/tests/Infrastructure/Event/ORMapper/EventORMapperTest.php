@@ -26,6 +26,36 @@ class EventORMapperTest extends TestCase
     }
 
     /** @test */
+    public function findEventId_正常系()
+    {
+        // 事前準備：DBに初期データをセット
+        $this->seed(EventSeeder::class);
+        // 事前準備
+        $eventUrl = TestEventBuilder::builder()->build()->getEventCore()->getEventUrl();
+
+        // 実行
+        $actual = $this->sut->findEventId($eventUrl);
+
+        // 確認
+        $this->assertEquals(new EventId(1), $actual);
+    }
+
+    /** @test */
+    public function findEventId_正常系_存在しないURLを指定した場合()
+    {
+        // 事前準備：DBに初期データをセット
+        $this->seed(EventSeeder::class);
+        // 事前準備
+        $eventUrl = new EventUrl('http://localhost/not-registered');
+
+        // 実行
+        $actual = $this->sut->findEventId($eventUrl);
+
+        // 確認
+        $this->assertEquals(new EventId('undefined'), $actual);
+    }
+
+    /** @test */
     public function existsByEventUrl_正常系_登録されてないURLを指定()
     {
         // 事前準備：DBに初期データをセット
