@@ -7,7 +7,7 @@ use App\Library\Http\JsonHttpClient;
 class ConnpassJsonHttpClient implements JsonHttpClient
 {
 
-    const FIXTURE_PATH = '/tests/Fixture/Response/Connpass/test.json';
+    const FIXTURE_PATH = '/tests/Fixture/Response/Event/Connpass/test.json';
 
     public function request($url)
     {

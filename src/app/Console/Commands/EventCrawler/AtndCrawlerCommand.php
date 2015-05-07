@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Console\Commands\Crawler;
+namespace App\Console\Commands\EventCrawler;
 
 use App\Application\EventCrawler\AtndCrawlerApplication;
-use App\Application\EventCrawler\CrawlerApplication;
 use Illuminate\Console\Command;
 
 /**
@@ -19,9 +18,6 @@ class AtndCrawlerCommand extends Command
     protected $name = 'crawler:atnd';
     protected $description = "クローラコマンド：Atnd";
 
-    /** @var CrawlerApplication */
-    private $crawlerApplication;
-
     /**
      * コンストラクタ
      *
@@ -30,16 +26,7 @@ class AtndCrawlerCommand extends Command
     public function __construct(AtndCrawlerApplication $crawlerApplication)
     {
         parent::__construct();
-
-        $this->crawlerApplication = $crawlerApplication;
-    }
-
-    /**
-     * コマンド呼び出し時に実行
-     */
-    public function fire()
-    {
-        $this->executeWithMeasureTime($this->crawlerApplication);
+        $this->construct($crawlerApplication);
     }
 
 }
