@@ -53,11 +53,22 @@ class DbEventRepository implements EventRepository
         return new EventList($registerEventListArray);
     }
 
+    /**
+     * 指定したイベントがテーブルに存在するかチェック
+     *
+     * @param Event $event
+     * @return boolean 存在すればtrue、存在しなければfalse
+     */
     private function isRegistered(Event $event)
     {
         return $this->eventORMapper->existsByEventUrl($event->getEventCore()->getEventUrl());
     }
 
+    /**
+     * 指定したイベント一件をテーブルに保存
+     * 
+     * @param Event $event
+     */
     private function save(Event $event)
     {
         // event テーブルにレコードを追加＆ID取得
