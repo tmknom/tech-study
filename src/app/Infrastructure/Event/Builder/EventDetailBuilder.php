@@ -23,12 +23,14 @@ class EventDetailBuilder
     /** @var OwnerId */
     private $ownerId;
 
+    /** @return EventDetailBuilder */
     public function setSourceEventId($value)
     {
         $this->sourceEventId = new SourceEventId($value);
         return $this;
     }
 
+    /** @return EventDetailBuilder */
     public function setEventDescription($value)
     {
         $partialValue = mb_substr($this->getValueOrEmpty($value), 0, 16384);
@@ -36,12 +38,14 @@ class EventDetailBuilder
         return $this;
     }
 
+    /** @return EventDetailBuilder */
     public function setCatchCopy($value)
     {
         $this->catchCopy = new CatchCopy($this->getValueOrEmpty($value));
         return $this;
     }
 
+    /** @return EventDetailBuilder */
     public function setOwnerId($value)
     {
         $this->ownerId = new OwnerId($value);

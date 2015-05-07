@@ -19,18 +19,21 @@ class EventCapacityBuilder
     /** @var Waiting */
     private $waiting;
 
+    /** @return EventCapacityBuilder */
     public function setCapacityLimit($value)
     {
         $this->capacityLimit = new CapacityLimit($this->getValueOrZero($value));
         return $this;
     }
 
+    /** @return EventCapacityBuilder */
     public function setAccepted($value)
     {
         $this->accepted = new Accepted($this->getValueOrZero($value));
         return $this;
     }
 
+    /** @return EventCapacityBuilder */
     public function setWaiting($value)
     {
         $this->waiting = new Waiting($this->getValueOrZero($value));
