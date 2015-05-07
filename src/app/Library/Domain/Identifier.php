@@ -23,6 +23,16 @@ trait Identifier
     }
 
     /**
+     * 識別子が未定義かどうかチェックする
+     *
+     * @return boolean 未定義だったらtrue、そうでなければfalse
+     */
+    public function isUndefined()
+    {
+        return $this->value === self::getUndefined();
+    }
+
+    /**
      * 識別子が未定義の場合の値
      *
      * @return string
