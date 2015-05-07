@@ -26,10 +26,10 @@ class EventCapacityORMapper
     private function toDbArray(EventId $eventId, EventCapacity $eventCapacity)
     {
         return array(
-            'event_id' => $eventId->getValue(),
-            'capacity_limit' => $eventCapacity->getCapacityLimit()->getValue(),
-            'accepted' => $eventCapacity->getAccepted()->getValue(),
-            'waiting' => $eventCapacity->getWaiting()->getValue(),
+            'event_id' => $eventId,
+            'capacity_limit' => $eventCapacity->getCapacityLimit(),
+            'accepted' => $eventCapacity->getAccepted(),
+            'waiting' => $eventCapacity->getWaiting(),
         );
     }
 
