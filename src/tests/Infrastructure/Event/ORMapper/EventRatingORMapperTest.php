@@ -51,41 +51,6 @@ class EventRatingORMapperTest extends TestCase
     }
 
     /** @test */
-    public function update_正常系()
-    {
-        // 事前準備：DBに初期データをセット
-        $this->seed(EventRatingSeeder::class);
-
-        // 事前準備
-        $event = TestEventBuilder::builder()
-                ->setHatenaBookmarkCount(100)
-                ->setTwitterCount(50)
-                ->setFacebookCount(20)
-                ->setGooglePlusCount(10)
-                ->setPocketCount(30)
-                ->build();
-
-        $eventId = $event->getEventId();
-        $eventRating = $event->getEventRating();
-
-        // 実行
-        $actualEventRating = $this->sut->update($eventId, $eventRating);
-
-        // 確認
-        $this->assertEquals($eventRating, $actualEventRating);
-
-        // 確認：テーブル
-        $actual = (array) DB::table(EventRatingORMapper::TABLE_NAME)->where('event_id', '=', $eventId)->first();
-        $this->assertEquals('1', $actual['event_id']);
-        $this->assertEquals('100', $actual['hatena_bookmark_count']);
-        $this->assertEquals('50', $actual['twitter_count']);
-        $this->assertEquals('20', $actual['facebook_count']);
-        $this->assertEquals('10', $actual['google_plus_count']);
-        $this->assertEquals('30', $actual['pocket_count']);
-        $this->assertCount(6, $actual);
-    }
-
-    /** @test */
     public function updateHatenaBookmarkCount_正常系()
     {
         // 事前準備：DBに初期データをセット

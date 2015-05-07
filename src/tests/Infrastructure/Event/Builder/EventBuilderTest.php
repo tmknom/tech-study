@@ -18,6 +18,18 @@ use PHPUnit_Framework_TestCase;
 class EventBuilderTest extends PHPUnit_Framework_TestCase
 {
 
+    /** @var DateTimeImmutable */
+    private $fixedDateTimeImmutable;
+
+    /** @before */
+    public function setUp()
+    {
+        parent::setUp();
+
+        // テストケース内で固定の日時／日付が絡む部分では、これを使いまわす
+        $this->fixedDateTimeImmutable = new DateTimeImmutable();
+    }
+
     /** @test */
     public function build_正常系()
     {
@@ -66,12 +78,11 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
 
     private function getEventCore()
     {
-        $date = new DateTimeImmutable();
         return EventCoreBuilder::builder()
                         ->setEventTitle('タイトル1')
                         ->setEventUrl('url1')
                         ->setSourceType(SourceType::ATND)
-                        ->setStartDateTime($date)
+                        ->setStartDateTime($this->fixedDateTimeImmutable)
                         ->build();
     }
 

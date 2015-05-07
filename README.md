@@ -43,3 +43,18 @@ $ cd src
 $ php artisan migrate
 $ php artisan migrate:reset
 ```
+
+### ローカルDBへログイン
+
+```bash
+$ mysql -u app_user -ppassword app_db
+```
+
+### コマンド実行例
+
+```bash
+$ cd src
+$ php artisan crawler:atnd
+$ php artisan crawler:connpass
+$ php artisan crawler:social
+```

@@ -28,20 +28,6 @@ class EventRatingORMapper
         DB::table(self::TABLE_NAME)->insert($dbArray);
     }
 
-    /**
-     * テーブルにレコードを更新
-     *
-     * @param EventId $eventId
-     * @param EventRating $eventRating
-     * @return EventRating
-     */
-    public function update(EventId $eventId, EventRating $eventRating)
-    {
-        $dbArray = $this->toDbArray($eventId, $eventRating);
-        DB::table(self::TABLE_NAME)->where('event_id', $eventId->getValue())->update($dbArray);
-        return $eventRating;
-    }
-
     private function toDbArray(EventId $eventId, EventRating $eventRating)
     {
         return array(

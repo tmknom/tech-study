@@ -2,6 +2,7 @@
 
 use App\Console\Commands\Crawler\AtndCrawlerCommand;
 use App\Console\Commands\Crawler\ConnpassCrawlerCommand;
+use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -16,6 +17,7 @@ class Kernel extends ConsoleKernel {
 		'App\Console\Commands\Inspire',
 		AtndCrawlerCommand::class,
 		ConnpassCrawlerCommand::class,
+		SocialCrawlerCommand::class,
 	];
 
 	/**

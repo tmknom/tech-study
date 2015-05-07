@@ -15,7 +15,7 @@ class Address
     /**
      * 東京かどうか判定する
      *
-     * @return boolean 東京だったらtrue、そうでければfalse
+     * @return boolean 東京だったらtrue、そうでなければfalse
      */
     public function isTokyo()
     {

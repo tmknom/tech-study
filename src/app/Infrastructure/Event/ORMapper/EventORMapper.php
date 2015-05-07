@@ -13,6 +13,23 @@ class EventORMapper
     const TABLE_NAME = 'event';
 
     /**
+     * 指定したURLのEventIdを返却する
+     * 
+     * テーブルに存在しないURLを指定した場合、EventIdは未定義の状態で返却される／nullではないことに注意
+     *
+     * @param EventUrl $eventUrl
+     * @return EventId
+     */
+    public function findEventId(EventUrl $eventUrl)
+    {
+        $resultArray = (array) DB::table(self::TABLE_NAME)->select('id')->where('url', '=', $eventUrl)->first();
+        if(count($resultArray) === 0){
+            return EventId::createUndefinedInstance();
+        }
+        return new EventId($resultArray['id']);
+    }
+
+    /**
      * 指定したURLがテーブルに存在するかチェック
      *
      * @param EventUrl $eventUrl
