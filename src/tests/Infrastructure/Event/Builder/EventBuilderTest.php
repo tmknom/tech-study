@@ -66,11 +66,12 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
 
     private function getEventCore()
     {
+        $date = new DateTimeImmutable();
         return EventCoreBuilder::builder()
                         ->setEventTitle('タイトル1')
                         ->setEventUrl('url1')
                         ->setSourceType(SourceType::ATND)
-                        ->setStartDateTime(new DateTimeImmutable())
+                        ->setStartDateTime($date)
                         ->build();
     }
 

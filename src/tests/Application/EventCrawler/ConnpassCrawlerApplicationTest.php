@@ -2,16 +2,16 @@
 
 namespace Tests\Application\EventCrawler;
 
-use App\Application\EventCrawler\AtndCrawlerApplication;
+use App\Application\EventCrawler\ConnpassCrawlerApplication;
 use App\Domain\Event\EventList;
 use App\Library\Http\JsonHttpClient;
 use Tests\Base\TestCase;
-use Tests\Infrastructure\EventCrawler\Stub\AtndJsonHttpClient;
+use Tests\Infrastructure\EventCrawler\Stub\ConnpassJsonHttpClient;
 
-class AtndCrawlerApplicationTest extends TestCase
+class ConnpassCrawlerApplicationTest extends TestCase
 {
 
-    /** @var AtndCrawlerApplication */
+    /** @var ConnpassCrawlerApplication */
     private $sut;
 
     /** @before */
@@ -19,8 +19,8 @@ class AtndCrawlerApplicationTest extends TestCase
     {
         parent::setUp();
 
-        $this->app->bind(JsonHttpClient::class, AtndJsonHttpClient::class);
-        $this->sut = $this->app->make(AtndCrawlerApplication::class);
+        $this->app->bind(JsonHttpClient::class, ConnpassJsonHttpClient::class);
+        $this->sut = $this->app->make(ConnpassCrawlerApplication::class);
     }
 
     /** @test */
@@ -32,7 +32,7 @@ class AtndCrawlerApplicationTest extends TestCase
         // 確認
         $this->assertTrue($actual instanceof EventList);
         $this->assertEquals(2, $actual->count());
-        $this->assertEquals('サンプルイベント1', $actual->get(0)->getEventCore()->getEventTitle());
+        $this->assertEquals('Haskell 超入門 (2014/11)', $actual->get(0)->getEventCore()->getEventTitle());
     }
 
 }
