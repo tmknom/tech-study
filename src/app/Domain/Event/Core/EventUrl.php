@@ -12,4 +12,14 @@ class EventUrl
     /** @var string */
     private $value;
 
+    /**
+     * URLエンコードした文字列を返す
+     *
+     * @return string
+     */
+    public function urlEncode()
+    {
+        return rawurlencode($this->value);
+    }
+
 }
