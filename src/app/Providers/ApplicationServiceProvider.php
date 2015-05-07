@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Application\EventCrawler\AtndCrawlerApplication;
 use App\Application\EventCrawler\ConnpassCrawlerApplication;
+use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,6 +22,8 @@ class ApplicationServiceProvider extends ServiceProvider
     {
         $this->app->bindif(AtndCrawlerApplication::class, AtndCrawlerApplication::class);
         $this->app->bindif(ConnpassCrawlerApplication::class, ConnpassCrawlerApplication::class);
+
+        $this->app->bindif(EventUrlListReferenceApplication::class, EventUrlListReferenceApplication::class);
     }
 
     /**
