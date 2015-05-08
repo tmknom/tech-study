@@ -2,6 +2,7 @@
 
 use App\Console\Commands\EventCrawler\AtndCrawlerCommand;
 use App\Console\Commands\EventCrawler\ConnpassCrawlerCommand;
+use App\Console\Commands\EventCrawler\QueueCrawlerCommand;
 use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,6 +15,7 @@ class Kernel extends ConsoleKernel {
 	 * @var array
 	 */
 	protected $commands = [
+		QueueCrawlerCommand::class,
 		AtndCrawlerCommand::class,
 		ConnpassCrawlerCommand::class,
 		SocialCrawlerCommand::class,

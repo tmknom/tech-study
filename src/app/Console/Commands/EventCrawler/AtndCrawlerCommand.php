@@ -15,7 +15,9 @@ class AtndCrawlerCommand extends Command
 
     use CrawlerCommand;
 
-    protected $name = 'crawler:atnd';
+    const COMMAND_NAME = 'crawler:atnd';
+
+    protected $name = self::COMMAND_NAME;
     protected $description = "クローラコマンド：Atnd";
 
     /**

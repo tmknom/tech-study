@@ -15,7 +15,9 @@ class ConnpassCrawlerCommand extends Command
 
     use CrawlerCommand;
 
-    protected $name = 'crawler:connpass';
+    const COMMAND_NAME = 'crawler:connpass';
+
+    protected $name = self::COMMAND_NAME;
     protected $description = "クローラコマンド：Connpass";
 
     /**
