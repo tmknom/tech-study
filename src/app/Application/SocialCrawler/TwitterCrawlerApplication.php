@@ -2,45 +2,23 @@
 
 namespace App\Application\SocialCrawler;
 
-use App\Domain\Event\Core\EventUrl;
-use App\Domain\Event\EventRepository;
-use App\Domain\Rating\RatingCount\TwitterCount;
+use App\Domain\Rating\Repository\TwitterRatingRepository;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
-use DB;
 
-class TwitterCrawlerApplication
+class TwitterCrawlerApplication implements SocialCrawlerApplication
 {
 
-    /**  @var TwitterCountCrawler */
-    private $twitterCountCrawler;
-
-    /**  @var EventRepository */
-    private $eventRepository;
-
-    /**  @var TwitterCount */
-    private $updatedCount;
-
-    /** コンストラクタ */
-    public function __construct(TwitterCountCrawler $twitterCountCrawler, EventRepository $eventRepository)
-    {
-        $this->twitterCountCrawler = $twitterCountCrawler;
-        $this->eventRepository = $eventRepository;
-        $this->updatedCount = null;
-    }
+    use TransactionSocialCrawlerApplication;
 
     /**
-     * @param EventUrl $eventUrl
-     * @return TwitterCount
+     * コンストラクタ
+     *
+     * @param TwitterCountCrawler $socialCrawler
+     * @param TwitterRatingRepository $ratingRepository
      */
-    public function crawl(EventUrl $eventUrl)
+    public function __construct(TwitterCountCrawler $socialCrawler, TwitterRatingRepository $ratingRepository)
     {
-        DB::transaction(function () use ($eventUrl) {
-            // ソーシャルカウント取得
-            $this->updatedCount = $this->twitterCountCrawler->crawl($eventUrl);
-            // DB更新
-            $this->eventRepository->saveTwitterCount($eventUrl, $this->updatedCount);
-        });
-        return $this->updatedCount;
+        $this->construct($socialCrawler, $ratingRepository);
     }
 
 }
