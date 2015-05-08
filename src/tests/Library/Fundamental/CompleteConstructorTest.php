@@ -15,7 +15,7 @@ class CompleteConstructorTest extends PHPUnit_Framework_TestCase
         // 実行
         $actual = new ValidCompleteConstructor('elementA', 'elementB');
 
-        // 確認：全件チェック
+        // 確認
         $this->assertTrue($actual instanceof ValidCompleteConstructor);
     }
 

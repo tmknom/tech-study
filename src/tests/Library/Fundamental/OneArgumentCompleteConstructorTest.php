@@ -15,7 +15,7 @@ class OneArgumentCompleteConstructorTest extends PHPUnit_Framework_TestCase
         // 実行
         $actual = new ValidOneArgumentCompleteConstructor('elementA');
 
-        // 確認：全件チェック
+        // 確認
         $this->assertTrue($actual instanceof ValidOneArgumentCompleteConstructor);
     }
 
@@ -23,7 +23,7 @@ class OneArgumentCompleteConstructorTest extends PHPUnit_Framework_TestCase
      * @test
      * @expectedException LogicException
      */
-    public function completeConstruct_異常系_コンストラクタの引数とパラメータ数が合わない()
+    public function completeConstruct_異常系_パラメータ名が第一引数と合致しない()
     {
         // 実行
         new InvalidOneArgumentCompleteConstructor('elementA');
