@@ -20,14 +20,6 @@ trait ValueObject
     }
 
     /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
      * @return string
      */
     public function __toString()
