@@ -53,8 +53,6 @@ class SocialCrawlerCommand extends Command
         $eventUrlList = $this->eventUrlListReferenceApplication->referRecent();
         // それぞれのURLについて各ソーシャルサービスをクロール
         foreach ($eventUrlList->toArray() as $eventUrl) {
-            //$this->dispatch(new TwitterCountCrawlerCommand($eventUrl));
-            //$this->dispatch(new FacebookCountCrawlerCommand($eventUrl));
             $this->twitterCrawlerApplication->crawl($eventUrl);
             $this->facebookCrawlerApplication->crawl($eventUrl);
         }
