@@ -50,6 +50,12 @@ $ php artisan migrate:reset
 $ mysql -u app_user -ppassword app_db
 ```
 
+### キューリスナーの実行
+
+```bash
+$ php artisan queue:listen --tries=3 --timeout=120
+```
+
 ### コマンド実行例
 
 ```bash
