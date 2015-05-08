@@ -14,7 +14,7 @@ use App\Domain\Event\Geolocation\EventGeolocation;
 use App\Domain\Rating\RatingCount\Rating;
 use App\Infrastructure\Event\Builder\EventAreaBuilder;
 use App\Infrastructure\Event\Builder\EventBuilder;
-use App\Infrastructure\Event\Builder\EventRatingBuilder;
+use App\Infrastructure\Rating\Builder\RatingBuilder;
 
 trait EventMapper
 {
@@ -104,7 +104,7 @@ trait EventMapper
      */
     private function createRating()
     {
-        return EventRatingBuilder::builder()
+        return RatingBuilder::builder()
                         ->setHatenaBookmarkCount(0)
                         ->setTwitterCount(0)
                         ->setFacebookCount(0)

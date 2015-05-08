@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\Event\Builder;
+namespace Tests\Infrastructure\Rating\Builder;
 
 use App\Domain\Rating\RatingCount\Rating;
 use App\Domain\Rating\RatingCount\FacebookCount;
@@ -8,17 +8,17 @@ use App\Domain\Rating\RatingCount\GooglePlusCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
 use App\Domain\Rating\RatingCount\PocketCount;
 use App\Domain\Rating\RatingCount\TwitterCount;
-use App\Infrastructure\Event\Builder\EventRatingBuilder;
+use App\Infrastructure\Rating\Builder\RatingBuilder;
 use PHPUnit_Framework_TestCase;
 
-class EventRatingBuilderTest extends PHPUnit_Framework_TestCase
+class RatingBuilderTest extends PHPUnit_Framework_TestCase
 {
 
     /** @test */
     public function build_正常系()
     {
         // 実行
-        $actual = EventRatingBuilder::builder()
+        $actual = RatingBuilder::builder()
                 ->setHatenaBookmarkCount(1)
                 ->setTwitterCount(2)
                 ->setFacebookCount(3)

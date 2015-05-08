@@ -11,7 +11,7 @@ use App\Infrastructure\Event\Builder\EventCapacityBuilder;
 use App\Infrastructure\Event\Builder\EventCoreBuilder;
 use App\Infrastructure\Event\Builder\EventDetailBuilder;
 use App\Infrastructure\Event\Builder\EventGeolocationBuilder;
-use App\Infrastructure\Event\Builder\EventRatingBuilder;
+use App\Infrastructure\Rating\Builder\RatingBuilder;
 use DateTimeImmutable;
 use PHPUnit_Framework_TestCase;
 
@@ -107,7 +107,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
 
     private function getRating()
     {
-        return EventRatingBuilder::builder()
+        return RatingBuilder::builder()
                         ->setHatenaBookmarkCount(1)
                         ->setTwitterCount(2)
                         ->setFacebookCount(3)
