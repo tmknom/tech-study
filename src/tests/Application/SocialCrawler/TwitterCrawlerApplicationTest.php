@@ -3,7 +3,7 @@
 namespace Tests\Application\SocialCrawler;
 
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Library\Http\JsonHttpClient;
 use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;

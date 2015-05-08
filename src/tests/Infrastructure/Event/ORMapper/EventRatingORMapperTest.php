@@ -3,11 +3,11 @@
 namespace Tests\Infrastructure\Event\ORMapper;
 
 use App\Domain\Event\EventId;
-use App\Domain\Event\Rating\FacebookCount;
-use App\Domain\Event\Rating\GooglePlusCount;
-use App\Domain\Event\Rating\HatenaBookmarkCount;
-use App\Domain\Event\Rating\PocketCount;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\GooglePlusCount;
+use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
+use App\Domain\Rating\RatingCount\PocketCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Infrastructure\Event\ORMapper\EventRatingORMapper;
 use DB;
 use Tests\Base\TestCase;

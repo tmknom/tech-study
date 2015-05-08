@@ -3,7 +3,7 @@
 namespace App\Infrastructure\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
 use App\Library\Http\JsonHttpClient;
 

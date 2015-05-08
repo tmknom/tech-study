@@ -2,12 +2,12 @@
 
 namespace App\Infrastructure\Event\Builder;
 
-use App\Domain\Event\Rating\EventRating;
-use App\Domain\Event\Rating\FacebookCount;
-use App\Domain\Event\Rating\GooglePlusCount;
-use App\Domain\Event\Rating\HatenaBookmarkCount;
-use App\Domain\Event\Rating\PocketCount;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\EventRating;
+use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\GooglePlusCount;
+use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
+use App\Domain\Rating\RatingCount\PocketCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 
 class EventRatingBuilder
 {

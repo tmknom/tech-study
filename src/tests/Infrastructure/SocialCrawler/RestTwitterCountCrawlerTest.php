@@ -3,7 +3,7 @@
 namespace Tests\Infrastructure\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Infrastructure\SocialCrawler\RestTwitterCountCrawler;
 use PHPUnit_Framework_TestCase;
 use Tests\Infrastructure\SocialCrawler\Stub\TwitterJsonHttpClient;

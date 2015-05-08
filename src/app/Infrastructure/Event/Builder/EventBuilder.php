@@ -9,7 +9,7 @@ use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Event;
 use App\Domain\Event\EventId;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Domain\Event\Rating\EventRating;
+use App\Domain\Rating\RatingCount\EventRating;
 
 class EventBuilder
 {

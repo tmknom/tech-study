@@ -3,7 +3,7 @@
 namespace Tests\Application\SocialCrawler;
 
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
-use App\Domain\Event\Rating\FacebookCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Library\Http\JsonHttpClient;
 use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;

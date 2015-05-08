@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\Event\Rating;
+namespace App\Domain\Rating\RatingCount;
 
 use App\Library\Domain\ValueObject;
 
-class GooglePlusCount
+class PocketCount
 {
 
     use ValueObject;

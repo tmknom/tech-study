@@ -7,7 +7,7 @@ use App\Domain\Event\Capacity\EventCapacity;
 use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Domain\Event\Rating\EventRating;
+use App\Domain\Rating\RatingCount\EventRating;
 use App\Library\Domain\Entity;
 
 class Event

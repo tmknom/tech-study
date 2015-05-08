@@ -4,7 +4,7 @@ namespace App\Application\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\EventRepository;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
 use DB;
 

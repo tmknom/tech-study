@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Event\Rating;
+namespace App\Domain\Rating\RatingCount;
 
 use App\Library\Domain\Aggregate;
 
