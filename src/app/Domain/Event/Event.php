@@ -7,7 +7,7 @@ use App\Domain\Event\Capacity\EventCapacity;
 use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Domain\Event\Rating\EventRating;
+use App\Domain\Rating\Rating;
 use App\Library\Domain\Entity;
 
 class Event
@@ -27,8 +27,8 @@ class Event
     /** @var EventCapacity */
     private $eventCapacity;
 
-    /** @var EventRating */
-    private $eventRating;
+    /** @var Rating */
+    private $rating;
 
     /** @var EventGeolocation */
     private $eventGeolocation;
@@ -43,12 +43,12 @@ class Event
      * @param EventCore $eventCore
      * @param EventDetail $eventDetail
      * @param EventCapacity $eventCapacity
-     * @param EventRating $eventRating
+     * @param Rating $rating
      * @param EventGeolocation $eventGeolocation
      * @param EventArea $eventArea
      */
     public function __construct(EventId $eventId, EventCore $eventCore, EventDetail $eventDetail,
-                                EventCapacity $eventCapacity, EventRating $eventRating,
+                                EventCapacity $eventCapacity, Rating $rating,
                                 EventGeolocation $eventGeolocation, EventArea $eventArea)
     {
         $this->completeConstruct(func_get_args());
@@ -97,11 +97,11 @@ class Event
     }
 
     /**
-     * @return EventRating
+     * @return Rating
      */
-    public function getEventRating()
+    public function getRating()
     {
-        return $this->eventRating;
+        return $this->rating;
     }
 
     /**

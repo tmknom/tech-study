@@ -9,7 +9,7 @@ use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Event;
 use App\Domain\Event\EventId;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Domain\Event\Rating\EventRating;
+use App\Domain\Rating\Rating;
 
 class EventBuilder
 {
@@ -26,8 +26,8 @@ class EventBuilder
     /** @var EventCapacity */
     private $eventCapacity;
 
-    /** @var EventRating */
-    private $eventRating;
+    /** @var Rating */
+    private $rating;
 
     /** @var EventGeolocation */
     private $eventGeolocation;
@@ -71,9 +71,9 @@ class EventBuilder
     }
 
     /** @return EventBuilder */
-    public function setEventRating(EventRating $value)
+    public function setRating(Rating $value)
     {
-        $this->eventRating = $value;
+        $this->rating = $value;
         return $this;
     }
 
@@ -96,7 +96,7 @@ class EventBuilder
     {
         return new Event(
                 $this->eventId, $this->eventCore, $this->eventDetail, $this->eventCapacity,
-                $this->eventRating, $this->eventGeolocation, $this->eventArea
+                $this->rating, $this->eventGeolocation, $this->eventArea
         );
     }
 

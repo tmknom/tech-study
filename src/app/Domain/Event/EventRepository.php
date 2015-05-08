@@ -3,8 +3,8 @@
 namespace App\Domain\Event;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Event\Rating\FacebookCount;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 
 interface EventRepository
 {

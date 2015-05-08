@@ -4,8 +4,8 @@ namespace Tests\Infrastructure\Event;
 
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\EventList;
-use App\Domain\Event\Rating\FacebookCount;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Infrastructure\Event\DbEventRepository;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
 use App\Infrastructure\Event\ORMapper\EventGeolocationORMapper;

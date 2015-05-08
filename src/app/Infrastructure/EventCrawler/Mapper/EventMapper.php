@@ -11,10 +11,10 @@ use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Event;
 use App\Domain\Event\EventList;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Domain\Event\Rating\EventRating;
+use App\Domain\Rating\Rating;
 use App\Infrastructure\Event\Builder\EventAreaBuilder;
 use App\Infrastructure\Event\Builder\EventBuilder;
-use App\Infrastructure\Event\Builder\EventRatingBuilder;
+use App\Infrastructure\Rating\Builder\RatingBuilder;
 
 trait EventMapper
 {
@@ -93,18 +93,18 @@ trait EventMapper
                         ->setEventCore($this->createEventCore($json))
                         ->setEventDetail($this->createEventDetail($json))
                         ->setEventCapacity($this->createEventCapacity($json))
-                        ->setEventRating($this->createEventRating())
+                        ->setRating($this->createRating())
                         ->setEventGeolocation($eventGeolocation)
                         ->setEventArea($eventArea)
                         ->build();
     }
 
     /**
-     * @return EventRating
+     * @return Rating
      */
-    private function createEventRating()
+    private function createRating()
     {
-        return EventRatingBuilder::builder()
+        return RatingBuilder::builder()
                         ->setHatenaBookmarkCount(0)
                         ->setTwitterCount(0)
                         ->setFacebookCount(0)

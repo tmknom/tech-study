@@ -9,7 +9,7 @@ use App\Infrastructure\Event\Builder\EventCapacityBuilder;
 use App\Infrastructure\Event\Builder\EventCoreBuilder;
 use App\Infrastructure\Event\Builder\EventDetailBuilder;
 use App\Infrastructure\Event\Builder\EventGeolocationBuilder;
-use App\Infrastructure\Event\Builder\EventRatingBuilder;
+use App\Infrastructure\Rating\Builder\RatingBuilder;
 use DateTimeImmutable;
 
 class TestEventBuilder
@@ -218,7 +218,7 @@ class TestEventBuilder
                         ->setEventCore($this->createEventCore())
                         ->setEventDetail($this->createEventDetail())
                         ->setEventCapacity($this->createEventCapacity())
-                        ->setEventRating($this->createEventRating())
+                        ->setRating($this->createRating())
                         ->setEventGeolocation($this->createGeolocation())
                         ->setEventArea($this->createEventArea())
                         ->build();
@@ -271,9 +271,9 @@ class TestEventBuilder
                         ->build();
     }
 
-    private function createEventRating()
+    private function createRating()
     {
-        return EventRatingBuilder::builder()
+        return RatingBuilder::builder()
                         ->setHatenaBookmarkCount($this->hatenaBookmarkCount)
                         ->setTwitterCount($this->twitterCount)
                         ->setFacebookCount($this->facebookCount)

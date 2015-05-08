@@ -3,7 +3,7 @@
 namespace App\Infrastructure\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Event\Rating\FacebookCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
 use App\Library\Http\JsonHttpClient;
 

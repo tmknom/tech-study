@@ -11,7 +11,7 @@ use App\Infrastructure\Event\Builder\EventCapacityBuilder;
 use App\Infrastructure\Event\Builder\EventCoreBuilder;
 use App\Infrastructure\Event\Builder\EventDetailBuilder;
 use App\Infrastructure\Event\Builder\EventGeolocationBuilder;
-use App\Infrastructure\Event\Builder\EventRatingBuilder;
+use App\Infrastructure\Rating\Builder\RatingBuilder;
 use DateTimeImmutable;
 use PHPUnit_Framework_TestCase;
 
@@ -39,7 +39,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                 ->setEventCore($this->getEventCore())
                 ->setEventDetail($this->getEventDetail())
                 ->setEventCapacity($this->getEventCapacity())
-                ->setEventRating($this->getEventRating())
+                ->setRating($this->getRating())
                 ->setEventGeolocation($this->getEventGeolocation())
                 ->setEventArea($this->getEventArea())
                 ->build();
@@ -48,7 +48,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
         $eventId = new EventId(10);
         $expected = new Event(
                 $eventId, $this->getEventCore(), $this->getEventDetail(), $this->getEventCapacity(),
-                $this->getEventRating(), $this->getEventGeolocation(), $this->getEventArea()
+                $this->getRating(), $this->getEventGeolocation(), $this->getEventArea()
         );
         $this->assertEquals($expected, $actual);
     }
@@ -62,7 +62,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                 ->setEventCore($this->getEventCore())
                 ->setEventDetail($this->getEventDetail())
                 ->setEventCapacity($this->getEventCapacity())
-                ->setEventRating($this->getEventRating())
+                ->setRating($this->getRating())
                 ->setEventGeolocation($this->getEventGeolocation())
                 ->setEventArea($this->getEventArea())
                 ->build();
@@ -71,7 +71,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
         $eventId = new EventId('undefined');
         $expected = new Event(
                 $eventId, $this->getEventCore(), $this->getEventDetail(), $this->getEventCapacity(),
-                $this->getEventRating(), $this->getEventGeolocation(), $this->getEventArea()
+                $this->getRating(), $this->getEventGeolocation(), $this->getEventArea()
         );
         $this->assertEquals($expected, $actual);
     }
@@ -105,9 +105,9 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                         ->build();
     }
 
-    private function getEventRating()
+    private function getRating()
     {
-        return EventRatingBuilder::builder()
+        return RatingBuilder::builder()
                         ->setHatenaBookmarkCount(1)
                         ->setTwitterCount(2)
                         ->setFacebookCount(3)

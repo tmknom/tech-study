@@ -7,8 +7,8 @@ use App\Domain\Event\Event;
 use App\Domain\Event\EventId;
 use App\Domain\Event\EventList;
 use App\Domain\Event\EventRepository;
-use App\Domain\Event\Rating\FacebookCount;
-use App\Domain\Event\Rating\TwitterCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
 use App\Infrastructure\Event\ORMapper\EventGeolocationORMapper;
 use App\Infrastructure\Event\ORMapper\EventORMapper;
@@ -86,7 +86,7 @@ class DbEventRepository implements EventRepository
         $this->eventCapacityORMapper->insert($eventId, $event->getEventCapacity());
 
         // event_rating テーブルにレコードを追加
-        $this->eventRatingORMapper->insert($eventId, $event->getEventRating());
+        $this->eventRatingORMapper->insert($eventId, $event->getRating());
     }
 
     /**

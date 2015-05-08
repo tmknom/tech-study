@@ -3,7 +3,7 @@
 namespace Tests\Infrastructure\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Event\Rating\FacebookCount;
+use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Infrastructure\SocialCrawler\RestFacebookCountCrawler;
 use PHPUnit_Framework_TestCase;
 use Tests\Infrastructure\SocialCrawler\Stub\Facebook\EmptyFacebookJsonHttpClient;
