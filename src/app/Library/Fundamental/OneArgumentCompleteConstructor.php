@@ -2,6 +2,8 @@
 
 namespace App\Library\Fundamental;
 
+use LogicException;
+
 trait OneArgumentCompleteConstructor
 {
 
@@ -31,7 +33,7 @@ trait OneArgumentCompleteConstructor
         $firstObjectVarsName = array_keys(get_object_vars($this))[0];
         if ($firstObjectVarsName !== $propertyName) {
             $message = get_class() . " class : Invalid property name '$" . $firstObjectVarsName . "', Please define property name '$" . $propertyName . "'.";
-            throw new \Exception($message);
+            throw new LogicException($message);
         }
     }
 
