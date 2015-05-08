@@ -28,13 +28,13 @@ class EventGeolocationORMapper
     private function toDbArray(EventId $eventId, EventGeolocation $eventGeolocation, EventArea $eventArea)
     {
         return array(
-            'event_id' => $eventId->getValue(),
-            'region_code' => $eventArea->getRegionCode()->getValue(),
-            'prefecture_code' => $eventArea->getPrefectureCode()->getValue(),
-            'address' => $eventGeolocation->getAddress()->getValue(),
-            'place' => $eventGeolocation->getPlace()->getValue(),
-            'latitude' => $eventGeolocation->getLatitude()->getValue(),
-            'longitude' => $eventGeolocation->getLongitude()->getValue(),
+            'event_id' => $eventId,
+            'region_code' => $eventArea->getRegionCode(),
+            'prefecture_code' => $eventArea->getPrefectureCode(),
+            'address' => $eventGeolocation->getAddress(),
+            'place' => $eventGeolocation->getPlace(),
+            'latitude' => $eventGeolocation->getLatitude(),
+            'longitude' => $eventGeolocation->getLongitude(),
         );
     }
 

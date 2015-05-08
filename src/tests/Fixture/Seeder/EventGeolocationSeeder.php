@@ -17,10 +17,10 @@ class EventGeolocationSeeder extends Seeder
             'event_id' => 1,
             'region_code' => '1', // todo あとでちゃんとやる
             'prefecture_code' => '1',
-            'address' => $eventGeolocation->getAddress()->getValue(),
-            'place' => $eventGeolocation->getPlace()->getValue(),
-            'latitude' => $eventGeolocation->getLatitude()->getValue(),
-            'longitude' => $eventGeolocation->getLongitude()->getValue(),
+            'address' => $eventGeolocation->getAddress(),
+            'place' => $eventGeolocation->getPlace(),
+            'latitude' => $eventGeolocation->getLatitude(),
+            'longitude' => $eventGeolocation->getLongitude(),
         );
         DB::table(EventGeolocationORMapper::TABLE_NAME)->insert($defaultValue);
     }

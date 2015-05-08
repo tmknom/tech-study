@@ -15,9 +15,9 @@ class EventCapacitySeeder extends Seeder
         $eventCapacity = TestEventBuilder::builder()->build()->getEventCapacity();
         $defaultValue = array(
             'event_id' => 1,
-            'capacity_limit' => $eventCapacity->getCapacityLimit()->getValue(),
-            'accepted' => $eventCapacity->getAccepted()->getValue(),
-            'waiting' => $eventCapacity->getWaiting()->getValue(),
+            'capacity_limit' => $eventCapacity->getCapacityLimit(),
+            'accepted' => $eventCapacity->getAccepted(),
+            'waiting' => $eventCapacity->getWaiting(),
         );
         DB::table(EventCapacityORMapper::TABLE_NAME)->insert($defaultValue);
     }

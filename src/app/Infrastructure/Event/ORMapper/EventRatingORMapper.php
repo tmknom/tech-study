@@ -31,12 +31,12 @@ class EventRatingORMapper
     private function toDbArray(EventId $eventId, EventRating $eventRating)
     {
         return array(
-            'event_id' => $eventId->getValue(),
-            'hatena_bookmark_count' => $eventRating->getHatenaBookmarkCount()->getValue(),
-            'twitter_count' => $eventRating->getTwitterCount()->getValue(),
-            'facebook_count' => $eventRating->getFacebookCount()->getValue(),
-            'google_plus_count' => $eventRating->getGooglePlusCount()->getValue(),
-            'pocket_count' => $eventRating->getPocketCount()->getValue(),
+            'event_id' => $eventId,
+            'hatena_bookmark_count' => $eventRating->getHatenaBookmarkCount(),
+            'twitter_count' => $eventRating->getTwitterCount(),
+            'facebook_count' => $eventRating->getFacebookCount(),
+            'google_plus_count' => $eventRating->getGooglePlusCount(),
+            'pocket_count' => $eventRating->getPocketCount(),
         );
     }
 
@@ -90,14 +90,14 @@ class EventRatingORMapper
         return $this->updateValue($eventId, $count, 'pocket_count');
     }
 
-    private function updateValue(EventId $eventId, $valueObject, $keyName = '')
+    private function updateValue(EventId $eventId, $ratingCount, $keyName = '')
     {
         $dbArray = array(
-            'event_id' => $eventId->getValue(),
-            $keyName => $valueObject->getValue()
+            'event_id' => $eventId,
+            $keyName => $ratingCount
         );
-        DB::table(self::TABLE_NAME)->where('event_id', $eventId->getValue())->update($dbArray);
-        return $valueObject;
+        DB::table(self::TABLE_NAME)->where('event_id', $eventId)->update($dbArray);
+        return $ratingCount;
     }
 
 }
