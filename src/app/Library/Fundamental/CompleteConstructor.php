@@ -2,6 +2,8 @@
 
 namespace App\Library\Fundamental;
 
+use LogicException;
+
 trait CompleteConstructor
 {
 
@@ -33,22 +35,6 @@ trait CompleteConstructor
     }
 
     /**
-     * traitの呼び出し元クラスで、コンストラクタが定義されてない場合に完全コンストラクタとして自動で振る舞う
-     * 
-     * traitの呼び出し元クラスでコンストラクタが定義されている場合、本コンストラクタは呼び出されない
-     * 
-     * コンストラクタの引数を渡さなくても、勝手に動いてくれるため便利だが、
-     * その半面、タイプヒンティングによる型チェックが出来なくなることに注意
-     */
-    public function __construct()
-    {
-        // コンストラクタの引数の値のリスト
-        $constructorArgs = func_get_args();
-
-        $this->completeConstruct($constructorArgs);
-    }
-
-    /**
      * プロパティに値をセット
      * 
      * 
@@ -70,7 +56,7 @@ trait CompleteConstructor
     private function verifyConstructor(array $propertyNames, array $constructorArgs)
     {
         if (count($propertyNames) !== count($constructorArgs)) {
-            throw new \Exception("CompleteConstructor error");
+            throw new LogicException("CompleteConstructor error");
         }
     }
 

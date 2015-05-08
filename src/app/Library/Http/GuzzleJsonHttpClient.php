@@ -16,6 +16,7 @@ class GuzzleJsonHttpClient implements JsonHttpClient
     /**
      * HTTPリクエスト送信し、結果をJSON配列で取得する
      *
+     * @codeCoverageIgnore
      * @param string $url
      * @return array
      */
