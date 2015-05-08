@@ -3,6 +3,7 @@
 namespace App\Console\Commands\SocialCrawler;
 
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
+use App\Application\SocialCrawler\FacebookCrawlerApplication;
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
 use Illuminate\Console\Command;
 
@@ -23,6 +24,9 @@ class SocialCrawlerCommand extends Command
     /** @var TwitterCrawlerApplication */
     private $twitterCrawlerApplication;
 
+    /** @var FacebookCrawlerApplication */
+    private $facebookCrawlerApplication;
+
     /**
      * コンストラクタ
      *
@@ -30,12 +34,14 @@ class SocialCrawlerCommand extends Command
      * @param TwitterCrawlerApplication $twitterCrawlerApplication
      */
     public function __construct(EventUrlListReferenceApplication $eventUrlListReferenceApplication,
-                                TwitterCrawlerApplication $twitterCrawlerApplication)
+                                TwitterCrawlerApplication $twitterCrawlerApplication,
+                                FacebookCrawlerApplication $facebookCrawlerApplication)
     {
         parent::__construct();
 
         $this->eventUrlListReferenceApplication = $eventUrlListReferenceApplication;
         $this->twitterCrawlerApplication = $twitterCrawlerApplication;
+        $this->facebookCrawlerApplication = $facebookCrawlerApplication;
     }
 
     /**
@@ -47,7 +53,10 @@ class SocialCrawlerCommand extends Command
         $eventUrlList = $this->eventUrlListReferenceApplication->referRecent();
         // それぞれのURLについて各ソーシャルサービスをクロール
         foreach ($eventUrlList->toArray() as $eventUrl) {
+            //$this->dispatch(new TwitterCountCrawlerCommand($eventUrl));
+            //$this->dispatch(new FacebookCountCrawlerCommand($eventUrl));
             $this->twitterCrawlerApplication->crawl($eventUrl);
+            $this->facebookCrawlerApplication->crawl($eventUrl);
         }
         echo 'success';
     }

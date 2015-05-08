@@ -3,6 +3,7 @@
 namespace Tests\Console\Commands\SocialCrawler;
 
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
+use App\Application\SocialCrawler\FacebookCrawlerApplication;
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
 use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
 use App\Library\Http\JsonHttpClient;
@@ -25,7 +26,8 @@ class SocialCrawlerCommandTest extends TestCase
         $this->app->bind(JsonHttpClient::class, TwitterJsonHttpClient::class);
         $eventUrlListReferenceApplication = $this->app->make(EventUrlListReferenceApplication::class);
         $crawlerApplication = $this->app->make(TwitterCrawlerApplication::class);
-        $this->sut = new SocialCrawlerCommand($eventUrlListReferenceApplication, $crawlerApplication);
+        $facebookCrawlerApplication = $this->app->make(FacebookCrawlerApplication::class);
+        $this->sut = new SocialCrawlerCommand($eventUrlListReferenceApplication, $crawlerApplication, $facebookCrawlerApplication);
     }
 
     /** @test */
