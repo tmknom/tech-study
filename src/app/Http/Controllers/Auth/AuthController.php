@@ -5,6 +5,10 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+/**
+ * ※注意！　実際にアプリケーションに組み込むときは「@codeCoverageIgnore」の記述を削除すること！！
+ * @codeCoverageIgnore
+ */
 class AuthController extends Controller {
 
 	/*
