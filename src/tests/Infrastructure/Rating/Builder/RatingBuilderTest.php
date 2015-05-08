@@ -2,7 +2,7 @@
 
 namespace Tests\Infrastructure\Rating\Builder;
 
-use App\Domain\Rating\RatingCount\Rating;
+use App\Domain\Rating\Rating;
 use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\Rating\RatingCount\GooglePlusCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;

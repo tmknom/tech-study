@@ -3,7 +3,7 @@
 namespace App\Infrastructure\Event\ORMapper;
 
 use App\Domain\Event\EventId;
-use App\Domain\Rating\RatingCount\Rating;
+use App\Domain\Rating\Rating;
 use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\Rating\RatingCount\GooglePlusCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;

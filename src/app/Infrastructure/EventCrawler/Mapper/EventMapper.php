@@ -11,7 +11,7 @@ use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Event;
 use App\Domain\Event\EventList;
 use App\Domain\Event\Geolocation\EventGeolocation;
-use App\Domain\Rating\RatingCount\Rating;
+use App\Domain\Rating\Rating;
 use App\Infrastructure\Event\Builder\EventAreaBuilder;
 use App\Infrastructure\Event\Builder\EventBuilder;
 use App\Infrastructure\Rating\Builder\RatingBuilder;

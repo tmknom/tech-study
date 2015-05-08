@@ -1,7 +1,12 @@
 <?php
 
-namespace App\Domain\Rating\RatingCount;
+namespace App\Domain\Rating;
 
+use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\GooglePlusCount;
+use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
+use App\Domain\Rating\RatingCount\PocketCount;
+use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Library\Domain\Aggregate;
 
 class Rating
