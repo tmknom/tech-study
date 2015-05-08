@@ -2,7 +2,7 @@
 
 namespace Tests\Infrastructure\Event\Builder;
 
-use App\Domain\Rating\RatingCount\EventRating;
+use App\Domain\Rating\RatingCount\Rating;
 use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\Rating\RatingCount\GooglePlusCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
@@ -27,7 +27,7 @@ class EventRatingBuilderTest extends PHPUnit_Framework_TestCase
                 ->build();
 
         // 確認
-        $expected = new EventRating(
+        $expected = new Rating(
                 new HatenaBookmarkCount(1),
                 new TwitterCount(2),
                 new FacebookCount(3),

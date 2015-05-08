@@ -86,7 +86,7 @@ class DbEventRepository implements EventRepository
         $this->eventCapacityORMapper->insert($eventId, $event->getEventCapacity());
 
         // event_rating テーブルにレコードを追加
-        $this->eventRatingORMapper->insert($eventId, $event->getEventRating());
+        $this->eventRatingORMapper->insert($eventId, $event->getRating());
     }
 
     /**

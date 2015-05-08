@@ -39,7 +39,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                 ->setEventCore($this->getEventCore())
                 ->setEventDetail($this->getEventDetail())
                 ->setEventCapacity($this->getEventCapacity())
-                ->setEventRating($this->getEventRating())
+                ->setRating($this->getRating())
                 ->setEventGeolocation($this->getEventGeolocation())
                 ->setEventArea($this->getEventArea())
                 ->build();
@@ -48,7 +48,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
         $eventId = new EventId(10);
         $expected = new Event(
                 $eventId, $this->getEventCore(), $this->getEventDetail(), $this->getEventCapacity(),
-                $this->getEventRating(), $this->getEventGeolocation(), $this->getEventArea()
+                $this->getRating(), $this->getEventGeolocation(), $this->getEventArea()
         );
         $this->assertEquals($expected, $actual);
     }
@@ -62,7 +62,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                 ->setEventCore($this->getEventCore())
                 ->setEventDetail($this->getEventDetail())
                 ->setEventCapacity($this->getEventCapacity())
-                ->setEventRating($this->getEventRating())
+                ->setRating($this->getRating())
                 ->setEventGeolocation($this->getEventGeolocation())
                 ->setEventArea($this->getEventArea())
                 ->build();
@@ -71,7 +71,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
         $eventId = new EventId('undefined');
         $expected = new Event(
                 $eventId, $this->getEventCore(), $this->getEventDetail(), $this->getEventCapacity(),
-                $this->getEventRating(), $this->getEventGeolocation(), $this->getEventArea()
+                $this->getRating(), $this->getEventGeolocation(), $this->getEventArea()
         );
         $this->assertEquals($expected, $actual);
     }
@@ -105,7 +105,7 @@ class EventBuilderTest extends PHPUnit_Framework_TestCase
                         ->build();
     }
 
-    private function getEventRating()
+    private function getRating()
     {
         return EventRatingBuilder::builder()
                         ->setHatenaBookmarkCount(1)

@@ -12,14 +12,14 @@ class EventRatingSeeder extends Seeder
 
     public function run()
     {
-        $eventRating = TestEventBuilder::builder()->build()->getEventRating();
+        $rating = TestEventBuilder::builder()->build()->getRating();
         $defaultValue = array(
             'event_id' => 1,
-            'hatena_bookmark_count' => $eventRating->getHatenaBookmarkCount(),
-            'twitter_count' => $eventRating->getTwitterCount(),
-            'facebook_count' => $eventRating->getFacebookCount(),
-            'google_plus_count' => $eventRating->getGooglePlusCount(),
-            'pocket_count' => $eventRating->getPocketCount(),
+            'hatena_bookmark_count' => $rating->getHatenaBookmarkCount(),
+            'twitter_count' => $rating->getTwitterCount(),
+            'facebook_count' => $rating->getFacebookCount(),
+            'google_plus_count' => $rating->getGooglePlusCount(),
+            'pocket_count' => $rating->getPocketCount(),
         );
         DB::table(EventRatingORMapper::TABLE_NAME)->insert($defaultValue);
     }

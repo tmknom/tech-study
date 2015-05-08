@@ -37,7 +37,7 @@ class EventRatingORMapperTest extends TestCase
         $eventId = new EventId(2);
 
         // 実行
-        $this->sut->insert($eventId, $event->getEventRating());
+        $this->sut->insert($eventId, $event->getRating());
 
         // 確認：テーブル
         $actual = (array) DB::table(EventRatingORMapper::TABLE_NAME)->where('event_id', '=', $eventId)->first();

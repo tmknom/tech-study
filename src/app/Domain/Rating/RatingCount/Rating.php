@@ -4,7 +4,7 @@ namespace App\Domain\Rating\RatingCount;
 
 use App\Library\Domain\Aggregate;
 
-class EventRating
+class Rating
 {
 
     use Aggregate;

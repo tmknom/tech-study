@@ -218,7 +218,7 @@ class TestEventBuilder
                         ->setEventCore($this->createEventCore())
                         ->setEventDetail($this->createEventDetail())
                         ->setEventCapacity($this->createEventCapacity())
-                        ->setEventRating($this->createEventRating())
+                        ->setRating($this->createRating())
                         ->setEventGeolocation($this->createGeolocation())
                         ->setEventArea($this->createEventArea())
                         ->build();
@@ -271,7 +271,7 @@ class TestEventBuilder
                         ->build();
     }
 
-    private function createEventRating()
+    private function createRating()
     {
         return EventRatingBuilder::builder()
                         ->setHatenaBookmarkCount($this->hatenaBookmarkCount)

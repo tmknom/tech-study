@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Event\Builder;
 
-use App\Domain\Rating\RatingCount\EventRating;
+use App\Domain\Rating\RatingCount\Rating;
 use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\Rating\RatingCount\GooglePlusCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
@@ -62,10 +62,10 @@ class EventRatingBuilder
         return $this;
     }
 
-    /** @return EventRating */
+    /** @return Rating */
     public function build()
     {
-        return new EventRating(
+        return new Rating(
                 $this->hatenaBookmarkCount, $this->twitterCount, $this->facebookCount,
                 $this->googlePlusCount, $this->pocketCount
         );
