@@ -4,6 +4,7 @@ namespace Tests\Infrastructure\Event;
 
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\EventList;
+use App\Domain\Event\Rating\FacebookCount;
 use App\Domain\Event\Rating\TwitterCount;
 use App\Infrastructure\Event\DbEventRepository;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
@@ -124,6 +125,24 @@ class DbEventRepositoryTest extends TestCase
 
         // 実行
         $this->sut->saveTwitterCount($eventUrl, $count);
+    }
+
+    /** @test */
+    public function saveFacebookCount_正常系()
+    {
+        // 事前準備：DBに初期データをセット
+        $this->seed(EventSeeder::class);
+        $this->seed(EventRatingSeeder::class);
+
+        // 事前準備
+        $count = new FacebookCount(500);
+        $eventUrl = TestEventBuilder::builder()->build()->getEventCore()->getEventUrl();
+
+        // 実行
+        $actual = $this->sut->saveFacebookCount($eventUrl, $count);
+
+        // 確認
+        $this->assertEquals(new FacebookCount(500), $actual);
     }
 
 }

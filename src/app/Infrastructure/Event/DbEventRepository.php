@@ -7,6 +7,7 @@ use App\Domain\Event\Event;
 use App\Domain\Event\EventId;
 use App\Domain\Event\EventList;
 use App\Domain\Event\EventRepository;
+use App\Domain\Event\Rating\FacebookCount;
 use App\Domain\Event\Rating\TwitterCount;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
 use App\Infrastructure\Event\ORMapper\EventGeolocationORMapper;
@@ -99,6 +100,19 @@ class DbEventRepository implements EventRepository
     {
         $eventId = $this->getEventId($eventUrl);
         return $this->eventRatingORMapper->updateTwitterCount($eventId, $count);
+    }
+
+    /**
+     * イイネ数保存
+     *
+     * @param EventUrl $eventUrl
+     * @param FacebookCount $count
+     * @return FacebookCount
+     */
+    public function saveFacebookCount(EventUrl $eventUrl, FacebookCount $count)
+    {
+        $eventId = $this->getEventId($eventUrl);
+        return $this->eventRatingORMapper->updateFacebookCount($eventId, $count);
     }
 
     /**
