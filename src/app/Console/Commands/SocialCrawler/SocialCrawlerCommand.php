@@ -48,8 +48,9 @@ class SocialCrawlerCommand extends Command
         // それぞれのURLについて各ソーシャルサービスをクロール
         foreach ($eventUrlList->toArray() as $eventUrl) {
             $twitterCount = $this->twitterCrawlerApplication->crawl($eventUrl);
-            $this->info($twitterCount . ' : ' . $eventUrl);
+            //$this->info($twitterCount . ' : ' . $eventUrl);
         }
+        echo 'success';
     }
 
 }
