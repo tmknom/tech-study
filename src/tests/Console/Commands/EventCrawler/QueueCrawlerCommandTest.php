@@ -44,6 +44,9 @@ class QueueCrawlerCommandTest extends TestCase
 
         // 後始末：バッファリングした標準出力を破棄して終了
         ob_end_clean();
+
+        // 後始末：モック化を解除するためアプリケーションをリフレッシュ
+        $this->refreshApplication();
     }
 
 }
