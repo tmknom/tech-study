@@ -22,6 +22,7 @@ trait CrawlerCommand
 
     /**
      * コマンド呼び出し時に実行
+     * @return string
      */
     public function fire()
     {
@@ -32,13 +33,14 @@ trait CrawlerCommand
      * 実行時間の計測をしながら、クロール処理を実行
      *
      * @param CrawlerApplication $crawlerApplication
+     * @return string
      */
     private function executeWithMeasureTime(CrawlerApplication $crawlerApplication)
     {
         $startTime = microtime(true);
         $eventList = $crawlerApplication->crawl();
-        $resultTime = $eventList->count() . "件／実行時間" . number_format(microtime(true) - $startTime, 3) . '秒だぜぇ';
-        echo $resultTime;
+        $result = $eventList->count() . "件／実行時間" . number_format(microtime(true) - $startTime, 3) . '秒だぜぇ';
+        echo $result;
     }
 
 }
