@@ -14,7 +14,6 @@ class Kernel extends ConsoleKernel {
 	 * @var array
 	 */
 	protected $commands = [
-		'App\Console\Commands\Inspire',
 		AtndCrawlerCommand::class,
 		ConnpassCrawlerCommand::class,
 		SocialCrawlerCommand::class,
@@ -28,8 +27,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected function schedule(Schedule $schedule)
 	{
-		$schedule->command('inspire')
-				 ->hourly();
+            //
 	}
 
 }
