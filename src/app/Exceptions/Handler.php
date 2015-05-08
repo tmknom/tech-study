@@ -3,6 +3,11 @@
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+/**
+ * 全例外を処理する
+ *
+ * @codeCoverageIgnore
+ */
 class Handler extends ExceptionHandler {
 
 	/**
