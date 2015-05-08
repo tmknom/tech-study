@@ -15,14 +15,14 @@ class EventSeeder extends Seeder
         $event = TestEventBuilder::builder()->build();
         $defaultValue = array(
             'id' => 1,
-            'url' => $event->getEventCore()->getEventUrl()->getValue(),
-            'title' => $event->getEventCore()->getEventTitle()->getValue(),
+            'url' => $event->getEventCore()->getEventUrl(),
+            'title' => $event->getEventCore()->getEventTitle(),
             'start_date_time' => $event->getEventCore()->getStartDateTime()->formatDateTime(),
-            'source_type' => $event->getEventCore()->getSourceType()->getValue(),
-            'source_event_id' => $event->getEventDetail()->getSourceEventId()->getValue(),
-            'description' => $event->getEventDetail()->getEventDescription()->getValue(),
-            'catch_copy' => $event->getEventDetail()->getCatchCopy()->getValue(),
-            'owner_id' => $event->getEventDetail()->getOwnerId()->getValue(),
+            'source_type' => $event->getEventCore()->getSourceType(),
+            'source_event_id' => $event->getEventDetail()->getSourceEventId(),
+            'description' => $event->getEventDetail()->getEventDescription(),
+            'catch_copy' => $event->getEventDetail()->getCatchCopy(),
+            'owner_id' => $event->getEventDetail()->getOwnerId(),
         );
         DB::table(EventORMapper::TABLE_NAME)->insert($defaultValue);
     }
