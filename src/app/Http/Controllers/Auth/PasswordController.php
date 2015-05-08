@@ -5,6 +5,10 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
+/**
+ * ※注意！　実際にアプリケーションに組み込むときは「@codeCoverageIgnore」の記述を削除すること！！
+ * @codeCoverageIgnore
+ */
 class PasswordController extends Controller {
 
 	/*

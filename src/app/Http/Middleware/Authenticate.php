@@ -3,6 +3,10 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
+/**
+ * ※注意！　実際にアプリケーションに組み込むときは「@codeCoverageIgnore」の記述を削除すること！！
+ * @codeCoverageIgnore
+ */
 class Authenticate {
 
 	/**
