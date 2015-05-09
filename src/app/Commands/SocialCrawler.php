@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use App;
 use App\Application\SocialCrawler\SocialCrawlerApplication;
 use App\Commands\Command;
 use App\Domain\Event\Core\EventUrl;
@@ -16,8 +17,8 @@ class SocialCrawler extends Command implements SelfHandling, ShouldBeQueued
     use InteractsWithQueue,
         SerializesModels;
 
-    /** @var SocialCrawlerApplication */
-    private $socialCrawlerApplication;
+    /** @var string */
+    private $socialCrawlerApplicationClass;
 
     /** @var EventUrl */
     private $eventUrl;
@@ -25,12 +26,12 @@ class SocialCrawler extends Command implements SelfHandling, ShouldBeQueued
     /**
      * コンストラクタ
      *
-     * @param SocialCrawlerApplication $socialCrawlerApplication
+     * @param string $socialCrawlerApplicationClass
      * @param EventUrl $eventUrl
      */
-    public function __construct(SocialCrawlerApplication $socialCrawlerApplication, EventUrl $eventUrl)
+    public function __construct($socialCrawlerApplicationClass, EventUrl $eventUrl)
     {
-        $this->socialCrawlerApplication = $socialCrawlerApplication;
+        $this->socialCrawlerApplicationClass = $socialCrawlerApplicationClass;
         $this->eventUrl = $eventUrl;
     }
 
@@ -39,7 +40,8 @@ class SocialCrawler extends Command implements SelfHandling, ShouldBeQueued
      */
     public function handle()
     {
-        $this->socialCrawlerApplication->crawl($this->eventUrl);
+        $ratingCount = App::make($this->socialCrawlerApplicationClass)->crawl($this->eventUrl);
+        echo $this->socialCrawlerApplicationClass . ' : ' . $ratingCount . ' : ' . $this->eventUrl . PHP_EOL;
     }
 
 }

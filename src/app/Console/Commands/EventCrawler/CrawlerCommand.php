@@ -22,7 +22,6 @@ trait CrawlerCommand
 
     /**
      * コマンド呼び出し時に実行
-     * @return string
      */
     public function fire()
     {
@@ -33,7 +32,6 @@ trait CrawlerCommand
      * 実行時間の計測をしながら、クロール処理を実行
      *
      * @param CrawlerApplication $crawlerApplication
-     * @return string
      */
     private function executeWithMeasureTime(CrawlerApplication $crawlerApplication)
     {

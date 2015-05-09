@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Infrastructure\EventCrawler\Stub;
+namespace Tests\Fixture\Stub\Event;
 
 use App\Library\Http\JsonHttpClient;
 
-class AtndJsonHttpClient implements JsonHttpClient
+class ConnpassJsonHttpClient implements JsonHttpClient
 {
 
-    const FIXTURE_PATH = '/tests/Fixture/Response/Event/Atnd/test.json';
+    const FIXTURE_PATH = '/tests/Fixture/Response/Event/Connpass/test.json';
 
     public function request($url)
     {

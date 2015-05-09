@@ -6,7 +6,7 @@ use App\Application\EventCrawler\AtndCrawlerApplication;
 use App\Console\Commands\EventCrawler\AtndCrawlerCommand;
 use App\Library\Http\JsonHttpClient;
 use Tests\Base\TestCase;
-use Tests\Infrastructure\EventCrawler\Stub\AtndJsonHttpClient;
+use Tests\Fixture\Stub\Event\AtndJsonHttpClient;
 
 class AtndCrawlerCommandTest extends TestCase
 {

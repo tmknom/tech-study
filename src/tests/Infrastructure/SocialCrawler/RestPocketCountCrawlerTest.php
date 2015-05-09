@@ -3,21 +3,21 @@
 namespace Tests\Infrastructure\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Rating\RatingCount\TwitterCount;
-use App\Infrastructure\SocialCrawler\RestTwitterCountCrawler;
+use App\Domain\Rating\RatingCount\PocketCount;
+use App\Infrastructure\SocialCrawler\RestPocketCountCrawler;
 use PHPUnit_Framework_TestCase;
-use Tests\Fixture\Stub\Social\Twitter\TwitterJsonHttpClient;
+use Tests\Fixture\Stub\Social\Pocket\PocketHttpClient;
 
-class RestTwitterCountCrawlerTest extends PHPUnit_Framework_TestCase
+class RestPocketCountCrawlerTest extends PHPUnit_Framework_TestCase
 {
 
-    /** @var RestTwitterCountCrawler */
+    /** @var RestPocketCountCrawler */
     private $sut;
 
     /** @before */
     public function setUp()
     {
-        $this->sut = new RestTwitterCountCrawler(new TwitterJsonHttpClient());
+        $this->sut = new RestPocketCountCrawler(new PocketHttpClient());
     }
 
     /** @test */
@@ -30,7 +30,7 @@ class RestTwitterCountCrawlerTest extends PHPUnit_Framework_TestCase
         $actual = $this->sut->crawl($eventUrl);
 
         // 確認
-        $this->assertEquals(new TwitterCount(50), $actual);
+        $this->assertEquals(new PocketCount(200), $actual);
     }
 
 }

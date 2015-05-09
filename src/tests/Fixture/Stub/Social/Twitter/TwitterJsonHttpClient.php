@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\SocialCrawler\Stub;
+namespace Tests\Fixture\Stub\Social\Twitter;
 
 use App\Library\Http\JsonHttpClient;
 

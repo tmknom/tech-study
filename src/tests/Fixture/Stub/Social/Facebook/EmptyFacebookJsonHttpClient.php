@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Infrastructure\EventCrawler\Stub;
+namespace Tests\Fixture\Stub\Social\Facebook;
 
 use App\Library\Http\JsonHttpClient;
 
-class ConnpassJsonHttpClient implements JsonHttpClient
+class EmptyFacebookJsonHttpClient implements JsonHttpClient
 {
 
-    const FIXTURE_PATH = '/tests/Fixture/Response/Event/Connpass/test.json';
+    const FIXTURE_PATH = '/tests/Fixture/Response/Social/Facebook/empty.json';
 
     public function request($url)
     {

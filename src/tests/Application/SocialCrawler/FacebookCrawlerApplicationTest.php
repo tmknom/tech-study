@@ -9,7 +9,7 @@ use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventRatingSeeder;
 use Tests\Fixture\Seeder\EventSeeder;
-use Tests\Infrastructure\SocialCrawler\Stub\Facebook\FacebookJsonHttpClient;
+use Tests\Fixture\Stub\Social\Facebook\FacebookJsonHttpClient;
 
 class FacebookCrawlerApplicationTest extends TestCase
 {

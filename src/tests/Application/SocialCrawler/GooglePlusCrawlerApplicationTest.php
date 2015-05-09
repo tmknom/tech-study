@@ -2,19 +2,19 @@
 
 namespace Tests\Application\SocialCrawler;
 
-use App\Application\SocialCrawler\TwitterCrawlerApplication;
-use App\Domain\Rating\RatingCount\TwitterCount;
-use App\Library\Http\JsonHttpClient;
+use App\Application\SocialCrawler\GooglePlusCrawlerApplication;
+use App\Domain\Rating\RatingCount\GooglePlusCount;
+use App\Library\Http\HttpClient;
 use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventRatingSeeder;
 use Tests\Fixture\Seeder\EventSeeder;
-use Tests\Fixture\Stub\Social\Twitter\TwitterJsonHttpClient;
+use Tests\Fixture\Stub\Social\GooglePlus\GooglePlusHttpClient;
 
-class TwitterCrawlerApplicationTest extends TestCase
+class GooglePlusCrawlerApplicationTest extends TestCase
 {
 
-    /** @var TwitterCrawlerApplication */
+    /** @var GooglePlusCrawlerApplication */
     private $sut;
 
     /** @before */
@@ -22,8 +22,8 @@ class TwitterCrawlerApplicationTest extends TestCase
     {
         parent::setUp();
 
-        $this->app->bind(JsonHttpClient::class, TwitterJsonHttpClient::class);
-        $this->sut = $this->app->make(TwitterCrawlerApplication::class);
+        $this->app->bind(HttpClient::class, GooglePlusHttpClient::class);
+        $this->sut = $this->app->make(GooglePlusCrawlerApplication::class);
     }
 
     /** @test */
@@ -40,7 +40,7 @@ class TwitterCrawlerApplicationTest extends TestCase
         $actual = $this->sut->crawl($eventUrl);
 
         // 確認
-        $this->assertEquals(new TwitterCount(50), $actual);
+        $this->assertEquals(new GooglePlusCount(40), $actual);
     }
 
 }

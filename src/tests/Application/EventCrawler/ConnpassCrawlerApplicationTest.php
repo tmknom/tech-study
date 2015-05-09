@@ -6,7 +6,7 @@ use App\Application\EventCrawler\ConnpassCrawlerApplication;
 use App\Domain\Event\EventList;
 use App\Library\Http\JsonHttpClient;
 use Tests\Base\TestCase;
-use Tests\Infrastructure\EventCrawler\Stub\ConnpassJsonHttpClient;
+use Tests\Fixture\Stub\Event\ConnpassJsonHttpClient;
 
 class ConnpassCrawlerApplicationTest extends TestCase
 {

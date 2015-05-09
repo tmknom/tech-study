@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\SocialCrawler\Stub\Facebook;
+namespace Tests\Fixture\Stub\Social\Facebook;
 
 use App\Library\Http\JsonHttpClient;
 

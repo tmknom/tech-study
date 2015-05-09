@@ -6,6 +6,9 @@ use App\Application\EventCrawler\AtndCrawlerApplication;
 use App\Application\EventCrawler\ConnpassCrawlerApplication;
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
+use App\Application\SocialCrawler\GooglePlusCrawlerApplication;
+use App\Application\SocialCrawler\HatenaBookmarkCrawlerApplication;
+use App\Application\SocialCrawler\PocketCrawlerApplication;
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +30,9 @@ class ApplicationServiceProvider extends ServiceProvider
 
         $this->app->bindif(TwitterCrawlerApplication::class, TwitterCrawlerApplication::class);
         $this->app->bindif(FacebookCrawlerApplication::class, FacebookCrawlerApplication::class);
+        $this->app->bindif(HatenaBookmarkCrawlerApplication::class, HatenaBookmarkCrawlerApplication::class);
+        $this->app->bindif(PocketCrawlerApplication::class, PocketCrawlerApplication::class);
+        $this->app->bindif(GooglePlusCrawlerApplication::class, GooglePlusCrawlerApplication::class);
 
         $this->app->bindif(EventUrlListReferenceApplication::class, EventUrlListReferenceApplication::class);
     }

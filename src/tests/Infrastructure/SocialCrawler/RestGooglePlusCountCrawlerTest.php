@@ -3,21 +3,21 @@
 namespace Tests\Infrastructure\SocialCrawler;
 
 use App\Domain\Event\Core\EventUrl;
-use App\Domain\Rating\RatingCount\TwitterCount;
-use App\Infrastructure\SocialCrawler\RestTwitterCountCrawler;
+use App\Domain\Rating\RatingCount\GooglePlusCount;
+use App\Infrastructure\SocialCrawler\RestGooglePlusCountCrawler;
 use PHPUnit_Framework_TestCase;
-use Tests\Fixture\Stub\Social\Twitter\TwitterJsonHttpClient;
+use Tests\Fixture\Stub\Social\GooglePlus\GooglePlusHttpClient;
 
-class RestTwitterCountCrawlerTest extends PHPUnit_Framework_TestCase
+class RestGooglePlusCountCrawlerTest extends PHPUnit_Framework_TestCase
 {
 
-    /** @var RestTwitterCountCrawler */
+    /** @var RestGooglePlusCountCrawler */
     private $sut;
 
     /** @before */
     public function setUp()
     {
-        $this->sut = new RestTwitterCountCrawler(new TwitterJsonHttpClient());
+        $this->sut = new RestGooglePlusCountCrawler(new GooglePlusHttpClient());
     }
 
     /** @test */
@@ -30,7 +30,7 @@ class RestTwitterCountCrawlerTest extends PHPUnit_Framework_TestCase
         $actual = $this->sut->crawl($eventUrl);
 
         // 確認
-        $this->assertEquals(new TwitterCount(50), $actual);
+        $this->assertEquals(new GooglePlusCount(40), $actual);
     }
 
 }

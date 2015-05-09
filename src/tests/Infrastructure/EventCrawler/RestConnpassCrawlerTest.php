@@ -7,7 +7,7 @@ use App\Domain\Event\EventList;
 use App\Infrastructure\EventCrawler\RestConnpassCrawler;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\EventDispatcher\Event;
-use Tests\Infrastructure\EventCrawler\Stub\ConnpassJsonHttpClient;
+use Tests\Fixture\Stub\Event\ConnpassJsonHttpClient;
 
 class RestConnpassCrawlerTest extends PHPUnit_Framework_TestCase
 {
