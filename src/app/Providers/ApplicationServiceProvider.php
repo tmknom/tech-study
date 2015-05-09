@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Application\EventCrawler\AtndCrawlerApplication;
 use App\Application\EventCrawler\ConnpassCrawlerApplication;
+use App\Application\EventCrawler\DoorkeeperCrawlerApplication;
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
 use App\Application\SocialCrawler\GooglePlusCrawlerApplication;
@@ -27,6 +28,7 @@ class ApplicationServiceProvider extends ServiceProvider
     {
         $this->app->bindif(AtndCrawlerApplication::class, AtndCrawlerApplication::class);
         $this->app->bindif(ConnpassCrawlerApplication::class, ConnpassCrawlerApplication::class);
+        $this->app->bindif(DoorkeeperCrawlerApplication::class, DoorkeeperCrawlerApplication::class);
 
         $this->app->bindif(TwitterCrawlerApplication::class, TwitterCrawlerApplication::class);
         $this->app->bindif(FacebookCrawlerApplication::class, FacebookCrawlerApplication::class);

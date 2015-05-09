@@ -33,7 +33,8 @@ $ cd src && composer update --prefer-source --no-interaction
 ### テスト実行方法
 
 ```bash
-$ src/vendor/bin/phpunit
+$ cd src
+$ vendor/bin/phpunit
 ```
 
 ### DBマイグレーション＆初期化

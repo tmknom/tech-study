@@ -4,6 +4,7 @@ namespace Tests\Console\Commands\EventCrawler;
 
 use App\Console\Commands\EventCrawler\AtndCrawlerCommand;
 use App\Console\Commands\EventCrawler\ConnpassCrawlerCommand;
+use App\Console\Commands\EventCrawler\DoorkeeperCrawlerCommand;
 use App\Console\Commands\EventCrawler\QueueCrawlerCommand;
 use Artisan;
 use Mockery;
@@ -32,6 +33,7 @@ class QueueCrawlerCommandTest extends TestCase
         // 事前準備：コマンド呼び出し部分をモック化／それぞれのコマンドが一度しか呼ばれていないことも同時に確認
         Artisan::shouldReceive('call')->times(1)->with(AtndCrawlerCommand::COMMAND_NAME);
         Artisan::shouldReceive('call')->times(1)->with(ConnpassCrawlerCommand::COMMAND_NAME);
+        Artisan::shouldReceive('call')->times(1)->with(DoorkeeperCrawlerCommand::COMMAND_NAME);
 
         // 事前準備：コマンド呼び出し部分をモック化／上記以外のコマンドが呼ばれてないことも同時を確認
         Artisan::shouldReceive('call')->times(0)->with(Mockery::any());
