@@ -6,6 +6,7 @@ use App\Domain\Event\EventRepository;
 use App\Domain\EventCrawler\AtndCrawler;
 use App\Domain\EventCrawler\ConnpassCrawler;
 use App\Domain\EventUrlList\EventUrlListRepository;
+use App\Domain\Rating\Repository\FacebookRatingRepository;
 use App\Domain\Rating\Repository\TwitterRatingRepository;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
@@ -13,6 +14,7 @@ use App\Infrastructure\Event\DbEventRepository;
 use App\Infrastructure\EventCrawler\RestAtndCrawler;
 use App\Infrastructure\EventCrawler\RestConnpassCrawler;
 use App\Infrastructure\EventUrlList\DbEventUrlListRepository;
+use App\Infrastructure\Rating\Repository\DbFacebookRatingRepository;
 use App\Infrastructure\Rating\Repository\DbTwitterRatingRepository;
 use App\Infrastructure\SocialCrawler\RestFacebookCountCrawler;
 use App\Infrastructure\SocialCrawler\RestTwitterCountCrawler;
@@ -35,6 +37,7 @@ class DomainServiceProvider extends ServiceProvider
         $this->app->bindif(EventUrlListRepository::class, DbEventUrlListRepository::class);
 
         $this->app->bindif(TwitterRatingRepository::class, DbTwitterRatingRepository::class);
+        $this->app->bindif(FacebookRatingRepository::class, DbFacebookRatingRepository::class);
 
         $this->app->bindif(AtndCrawler::class, RestAtndCrawler::class);
         $this->app->bindif(ConnpassCrawler::class, RestConnpassCrawler::class);
