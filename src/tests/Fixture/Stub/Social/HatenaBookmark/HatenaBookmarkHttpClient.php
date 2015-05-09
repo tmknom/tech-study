@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Infrastructure\SocialCrawler\Stub\HatenaBookmark;
+namespace Tests\Fixture\Stub\Social\HatenaBookmark;
 
 use App\Library\Http\HttpClient;
 

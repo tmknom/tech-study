@@ -6,7 +6,7 @@ use App\Domain\Event\Core\EventUrl;
 use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Infrastructure\SocialCrawler\RestTwitterCountCrawler;
 use PHPUnit_Framework_TestCase;
-use Tests\Infrastructure\SocialCrawler\Stub\TwitterJsonHttpClient;
+use Tests\Fixture\Stub\Social\Twitter\TwitterJsonHttpClient;
 
 class RestTwitterCountCrawlerTest extends PHPUnit_Framework_TestCase
 {

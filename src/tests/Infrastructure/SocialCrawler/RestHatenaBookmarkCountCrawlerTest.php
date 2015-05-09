@@ -6,8 +6,8 @@ use App\Domain\Event\Core\EventUrl;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
 use App\Infrastructure\SocialCrawler\RestHatenaBookmarkCountCrawler;
 use PHPUnit_Framework_TestCase;
-use Tests\Infrastructure\SocialCrawler\Stub\HatenaBookmark\EmptyHatenaBookmarkHttpClient;
-use Tests\Infrastructure\SocialCrawler\Stub\HatenaBookmark\HatenaBookmarkHttpClient;
+use Tests\Fixture\Stub\Social\HatenaBookmark\EmptyHatenaBookmarkHttpClient;
+use Tests\Fixture\Stub\Social\HatenaBookmark\HatenaBookmarkHttpClient;
 
 class RestHatenaBookmarkCountCrawlerTest extends PHPUnit_Framework_TestCase
 {

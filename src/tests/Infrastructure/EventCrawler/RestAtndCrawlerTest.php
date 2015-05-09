@@ -7,7 +7,7 @@ use App\Domain\Event\EventList;
 use App\Infrastructure\EventCrawler\RestAtndCrawler;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\EventDispatcher\Event;
-use Tests\Infrastructure\EventCrawler\Stub\AtndJsonHttpClient;
+use Tests\Fixture\Stub\Event\AtndJsonHttpClient;
 
 class RestAtndCrawlerTest extends PHPUnit_Framework_TestCase
 {

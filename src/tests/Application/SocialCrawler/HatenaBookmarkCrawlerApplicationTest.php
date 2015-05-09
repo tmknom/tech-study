@@ -9,7 +9,7 @@ use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventRatingSeeder;
 use Tests\Fixture\Seeder\EventSeeder;
-use Tests\Infrastructure\SocialCrawler\Stub\HatenaBookmark\HatenaBookmarkHttpClient;
+use Tests\Fixture\Stub\Social\HatenaBookmark\HatenaBookmarkHttpClient;
 
 class HatenaBookmarkCrawlerApplicationTest extends TestCase
 {

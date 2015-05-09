@@ -9,7 +9,7 @@ use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventRatingSeeder;
 use Tests\Fixture\Seeder\EventSeeder;
-use Tests\Infrastructure\SocialCrawler\Stub\TwitterJsonHttpClient;
+use Tests\Fixture\Stub\Social\Twitter\TwitterJsonHttpClient;
 
 class TwitterCrawlerApplicationTest extends TestCase
 {
