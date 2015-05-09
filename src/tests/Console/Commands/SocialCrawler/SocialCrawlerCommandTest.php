@@ -7,9 +7,11 @@ use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
+use App\Domain\Rating\RatingCount\PocketCount;
 use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
 use App\Domain\SocialCrawler\HatenaBookmarkCountCrawler;
+use App\Domain\SocialCrawler\PocketCountCrawler;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
 use Tests\Base\TestCase;
 use Tests\Fixture\Seeder\EventRatingSeeder;
@@ -29,6 +31,7 @@ class SocialCrawlerCommandTest extends TestCase
         $this->app->bind(TwitterCountCrawler::class, StubTwitterCountCrawler::class);
         $this->app->bind(FacebookCountCrawler::class, StubFacebookCountCrawler::class);
         $this->app->bind(HatenaBookmarkCountCrawler::class, StubHatenaBookmarkCountCrawler::class);
+        $this->app->bind(PocketCountCrawler::class, StubPocketCountCrawler::class);
 
         $eventUrlListReferenceApplication = $this->app->make(EventUrlListReferenceApplication::class);
         $this->sut = new SocialCrawlerCommand($eventUrlListReferenceApplication);
@@ -61,7 +64,7 @@ class StubTwitterCountCrawler implements TwitterCountCrawler
 
     public function crawl(EventUrl $eventUrl)
     {
-        return new TwitterCount(0);
+        return new TwitterCount(100);
     }
 
 }
@@ -71,7 +74,7 @@ class StubFacebookCountCrawler implements FacebookCountCrawler
 
     public function crawl(EventUrl $eventUrl)
     {
-        return new FacebookCount(0);
+        return new FacebookCount(200);
     }
 
 }
@@ -81,7 +84,17 @@ class StubHatenaBookmarkCountCrawler implements HatenaBookmarkCountCrawler
 
     public function crawl(EventUrl $eventUrl)
     {
-        return new HatenaBookmarkCount(0);
+        return new HatenaBookmarkCount(300);
+    }
+
+}
+
+class StubPocketCountCrawler implements PocketCountCrawler
+{
+
+    public function crawl(EventUrl $eventUrl)
+    {
+        return new PocketCount(400);
     }
 
 }
