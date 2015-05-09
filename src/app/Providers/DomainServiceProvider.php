@@ -7,6 +7,7 @@ use App\Domain\EventCrawler\AtndCrawler;
 use App\Domain\EventCrawler\ConnpassCrawler;
 use App\Domain\EventUrlList\EventUrlListRepository;
 use App\Domain\Rating\Repository\FacebookRatingRepository;
+use App\Domain\Rating\Repository\GooglePlusRatingRepository;
 use App\Domain\Rating\Repository\HatenaBookmarkRatingRepository;
 use App\Domain\Rating\Repository\PocketRatingRepository;
 use App\Domain\Rating\Repository\TwitterRatingRepository;
@@ -20,6 +21,7 @@ use App\Infrastructure\EventCrawler\RestAtndCrawler;
 use App\Infrastructure\EventCrawler\RestConnpassCrawler;
 use App\Infrastructure\EventUrlList\DbEventUrlListRepository;
 use App\Infrastructure\Rating\Repository\DbFacebookRatingRepository;
+use App\Infrastructure\Rating\Repository\DbGooglePlusRatingRepository;
 use App\Infrastructure\Rating\Repository\DbHatenaBookmarkRatingRepository;
 use App\Infrastructure\Rating\Repository\DbPocketRatingRepository;
 use App\Infrastructure\Rating\Repository\DbTwitterRatingRepository;
@@ -50,6 +52,7 @@ class DomainServiceProvider extends ServiceProvider
         $this->app->bindif(FacebookRatingRepository::class, DbFacebookRatingRepository::class);
         $this->app->bindif(HatenaBookmarkRatingRepository::class, DbHatenaBookmarkRatingRepository::class);
         $this->app->bindif(PocketRatingRepository::class, DbPocketRatingRepository::class);
+        $this->app->bindif(GooglePlusRatingRepository::class, DbGooglePlusRatingRepository::class);
 
         $this->app->bindif(AtndCrawler::class, RestAtndCrawler::class);
         $this->app->bindif(ConnpassCrawler::class, RestConnpassCrawler::class);
