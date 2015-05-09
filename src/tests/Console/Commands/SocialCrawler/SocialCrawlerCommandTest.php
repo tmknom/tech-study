@@ -3,13 +3,13 @@
 namespace Tests\Console\Commands\SocialCrawler;
 
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
-use App\Application\SocialCrawler\FacebookCrawlerApplication;
-use App\Application\SocialCrawler\TwitterCrawlerApplication;
 use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
 use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
+use App\Domain\SocialCrawler\HatenaBookmarkCountCrawler;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
 use Tests\Base\TestCase;
 use Tests\Fixture\Seeder\EventRatingSeeder;
@@ -28,13 +28,10 @@ class SocialCrawlerCommandTest extends TestCase
 
         $this->app->bind(TwitterCountCrawler::class, StubTwitterCountCrawler::class);
         $this->app->bind(FacebookCountCrawler::class, StubFacebookCountCrawler::class);
+        $this->app->bind(HatenaBookmarkCountCrawler::class, StubHatenaBookmarkCountCrawler::class);
 
         $eventUrlListReferenceApplication = $this->app->make(EventUrlListReferenceApplication::class);
-        $crawlerApplication = $this->app->make(TwitterCrawlerApplication::class);
-        $facebookCrawlerApplication = $this->app->make(FacebookCrawlerApplication::class);
-
-        $this->sut = new SocialCrawlerCommand($eventUrlListReferenceApplication, $crawlerApplication,
-                                              $facebookCrawlerApplication);
+        $this->sut = new SocialCrawlerCommand($eventUrlListReferenceApplication);
     }
 
     /** @test */
@@ -75,6 +72,16 @@ class StubFacebookCountCrawler implements FacebookCountCrawler
     public function crawl(EventUrl $eventUrl)
     {
         return new FacebookCount(0);
+    }
+
+}
+
+class StubHatenaBookmarkCountCrawler implements HatenaBookmarkCountCrawler
+{
+
+    public function crawl(EventUrl $eventUrl)
+    {
+        return new HatenaBookmarkCount(0);
     }
 
 }
