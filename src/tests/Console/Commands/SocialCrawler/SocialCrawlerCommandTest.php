@@ -57,7 +57,7 @@ class SocialCrawlerCommandTest extends TestCase
         $this->assertEquals('crawler:social', $this->sut->getName());
         // 確認＆後始末：バッファリングした標準出力を取得して、バッファリングは終了
         $actual = ob_get_clean();
-        $this->assertStringEndsWith('success', $actual);
+        $this->assertStringEndsWith('{"result":"success"}' . PHP_EOL, $actual);
     }
 
 }
