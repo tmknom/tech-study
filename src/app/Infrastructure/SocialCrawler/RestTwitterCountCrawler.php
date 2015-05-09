@@ -29,7 +29,6 @@ class RestTwitterCountCrawler implements TwitterCountCrawler
     public function crawl(EventUrl $eventUrl)
     {
         $json = $this->jsonHttpClient->request(self::URL . $eventUrl->urlEncode());
-
         return new TwitterCount($this->getCount($json));
     }
 
