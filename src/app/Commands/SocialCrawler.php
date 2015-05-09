@@ -41,7 +41,13 @@ class SocialCrawler extends Command implements SelfHandling, ShouldBeQueued
     public function handle()
     {
         $ratingCount = App::make($this->socialCrawlerApplicationClass)->crawl($this->eventUrl);
-        echo $this->socialCrawlerApplicationClass . ' : ' . $ratingCount . ' : ' . $this->eventUrl . PHP_EOL;
+        $type = str_replace('CrawlerApplication', '',
+                              array_slice(explode('\\', $this->socialCrawlerApplicationClass), -1)[0]);
+        echo json_encode([
+            'rate' => $ratingCount->__toString(),
+            'url' => $this->eventUrl->__toString(),
+            'type' => $type,
+        ]) . PHP_EOL;
     }
 
 }

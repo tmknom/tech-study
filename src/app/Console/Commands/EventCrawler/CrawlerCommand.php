@@ -37,8 +37,8 @@ trait CrawlerCommand
     {
         $startTime = microtime(true);
         $eventList = $crawlerApplication->crawl();
-        $result = $eventList->count() . "件／実行時間" . number_format(microtime(true) - $startTime, 3) . '秒だぜぇ';
-        echo $result;
+        $executeTime = number_format(microtime(true) - $startTime, 3);
+        echo json_encode(['event_count' => $eventList->count(), 'execute_time' => $executeTime]) . PHP_EOL;
     }
 
 }

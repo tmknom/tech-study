@@ -56,7 +56,7 @@ class SocialCrawlerCommand extends Command
             $this->crawlByQueue(PocketCrawlerApplication::class, $eventUrl);
             $this->crawlByQueue(GooglePlusCrawlerApplication::class, $eventUrl);
         }
-        echo 'success';
+        echo json_encode(['result' => 'success']) . PHP_EOL;
     }
 
     /**
