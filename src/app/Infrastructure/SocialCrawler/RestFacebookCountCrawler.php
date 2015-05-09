@@ -29,15 +29,21 @@ class RestFacebookCountCrawler implements FacebookCountCrawler
     public function crawl(EventUrl $eventUrl)
     {
         $json = $this->jsonHttpClient->request(self::URL . $eventUrl->urlEncode());
+        return new FacebookCount($this->getCount($json));
+    }
 
+    /**
+     * @param array $json
+     * @return int
+     */
+    private function getCount($json)
+    {
         // FacebookAPIは、一度もイイネされてない、URLに対しては、イイネ数のキー"shares"自体を返さない
         // なので、まずはキーが存在するかチェックする必要がある
-        $count = 0;
         if (array_key_exists('shares', $json)) {
-            $count = $json["shares"];
+            return $json["shares"];
         }
-
-        return new FacebookCount($count);
+        return 0;
     }
 
 }
