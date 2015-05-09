@@ -3,18 +3,19 @@
 namespace Tests\Infrastructure\Rating\Repository;
 
 use App\Domain\Event\Core\EventUrl;
+use App\Domain\Rating\RatingCount\FacebookCount;
 use App\Domain\Rating\RatingCount\TwitterCount;
-use App\Infrastructure\Rating\Repository\DbTwitterRatingRepository;
+use App\Infrastructure\Rating\Repository\DbFacebookRatingRepository;
 use InvalidArgumentException;
 use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventRatingSeeder;
 use Tests\Fixture\Seeder\EventSeeder;
 
-class DbTwitterRatingRepositoryTest extends TestCase
+class DbFacebookRatingRepositoryTest extends TestCase
 {
 
-    /** @var DbTwitterRatingRepository */
+    /** @var DbFacebookRatingRepository */
     private $sut;
 
     /** @before */
@@ -23,7 +24,7 @@ class DbTwitterRatingRepositoryTest extends TestCase
         parent::setUp();
 
         // テスト対象のオブジェクト作成
-        $this->sut = new DbTwitterRatingRepository();
+        $this->sut = new DbFacebookRatingRepository();
     }
 
     /** @test */
@@ -34,14 +35,14 @@ class DbTwitterRatingRepositoryTest extends TestCase
         $this->seed(EventRatingSeeder::class);
 
         // 事前準備
-        $ratingCount = new TwitterCount(800);
+        $ratingCount = new FacebookCount(800);
         $eventUrl = TestEventBuilder::builder()->build()->getEventCore()->getEventUrl();
 
         // 実行
         $actual = $this->sut->save($eventUrl, $ratingCount);
 
         // 確認
-        $this->assertEquals(new TwitterCount(800), $actual);
+        $this->assertEquals(new FacebookCount(800), $actual);
     }
 
     /**
@@ -55,7 +56,7 @@ class DbTwitterRatingRepositoryTest extends TestCase
         $this->seed(EventRatingSeeder::class);
 
         // 事前準備
-        $ratingCount = new TwitterCount(800);
+        $ratingCount = new FacebookCount(800);
         $eventUrl = new EventUrl('http://localhost/not-registered');
 
         // 実行
@@ -66,7 +67,7 @@ class DbTwitterRatingRepositoryTest extends TestCase
      * @test
      * @expectedException InvalidArgumentException
      */
-    public function save_異常系_TwitterCount以外が引数に渡された場合()
+    public function save_異常系_FacebookCount以外が引数に渡された場合()
     {
         // 事前準備
         $ratingCount = new TestRatingCount(800);
