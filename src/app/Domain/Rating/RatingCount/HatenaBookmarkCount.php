@@ -10,7 +10,4 @@ class HatenaBookmarkCount implements RatingCount
 
     use ValueObject;
 
-    /** @var int */
-    private $value;
-
 }

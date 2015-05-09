@@ -10,7 +10,4 @@ class FacebookCount implements RatingCount
 
     use ValueObject;
 
-    /** @var int */
-    private $value;
-
 }

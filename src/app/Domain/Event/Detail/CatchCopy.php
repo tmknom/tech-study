@@ -9,7 +9,4 @@ class CatchCopy
 
     use ValueObject;
 
-    /** @var string */
-    private $value;
-
 }

@@ -11,7 +11,7 @@ class StartDateTime
     use ValueObject;
 
     /** @var DateTimeImmutable */
-    private $value;
+    //private $value;
 
     /**
      * コンストラクタ

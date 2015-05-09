@@ -7,6 +7,9 @@ trait ValueObject
 
     use \App\Library\Fundamental\OneArgumentCompleteConstructor;
 
+    /** @var mixed */
+    private $value;
+
     /**
      * コンストラクタ
      *

@@ -9,7 +9,4 @@ class Place
 
     use ValueObject;
 
-    /** @var string */
-    private $value;
-
 }

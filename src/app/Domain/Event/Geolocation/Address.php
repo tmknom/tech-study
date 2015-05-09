@@ -9,9 +9,6 @@ class Address
 
     use ValueObject;
 
-    /** @var string */
-    private $value;
-
     /**
      * 東京かどうか判定する
      *

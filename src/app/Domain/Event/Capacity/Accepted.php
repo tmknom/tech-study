@@ -9,7 +9,4 @@ class Accepted
 
     use ValueObject;
 
-    /** @var int */
-    private $value;
-
 }

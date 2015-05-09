@@ -16,9 +16,6 @@ class RegionCode
 
     const UNDEFINED = 0;
 
-    /** @var int */
-    private $value;
-
     /*
       private $codeArray = array(
       "0" => "未定義",

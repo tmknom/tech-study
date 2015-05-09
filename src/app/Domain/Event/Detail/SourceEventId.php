@@ -9,7 +9,4 @@ class SourceEventId
 
     use ValueObject;
 
-    /** @var string */
-    private $value;
-
 }

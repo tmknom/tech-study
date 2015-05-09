@@ -9,7 +9,4 @@ class EventDescription
 
     use ValueObject;
 
-    /** @var string */
-    private $value;
-
 }

@@ -9,7 +9,4 @@ class EventId
 
     use Identifier;
 
-    /** @var int */
-    private $value;
-
 }

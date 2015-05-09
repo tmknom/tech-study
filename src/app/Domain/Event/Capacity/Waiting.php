@@ -9,7 +9,4 @@ class Waiting
 
     use ValueObject;
 
-    /** @var int */
-    private $value;
-
 }

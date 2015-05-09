@@ -9,7 +9,4 @@ class OwnerId
 
     use ValueObject;
 
-    /** @var string */
-    private $value;
-
 }
