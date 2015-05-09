@@ -29,6 +29,7 @@ class QueueCrawlerCommand extends Command
         $this->executeCommandByQueue(ConnpassCrawlerCommand::COMMAND_NAME);
         $this->executeCommandByQueue(DoorkeeperCrawlerCommand::COMMAND_NAME);
         $this->executeCommandByQueue(ZusaarCrawlerCommand::COMMAND_NAME);
+        $this->executeCommandByQueue(PartakeCrawlerCommand::COMMAND_NAME);
         echo json_encode(['result' => 'success']) . PHP_EOL;
     }
 
