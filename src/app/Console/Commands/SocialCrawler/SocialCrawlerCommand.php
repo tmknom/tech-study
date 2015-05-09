@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands\SocialCrawler;
 
-use App;
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
 use App\Application\SocialCrawler\HatenaBookmarkCrawlerApplication;
@@ -59,13 +58,12 @@ class SocialCrawlerCommand extends Command
     /**
      * キュー経由でクロール処理実行
      *
-     * @param string $class
+     * @param string $socialCrawlerApplicationClass
      * @param EventUrl $eventUrl
      */
-    private function crawlByQueue($class, EventUrl $eventUrl)
+    private function crawlByQueue($socialCrawlerApplicationClass, EventUrl $eventUrl)
     {
-        $socialCrawlerApplication = App::make($class);
-        $this->dispatch(new SocialCrawler($socialCrawlerApplication, $eventUrl));
+        $this->dispatch(new SocialCrawler($socialCrawlerApplicationClass, $eventUrl));
     }
 
 }

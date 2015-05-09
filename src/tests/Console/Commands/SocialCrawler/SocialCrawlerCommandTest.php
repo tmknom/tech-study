@@ -51,7 +51,7 @@ class SocialCrawlerCommandTest extends TestCase
         $this->assertEquals('crawler:social', $this->sut->getName());
         // 確認＆後始末：バッファリングした標準出力を取得して、バッファリングは終了
         $actual = ob_get_clean();
-        $this->assertEquals('success', $actual);
+        $this->assertStringEndsWith('success', $actual);
     }
 
 }
