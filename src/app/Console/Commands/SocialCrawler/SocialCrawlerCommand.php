@@ -4,6 +4,7 @@ namespace App\Console\Commands\SocialCrawler;
 
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
+use App\Application\SocialCrawler\GooglePlusCrawlerApplication;
 use App\Application\SocialCrawler\HatenaBookmarkCrawlerApplication;
 use App\Application\SocialCrawler\PocketCrawlerApplication;
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
@@ -53,6 +54,7 @@ class SocialCrawlerCommand extends Command
             $this->crawlByQueue(FacebookCrawlerApplication::class, $eventUrl);
             $this->crawlByQueue(HatenaBookmarkCrawlerApplication::class, $eventUrl);
             $this->crawlByQueue(PocketCrawlerApplication::class, $eventUrl);
+            $this->crawlByQueue(GooglePlusCrawlerApplication::class, $eventUrl);
         }
         echo 'success';
     }

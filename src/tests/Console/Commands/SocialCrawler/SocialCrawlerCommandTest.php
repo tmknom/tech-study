@@ -6,10 +6,12 @@ use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
 use App\Domain\Event\Core\EventUrl;
 use App\Domain\Rating\RatingCount\FacebookCount;
+use App\Domain\Rating\RatingCount\GooglePlusCount;
 use App\Domain\Rating\RatingCount\HatenaBookmarkCount;
 use App\Domain\Rating\RatingCount\PocketCount;
 use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
+use App\Domain\SocialCrawler\GooglePlusCountCrawler;
 use App\Domain\SocialCrawler\HatenaBookmarkCountCrawler;
 use App\Domain\SocialCrawler\PocketCountCrawler;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
@@ -32,6 +34,7 @@ class SocialCrawlerCommandTest extends TestCase
         $this->app->bind(FacebookCountCrawler::class, StubFacebookCountCrawler::class);
         $this->app->bind(HatenaBookmarkCountCrawler::class, StubHatenaBookmarkCountCrawler::class);
         $this->app->bind(PocketCountCrawler::class, StubPocketCountCrawler::class);
+        $this->app->bind(GooglePlusCountCrawler::class, StubGooglePlusCountCrawler::class);
 
         $eventUrlListReferenceApplication = $this->app->make(EventUrlListReferenceApplication::class);
         $this->sut = new SocialCrawlerCommand($eventUrlListReferenceApplication);
@@ -95,6 +98,16 @@ class StubPocketCountCrawler implements PocketCountCrawler
     public function crawl(EventUrl $eventUrl)
     {
         return new PocketCount(400);
+    }
+
+}
+
+class StubGooglePlusCountCrawler implements GooglePlusCountCrawler
+{
+
+    public function crawl(EventUrl $eventUrl)
+    {
+        return new GooglePlusCount(500);
     }
 
 }
