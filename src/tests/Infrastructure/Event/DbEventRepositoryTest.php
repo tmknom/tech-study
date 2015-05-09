@@ -2,17 +2,13 @@
 
 namespace Tests\Infrastructure\Event;
 
-use App\Domain\Event\Core\EventUrl;
 use App\Domain\Event\EventList;
-use App\Domain\Rating\RatingCount\FacebookCount;
-use App\Domain\Rating\RatingCount\TwitterCount;
 use App\Infrastructure\Event\DbEventRepository;
 use App\Infrastructure\Event\ORMapper\EventCapacityORMapper;
 use App\Infrastructure\Event\ORMapper\EventGeolocationORMapper;
 use App\Infrastructure\Event\ORMapper\EventORMapper;
 use App\Infrastructure\Event\ORMapper\EventRatingORMapper;
 use DB;
-use InvalidArgumentException;
 use Tests\Base\TestCase;
 use Tests\Fixture\Builder\TestEventBuilder;
 use Tests\Fixture\Seeder\EventCapacitySeeder;
@@ -89,60 +85,6 @@ class DbEventRepositoryTest extends TestCase
         $this->assertEquals(2, DB::table(EventRatingORMapper::TABLE_NAME)->count());
         // 確認：まだ存在しない一件だけ登録されたことを確認
         $this->assertEquals(new EventList(array($event2)), $actual);
-    }
-
-    /** @test */
-    public function saveTwitterCount_正常系()
-    {
-        // 事前準備：DBに初期データをセット
-        $this->seed(EventSeeder::class);
-        $this->seed(EventRatingSeeder::class);
-
-        // 事前準備
-        $count = new TwitterCount(800);
-        $eventUrl = TestEventBuilder::builder()->build()->getEventCore()->getEventUrl();
-
-        // 実行
-        $actual = $this->sut->saveTwitterCount($eventUrl, $count);
-
-        // 確認
-        $this->assertEquals(new TwitterCount(800), $actual);
-    }
-
-    /**
-     * @test
-     * @expectedException InvalidArgumentException
-     */
-    public function saveTwitterCount_異常系_存在しないURLが指定された場合()
-    {
-        // 事前準備：DBに初期データをセット
-        $this->seed(EventSeeder::class);
-        $this->seed(EventRatingSeeder::class);
-
-        // 事前準備
-        $count = new TwitterCount(800);
-        $eventUrl = new EventUrl('http://localhost/not-registered');
-
-        // 実行
-        $this->sut->saveTwitterCount($eventUrl, $count);
-    }
-
-    /** @test */
-    public function saveFacebookCount_正常系()
-    {
-        // 事前準備：DBに初期データをセット
-        $this->seed(EventSeeder::class);
-        $this->seed(EventRatingSeeder::class);
-
-        // 事前準備
-        $count = new FacebookCount(500);
-        $eventUrl = TestEventBuilder::builder()->build()->getEventCore()->getEventUrl();
-
-        // 実行
-        $actual = $this->sut->saveFacebookCount($eventUrl, $count);
-
-        // 確認
-        $this->assertEquals(new FacebookCount(500), $actual);
     }
 
 }
