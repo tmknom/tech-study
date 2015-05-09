@@ -11,6 +11,7 @@ use App\Domain\Rating\Repository\HatenaBookmarkRatingRepository;
 use App\Domain\Rating\Repository\TwitterRatingRepository;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
 use App\Domain\SocialCrawler\HatenaBookmarkCountCrawler;
+use App\Domain\SocialCrawler\PocketCountCrawler;
 use App\Domain\SocialCrawler\TwitterCountCrawler;
 use App\Infrastructure\Event\DbEventRepository;
 use App\Infrastructure\EventCrawler\RestAtndCrawler;
@@ -21,6 +22,7 @@ use App\Infrastructure\Rating\Repository\DbHatenaBookmarkRatingRepository;
 use App\Infrastructure\Rating\Repository\DbTwitterRatingRepository;
 use App\Infrastructure\SocialCrawler\RestFacebookCountCrawler;
 use App\Infrastructure\SocialCrawler\RestHatenaBookmarkCountCrawler;
+use App\Infrastructure\SocialCrawler\RestPocketCountCrawler;
 use App\Infrastructure\SocialCrawler\RestTwitterCountCrawler;
 use Illuminate\Support\ServiceProvider;
 
@@ -50,6 +52,7 @@ class DomainServiceProvider extends ServiceProvider
         $this->app->bindif(TwitterCountCrawler::class, RestTwitterCountCrawler::class);
         $this->app->bindif(FacebookCountCrawler::class, RestFacebookCountCrawler::class);
         $this->app->bindif(HatenaBookmarkCountCrawler::class, RestHatenaBookmarkCountCrawler::class);
+        $this->app->bindif(PocketCountCrawler::class, RestPocketCountCrawler::class);
     }
 
     /**
