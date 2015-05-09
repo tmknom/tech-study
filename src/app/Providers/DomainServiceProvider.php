@@ -6,6 +6,7 @@ use App\Domain\Event\EventRepository;
 use App\Domain\EventCrawler\AtndCrawler;
 use App\Domain\EventCrawler\ConnpassCrawler;
 use App\Domain\EventCrawler\DoorkeeperCrawler;
+use App\Domain\EventCrawler\ZusaarCrawler;
 use App\Domain\EventUrlList\EventUrlListRepository;
 use App\Domain\Rating\Repository\FacebookRatingRepository;
 use App\Domain\Rating\Repository\GooglePlusRatingRepository;
@@ -21,6 +22,7 @@ use App\Infrastructure\Event\DbEventRepository;
 use App\Infrastructure\EventCrawler\RestAtndCrawler;
 use App\Infrastructure\EventCrawler\RestConnpassCrawler;
 use App\Infrastructure\EventCrawler\RestDoorkeeperCrawler;
+use App\Infrastructure\EventCrawler\RestZusaarCrawler;
 use App\Infrastructure\EventUrlList\DbEventUrlListRepository;
 use App\Infrastructure\Rating\Repository\DbFacebookRatingRepository;
 use App\Infrastructure\Rating\Repository\DbGooglePlusRatingRepository;
@@ -59,6 +61,7 @@ class DomainServiceProvider extends ServiceProvider
         $this->app->bindif(AtndCrawler::class, RestAtndCrawler::class);
         $this->app->bindif(ConnpassCrawler::class, RestConnpassCrawler::class);
         $this->app->bindif(DoorkeeperCrawler::class, RestDoorkeeperCrawler::class);
+        $this->app->bindif(ZusaarCrawler::class, RestZusaarCrawler::class);
 
         $this->app->bindif(TwitterCountCrawler::class, RestTwitterCountCrawler::class);
         $this->app->bindif(FacebookCountCrawler::class, RestFacebookCountCrawler::class);
