@@ -3,6 +3,7 @@
 use App\Console\Commands\EventCrawler\AtndCrawlerCommand;
 use App\Console\Commands\EventCrawler\ConnpassCrawlerCommand;
 use App\Console\Commands\EventCrawler\DoorkeeperCrawlerCommand;
+use App\Console\Commands\EventCrawler\PartakeCrawlerCommand;
 use App\Console\Commands\EventCrawler\QueueCrawlerCommand;
 use App\Console\Commands\EventCrawler\ZusaarCrawlerCommand;
 use App\Console\Commands\SocialCrawler\SocialCrawlerCommand;
@@ -22,6 +23,7 @@ class Kernel extends ConsoleKernel {
 		ConnpassCrawlerCommand::class,
 		DoorkeeperCrawlerCommand::class,
 		ZusaarCrawlerCommand::class,
+		PartakeCrawlerCommand::class,
 		SocialCrawlerCommand::class,
 	];
 
