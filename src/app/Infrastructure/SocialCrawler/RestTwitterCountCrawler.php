@@ -30,9 +30,18 @@ class RestTwitterCountCrawler implements TwitterCountCrawler
     {
         $json = $this->jsonHttpClient->request(self::URL . $eventUrl->urlEncode());
 
+        return new TwitterCount($this->getCount($json));
+    }
+
+    /**
+     * @param array $json
+     * @return int
+     */
+    private function getCount($json)
+    {
         // TwitterAPIはたとえ存在しないURLであっても必ず"count"を含むJSONを返してくるので
         // 要素のチェックなど、異常系を考慮した実装は不要
-        return new TwitterCount($json['count']);
+        return $json["count"];
     }
 
 }
