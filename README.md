@@ -42,6 +42,7 @@ $ src/vendor/bin/phpunit
 $ cd src
 $ php artisan migrate
 $ php artisan migrate:reset
+$ php artisan migrate:reset; php artisan migrate
 ```
 
 ### ローカルDBへログイン
@@ -53,6 +54,7 @@ $ mysql -u app_user -ppassword app_db
 ### キューリスナーの実行
 
 ```bash
+$ sudo service beanstalkd restart
 $ php artisan queue:listen --tries=3 --timeout=120
 ```
 
