@@ -5,7 +5,7 @@ namespace App\Application\SocialCrawler;
 use App\Domain\Rating\Repository\FacebookRatingRepository;
 use App\Domain\SocialCrawler\FacebookCountCrawler;
 
-class FacebookCrawlerApplication
+class FacebookCrawlerApplication implements SocialCrawlerApplication
 {
 
     use TransactionSocialCrawlerApplication;

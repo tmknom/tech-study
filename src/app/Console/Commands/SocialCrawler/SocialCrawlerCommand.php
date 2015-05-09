@@ -2,10 +2,14 @@
 
 namespace App\Console\Commands\SocialCrawler;
 
+use App;
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
 use App\Application\SocialCrawler\TwitterCrawlerApplication;
+use App\Commands\SocialCrawler;
+use App\Domain\Event\Core\EventUrl;
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Bus\DispatchesCommands;
 
 /**
  * 注意）app/Console/Kernel.phpへの追加を忘れないこと！
@@ -15,33 +19,24 @@ use Illuminate\Console\Command;
 class SocialCrawlerCommand extends Command
 {
 
+    use DispatchesCommands;
+
     protected $name = 'crawler:social';
     protected $description = "クローラコマンド：social";
 
     /** @var EventUrlListReferenceApplication */
     private $eventUrlListReferenceApplication;
 
-    /** @var TwitterCrawlerApplication */
-    private $twitterCrawlerApplication;
-
-    /** @var FacebookCrawlerApplication */
-    private $facebookCrawlerApplication;
-
     /**
      * コンストラクタ
      *
      * @param EventUrlListReferenceApplication $eventUrlListReferenceApplication
-     * @param TwitterCrawlerApplication $twitterCrawlerApplication
      */
-    public function __construct(EventUrlListReferenceApplication $eventUrlListReferenceApplication,
-                                TwitterCrawlerApplication $twitterCrawlerApplication,
-                                FacebookCrawlerApplication $facebookCrawlerApplication)
+    public function __construct(EventUrlListReferenceApplication $eventUrlListReferenceApplication)
     {
         parent::__construct();
 
         $this->eventUrlListReferenceApplication = $eventUrlListReferenceApplication;
-        $this->twitterCrawlerApplication = $twitterCrawlerApplication;
-        $this->facebookCrawlerApplication = $facebookCrawlerApplication;
     }
 
     /**
@@ -53,10 +48,22 @@ class SocialCrawlerCommand extends Command
         $eventUrlList = $this->eventUrlListReferenceApplication->referRecent();
         // それぞれのURLについて各ソーシャルサービスをクロール
         foreach ($eventUrlList->toArray() as $eventUrl) {
-            $this->twitterCrawlerApplication->crawl($eventUrl);
-            $this->facebookCrawlerApplication->crawl($eventUrl);
+            $this->crawlByQueue(TwitterCrawlerApplication::class, $eventUrl);
+            $this->crawlByQueue(FacebookCrawlerApplication::class, $eventUrl);
         }
         echo 'success';
+    }
+
+    /**
+     * キュー経由でクロール処理実行
+     *
+     * @param string $class
+     * @param EventUrl $eventUrl
+     */
+    private function crawlByQueue($class, EventUrl $eventUrl)
+    {
+        $socialCrawlerApplication = App::make($class);
+        $this->dispatch(new SocialCrawler($socialCrawlerApplication, $eventUrl));
     }
 
 }
