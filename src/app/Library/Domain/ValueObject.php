@@ -30,4 +30,12 @@ trait ValueObject
         return strval($this->value);
     }
 
+    /**
+     * @return mixed
+     */
+    private function getRawValue()
+    {
+        return $this->value;
+    }
+
 }
