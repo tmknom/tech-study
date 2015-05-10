@@ -2,10 +2,12 @@
 
 namespace App\Library\Domain;
 
+use App\Library\Domain\StringValueObject;
+
 trait Identifier
 {
 
-    use \App\Library\Domain\ValueObject;
+    use StringValueObject;
 
     /**
      * 識別子が未定義の場合の識別子オブジェクトを生成する
@@ -29,7 +31,7 @@ trait Identifier
      */
     public function isUndefined()
     {
-        return $this->value === self::getUndefined();
+        return $this->getRawValue() === self::getUndefined();
     }
 
     /**

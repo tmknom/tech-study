@@ -2,14 +2,11 @@
 
 namespace App\Domain\Event\Capacity;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\IntegerValueObject;
 
 class CapacityLimit
 {
 
-    use ValueObject;
-
-    /** @var int */
-    private $value;
+    use IntegerValueObject;
 
 }

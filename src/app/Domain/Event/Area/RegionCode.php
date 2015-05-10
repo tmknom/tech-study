@@ -2,7 +2,7 @@
 
 namespace App\Domain\Event\Area;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\IntegerValueObject;
 
 /**
  * 地域区分コード（八地方区分）
@@ -12,12 +12,9 @@ use App\Library\Domain\ValueObject;
 class RegionCode
 {
 
-    use ValueObject;
+    use IntegerValueObject;
 
     const UNDEFINED = 0;
-
-    /** @var int */
-    private $value;
 
     /*
       private $codeArray = array(

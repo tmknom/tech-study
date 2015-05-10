@@ -40,6 +40,7 @@ class RestGooglePlusCountCrawler implements GooglePlusCountCrawler
     {
         // GooglePlusAPIはボタン表示のJSを解析して、+1数を取得する
         // ld:[,[2,<count>,[ という記述からcountを抜き出す
+        $matches = array(0, 0);
         preg_match('/ld:\[,\[2,([0-9.]+),\[/', $response, $matches);
         return $matches[1];
     }

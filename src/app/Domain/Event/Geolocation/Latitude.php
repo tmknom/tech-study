@@ -2,22 +2,21 @@
 
 namespace App\Domain\Event\Geolocation;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\FloatValueObject;
 
 class Latitude
 {
 
-    use ValueObject;
+    use FloatValueObject;
 
-    /** @var float */
-    private $value;
+    const UNDEFINED = 0.0;
 
     /**
-     * @return boolean 値が定義されていればtrue、そうでなければfalse
+     * @return boolean 値が未定義ならtrue、そうでなければfalse
      */
     public function isUndefined()
     {
-        return is_null($this->value);
+        return $this->getValue() === self::UNDEFINED;
     }
 
 }

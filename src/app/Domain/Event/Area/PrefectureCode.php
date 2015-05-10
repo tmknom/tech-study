@@ -2,7 +2,7 @@
 
 namespace App\Domain\Event\Area;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\IntegerValueObject;
 
 /**
  * 都道府県コード
@@ -13,12 +13,9 @@ use App\Library\Domain\ValueObject;
 class PrefectureCode
 {
 
-    use ValueObject;
+    use IntegerValueObject;
 
     const UNDEFINED = 0;
-
-    /** @var int */
-    private $value;
 
     /*
       private $codeArray = array(

@@ -9,9 +9,12 @@ trait DomainCollection
 
     use \App\Library\Fundamental\OneArgumentCompleteConstructor;
 
+    /** @var Collection */
+    private $collection;
+
     public function __construct(array $itmes)
     {
-        $this->completeConstruct('value', Collection::make($itmes));
+        $this->completeConstruct('collection', Collection::make($itmes));
     }
 
     /**
@@ -22,7 +25,7 @@ trait DomainCollection
      */
     public function get($index)
     {
-        return $this->value->get($index);
+        return $this->getCollection()->get($index);
     }
 
     /**
@@ -35,7 +38,7 @@ trait DomainCollection
      */
     public function toArray()
     {
-        return $this->value->toArray();
+        return $this->getCollection()->toArray();
     }
 
     /**
@@ -45,7 +48,15 @@ trait DomainCollection
      */
     public function count()
     {
-        return $this->value->count();
+        return $this->getCollection()->count();
+    }
+
+    /**
+     * @return Collection
+     */
+    private function getCollection()
+    {
+        return $this->collection;
     }
 
 }

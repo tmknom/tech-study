@@ -2,14 +2,11 @@
 
 namespace App\Domain\Event\Detail;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\StringValueObject;
 
 class CatchCopy
 {
 
-    use ValueObject;
-
-    /** @var string */
-    private $value;
+    use StringValueObject;
 
 }

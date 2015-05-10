@@ -2,14 +2,11 @@
 
 namespace App\Domain\Event\Geolocation;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\StringValueObject;
 
 class Place
 {
 
-    use ValueObject;
-
-    /** @var string */
-    private $value;
+    use StringValueObject;
 
 }

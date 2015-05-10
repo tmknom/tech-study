@@ -7,6 +7,9 @@ trait ValueObject
 
     use \App\Library\Fundamental\OneArgumentCompleteConstructor;
 
+    /** @var mixed */
+    private $value;
+
     /**
      * コンストラクタ
      *
@@ -14,7 +17,7 @@ trait ValueObject
      *
      * @param mixed $value
      */
-    public function __construct($value)
+    public function construct($value)
     {
         $this->completeConstruct('value', $value);
     }
@@ -25,6 +28,14 @@ trait ValueObject
     public function __toString()
     {
         return strval($this->value);
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getRawValue()
+    {
+        return $this->value;
     }
 
 }

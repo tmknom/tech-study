@@ -40,14 +40,14 @@ class EventGeolocationBuilder
     /** @return EventGeolocationBuilder */
     public function setLatitude($value)
     {
-        $this->latitude = new Latitude($this->getValueOrNull($value));
+        $this->latitude = new Latitude($value);
         return $this;
     }
 
     /** @return EventGeolocationBuilder */
     public function setLongitude($value)
     {
-        $this->longitude = new Longitude($this->getValueOrNull($value));
+        $this->longitude = new Longitude($value);
         return $this;
     }
 
@@ -62,11 +62,6 @@ class EventGeolocationBuilder
     private function getValueOrEmpty($value)
     {
         return empty($value) ? '' : $value;
-    }
-
-    private function getValueOrNull($value)
-    {
-        return empty($value) ? null : $value;
     }
 
     /** @return EventGeolocationBuilder */
