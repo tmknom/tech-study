@@ -7,6 +7,8 @@ use App\Domain\Event\Core\EventCore;
 use App\Domain\Event\Core\SourceType;
 use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\Geolocation\EventGeolocation;
+use App\Domain\Event\Geolocation\Latitude;
+use App\Domain\Event\Geolocation\Longitude;
 use App\Infrastructure\Event\Builder\EventCapacityBuilder;
 use App\Infrastructure\Event\Builder\EventCoreBuilder;
 use App\Infrastructure\Event\Builder\EventDetailBuilder;
@@ -101,8 +103,8 @@ class PartakeMapper
         return EventGeolocationBuilder::builder()
                         ->setAddress($json['address'])
                         ->setPlace($json['place'])
-                        ->setLatitude(null)
-                        ->setLongitude(null)
+                        ->setLatitude(Latitude::UNDEFINED)
+                        ->setLongitude(Longitude::UNDEFINED)
                         ->build();
     }
 

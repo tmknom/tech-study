@@ -9,12 +9,14 @@ class Latitude
 
     use FloatValueObject;
 
+    const UNDEFINED = 0.0;
+
     /**
-     * @return boolean 値が定義されていればtrue、そうでなければfalse
+     * @return boolean 値が未定義ならtrue、そうでなければfalse
      */
     public function isUndefined()
     {
-        return is_null($this->getValue());
+        return $this->getValue() === self::UNDEFINED;
     }
 
 }
