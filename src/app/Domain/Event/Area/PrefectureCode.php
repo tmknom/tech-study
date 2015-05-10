@@ -64,65 +64,79 @@ class PrefectureCode
     const KAGOSHIMA = 46;
     const OKINAWA = 47;
 
+    /**
+     * @return string
+     */
     public function getName()
     {
-        return $this->codeMap[$this->getValue()];
+        return $this->codeMap[$this->getValue()]['name'];
     }
 
+    /**
+     * @return int
+     */
     public function getCode()
     {
         return $this->getValue();
     }
 
+    /**
+     * @return RegionCode
+     */
+    public function getRegionCode()
+    {
+        return new RegionCode($this->codeMap[$this->getValue()]['region_code']);
+    }
+
     private $codeMap = array(
-        "0" => "未定義",
-        "1" => "北海道",
-        "2" => "青森県",
-        "3" => "岩手県",
-        "4" => "宮城県",
-        "5" => "秋田県",
-        "6" => "山形県",
-        "7" => "福島県",
-        "8" => "茨城県",
-        "9" => "栃木県",
-        "10" => "群馬県",
-        "11" => "埼玉県",
-        "12" => "千葉県",
-        "13" => "東京都",
-        "14" => "神奈川県",
-        "15" => "新潟県",
-        "16" => "富山県",
-        "17" => "石川県",
-        "18" => "福井県",
-        "19" => "山梨県",
-        "20" => "長野県",
-        "21" => "岐阜県",
-        "22" => "静岡県",
-        "23" => "愛知県",
-        "24" => "三重県",
-        "25" => "滋賀県",
-        "26" => "京都府",
-        "27" => "大阪府",
-        "28" => "兵庫県",
-        "29" => "奈良県",
-        "30" => "和歌山県",
-        "31" => "鳥取県",
-        "32" => "島根県",
-        "33" => "岡山県",
-        "34" => "広島県",
-        "35" => "山口県",
-        "36" => "徳島県",
-        "37" => "香川県",
-        "38" => "愛媛県",
-        "39" => "高知県",
-        "40" => "福岡県",
-        "41" => "佐賀県",
-        "42" => "長崎県",
-        "43" => "熊本県",
-        "44" => "大分県",
-        "45" => "宮崎県",
-        "46" => "鹿児島県",
-        "47" => "沖縄県"
+        '0' => array('name' => "未定義", 'region_code' => RegionCode::UNDEFINED),
+        '1' => array('name' => '北海道', 'region_code' => RegionCode::HOKKAIDO),
+        '2' => array('name' => '青森県', 'region_code' => RegionCode::TOHOKU),
+        '3' => array('name' => '岩手県', 'region_code' => RegionCode::TOHOKU),
+        '4' => array('name' => '宮城県', 'region_code' => RegionCode::TOHOKU),
+        '5' => array('name' => '秋田県', 'region_code' => RegionCode::TOHOKU),
+        '6' => array('name' => '山形県', 'region_code' => RegionCode::TOHOKU),
+        '7' => array('name' => '福島県', 'region_code' => RegionCode::TOHOKU),
+        '8' => array('name' => '茨城県', 'region_code' => RegionCode::KANTO),
+        '9' => array('name' => '栃木県', 'region_code' => RegionCode::KANTO),
+        '10' => array('name' => '群馬県', 'region_code' => RegionCode::KANTO),
+        '11' => array('name' => '埼玉県', 'region_code' => RegionCode::KANTO),
+        '12' => array('name' => '千葉県', 'region_code' => RegionCode::KANTO),
+        '13' => array('name' => '東京都', 'region_code' => RegionCode::KANTO),
+        '14' => array('name' => '神奈川県', 'region_code' => RegionCode::KANTO),
+        '15' => array('name' => '新潟県', 'region_code' => RegionCode::CHUBU),
+        '16' => array('name' => '富山県', 'region_code' => RegionCode::CHUBU),
+        '17' => array('name' => '石川県', 'region_code' => RegionCode::CHUBU),
+        '18' => array('name' => '福井県', 'region_code' => RegionCode::CHUBU),
+        '19' => array('name' => '山梨県', 'region_code' => RegionCode::CHUBU),
+        '20' => array('name' => '長野県', 'region_code' => RegionCode::CHUBU),
+        '21' => array('name' => '岐阜県', 'region_code' => RegionCode::CHUBU),
+        '22' => array('name' => '静岡県', 'region_code' => RegionCode::CHUBU),
+        '23' => array('name' => '愛知県', 'region_code' => RegionCode::CHUBU),
+        '24' => array('name' => '三重県', 'region_code' => RegionCode::KINKI),
+        '25' => array('name' => '滋賀県', 'region_code' => RegionCode::KINKI),
+        '26' => array('name' => '京都府', 'region_code' => RegionCode::KINKI),
+        '27' => array('name' => '大阪府', 'region_code' => RegionCode::KINKI),
+        '28' => array('name' => '兵庫県', 'region_code' => RegionCode::KINKI),
+        '29' => array('name' => '奈良県', 'region_code' => RegionCode::KINKI),
+        '30' => array('name' => '和歌山県', 'region_code' => RegionCode::KINKI),
+        '31' => array('name' => '鳥取県', 'region_code' => RegionCode::CHUGOKU),
+        '32' => array('name' => '島根県', 'region_code' => RegionCode::CHUGOKU),
+        '33' => array('name' => '岡山県', 'region_code' => RegionCode::CHUGOKU),
+        '34' => array('name' => '広島県', 'region_code' => RegionCode::CHUGOKU),
+        '35' => array('name' => '山口県', 'region_code' => RegionCode::CHUGOKU),
+        '36' => array('name' => '徳島県', 'region_code' => RegionCode::SHIKOKU),
+        '37' => array('name' => '香川県', 'region_code' => RegionCode::SHIKOKU),
+        '38' => array('name' => '愛媛県', 'region_code' => RegionCode::SHIKOKU),
+        '39' => array('name' => '高知県', 'region_code' => RegionCode::SHIKOKU),
+        '40' => array('name' => '福岡県', 'region_code' => RegionCode::KYUSHU),
+        '41' => array('name' => '佐賀県', 'region_code' => RegionCode::KYUSHU),
+        '42' => array('name' => '長崎県', 'region_code' => RegionCode::KYUSHU),
+        '43' => array('name' => '熊本県', 'region_code' => RegionCode::KYUSHU),
+        '44' => array('name' => '大分県', 'region_code' => RegionCode::KYUSHU),
+        '45' => array('name' => '宮崎県', 'region_code' => RegionCode::KYUSHU),
+        '46' => array('name' => '鹿児島県', 'region_code' => RegionCode::KYUSHU),
+        '47' => array('name' => '沖縄県', 'region_code' => RegionCode::KYUSHU),
     );
 
 }

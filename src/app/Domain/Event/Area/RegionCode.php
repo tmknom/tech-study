@@ -24,11 +24,17 @@ class RegionCode
     const SHIKOKU = 7;
     const KYUSHU = 8;
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->codeMap[$this->getValue()];
     }
 
+    /**
+     * @return int
+     */
     public function getCode()
     {
         return $this->getValue();

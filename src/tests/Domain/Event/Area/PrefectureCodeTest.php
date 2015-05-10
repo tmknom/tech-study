@@ -3,6 +3,7 @@
 namespace Tests\Domain\Event\Core;
 
 use App\Domain\Event\Area\PrefectureCode;
+use App\Domain\Event\Area\RegionCode;
 use PHPUnit_Framework_TestCase;
 
 class PrefectureCodeTest extends PHPUnit_Framework_TestCase
@@ -35,6 +36,16 @@ class PrefectureCodeTest extends PHPUnit_Framework_TestCase
 
         // 確認
         $this->assertEquals(13, $actual);
+    }
+
+    /** @test */
+    public function getRegionCode_正常系()
+    {
+        // 実行
+        $actual = $this->sut->getRegionCode();
+
+        // 確認
+        $this->assertEquals(RegionCode::KANTO(), $actual);
     }
 
 }
