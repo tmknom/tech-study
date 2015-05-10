@@ -2,12 +2,12 @@
 
 namespace App\Domain\Event\Core;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\StringValueObject;
 
 class EventUrl
 {
 
-    use ValueObject;
+    use StringValueObject;
 
     /**
      * URLエンコードした文字列を返す
@@ -16,7 +16,7 @@ class EventUrl
      */
     public function urlEncode()
     {
-        return rawurlencode($this->value);
+        return rawurlencode($this->getValue());
     }
 
 }
