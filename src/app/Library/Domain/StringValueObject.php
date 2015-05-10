@@ -2,10 +2,13 @@
 
 namespace App\Library\Domain;
 
+use App\Library\TypeCheck\StringChecker;
+
 trait StringValueObject
 {
 
-    use ValueObject {
+    use StringChecker,
+        ValueObject {
         ValueObject::__construct as construct;
     }
 
@@ -17,6 +20,7 @@ trait StringValueObject
     public function __construct($value)
     {
         $this->construct($value);
+        $this->checkString($this->getValue());
     }
 
     /**
@@ -24,7 +28,7 @@ trait StringValueObject
      */
     protected function getValue()
     {
-        return $this->getRawValue();
+        return strval($this->getRawValue());
     }
 
 }

@@ -2,10 +2,13 @@
 
 namespace App\Library\Domain;
 
+use App\Library\TypeCheck\IntegerChecker;
+
 trait IntegerValueObject
 {
 
-    use ValueObject {
+    use IntegerChecker,
+        ValueObject {
         ValueObject::__construct as construct;
     }
 
@@ -17,6 +20,7 @@ trait IntegerValueObject
     public function __construct($value)
     {
         $this->construct($value);
+        $this->checkInteger($this->getValue());
     }
 
     /**
@@ -24,7 +28,7 @@ trait IntegerValueObject
      */
     protected function getValue()
     {
-        return $this->getRawValue();
+        return intval($this->getRawValue());
     }
 
 }

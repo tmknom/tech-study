@@ -2,10 +2,13 @@
 
 namespace App\Library\Domain;
 
+use App\Library\TypeCheck\FloatChecker;
+
 trait FloatValueObject
 {
 
-    use ValueObject {
+    use FloatChecker,
+        ValueObject {
         ValueObject::__construct as construct;
     }
 
@@ -17,6 +20,7 @@ trait FloatValueObject
     public function __construct($value)
     {
         $this->construct($value);
+        $this->checkFloat($this->getValue());
     }
 
     /**
@@ -24,7 +28,7 @@ trait FloatValueObject
      */
     protected function getValue()
     {
-        return $this->getRawValue();
+        return floatval($this->getRawValue());
     }
 
 }
