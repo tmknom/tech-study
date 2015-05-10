@@ -17,13 +17,13 @@ class RestPartakeCrawler implements PartakeCrawler
     private $jsonHttpClient;
 
     /** @var PartakeMapper */
-    private $atndMapper;
+    private $partakeMapper;
 
     /** コンストラクタ */
     public function __construct(JsonHttpClient $jsonHttpClient)
     {
         $this->jsonHttpClient = $jsonHttpClient;
-        $this->atndMapper = new PartakeMapper();
+        $this->partakeMapper = new PartakeMapper();
     }
 
     /**
@@ -32,7 +32,7 @@ class RestPartakeCrawler implements PartakeCrawler
     public function crawl()
     {
         $json = $this->jsonHttpClient->request(self::URL);
-        return $this->atndMapper->createEventList($json);
+        return $this->partakeMapper->createEventList($json);
     }
 
 }

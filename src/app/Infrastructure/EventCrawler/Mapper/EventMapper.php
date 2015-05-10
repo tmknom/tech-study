@@ -128,8 +128,8 @@ trait EventMapper
     private function createTokyoEventArea()
     {
         return EventAreaBuilder::builder()
-                        ->setPrefectureCode(new PrefectureCode('13'))
-                        ->setRegionCode(new RegionCode('3'))
+                        ->setPrefectureCode(13)
+                        ->setRegionCode(3)
                         ->build();
     }
 
