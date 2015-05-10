@@ -2,26 +2,13 @@
 
 namespace App\Domain\Event\Core;
 
-use App\Library\Domain\ValueObject;
+use App\Library\Domain\DateTimeValueObject;
 use DateTimeImmutable;
 
 class StartDateTime
 {
 
-    use ValueObject;
-
-    /** @var DateTimeImmutable */
-    //private $value;
-
-    /**
-     * コンストラクタ
-     *
-     * @param DateTimeImmutable $value
-     */
-    public function __construct(DateTimeImmutable $value)
-    {
-        $this->completeConstruct('value', $value);
-    }
+    use DateTimeValueObject;
 
     /**
      * Y-m-d H:i:s形式にフォーマットした文字列を取得する
@@ -30,7 +17,7 @@ class StartDateTime
      */
     public function formatDateTime()
     {
-        return $this->value->format('Y-m-d H:i:s');
+        return $this->getValue()->format('Y-m-d H:i:s');
     }
 
     /**
@@ -40,7 +27,7 @@ class StartDateTime
      */
     public function isWithinOneYear()
     {
-        if ($this->value < new DateTimeImmutable('+1 year')) {
+        if ($this->getValue() < new DateTimeImmutable('+1 year')) {
             return true;
         }
         return false;
