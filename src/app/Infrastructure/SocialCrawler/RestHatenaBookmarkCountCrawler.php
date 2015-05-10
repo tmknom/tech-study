@@ -42,7 +42,7 @@ class RestHatenaBookmarkCountCrawler implements HatenaBookmarkCountCrawler
         if ($response === '') {
             return 0;
         }
-        return $response;
+        return intval($response);
     }
 
 }
