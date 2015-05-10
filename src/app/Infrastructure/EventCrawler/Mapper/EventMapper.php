@@ -129,7 +129,7 @@ trait EventMapper
     {
         return EventAreaBuilder::builder()
                         ->setPrefectureCode(13)
-                        ->setRegionCode(3)
+                        ->setRegionCode(RegionCode::KANTO)
                         ->build();
     }
 

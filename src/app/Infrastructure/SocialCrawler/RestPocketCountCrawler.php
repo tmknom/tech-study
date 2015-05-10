@@ -39,7 +39,6 @@ class RestPocketCountCrawler implements PocketCountCrawler
     private function getCount($response)
     {
         // PocketAPIはボタン表示のJSを解析して、あとで読む数を取得する
-        // <em id="cnt">count</em> という記述からcountを抜き出す
         $matches = array(0, 0);
         preg_match('/<em id="cnt">([0-9.]+)<\/em>/', $response, $matches);
         return $matches[1];
