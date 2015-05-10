@@ -5,9 +5,7 @@ namespace App\Domain\EventSummary;
 use App\Domain\Event\Area\EventArea;
 use App\Domain\Event\Capacity\EventCapacity;
 use App\Domain\Event\Core\EventCore;
-use App\Domain\Event\Detail\EventDetail;
 use App\Domain\Event\EventId;
-use App\Domain\Event\Geolocation\EventGeolocation;
 use App\Domain\Rating\Rating;
 use App\Library\Domain\Entity;
 
@@ -63,14 +61,6 @@ class EventSummary
     }
 
     /**
-     * @return EventDetail
-     */
-    public function getEventDetail()
-    {
-        return $this->eventDetail;
-    }
-
-    /**
      * @return EventCapacity
      */
     public function getEventCapacity()
@@ -84,14 +74,6 @@ class EventSummary
     public function getRating()
     {
         return $this->rating;
-    }
-
-    /**
-     * @return EventGeolocation
-     */
-    public function getEventGeolocation()
-    {
-        return $this->eventGeolocation;
     }
 
     /**
