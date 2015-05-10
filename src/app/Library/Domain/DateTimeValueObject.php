@@ -7,9 +7,7 @@ use DateTimeImmutable;
 trait DateTimeValueObject
 {
 
-    use ValueObject {
-        ValueObject::__construct as construct;
-    }
+    use ValueObject;
 
     /**
      * コンストラクタ

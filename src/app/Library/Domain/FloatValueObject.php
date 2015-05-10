@@ -8,9 +8,7 @@ trait FloatValueObject
 {
 
     use FloatChecker,
-        ValueObject {
-        ValueObject::__construct as construct;
-    }
+        ValueObject;
 
     /**
      * コンストラクタ

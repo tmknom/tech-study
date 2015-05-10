@@ -8,9 +8,7 @@ trait StringValueObject
 {
 
     use StringChecker,
-        ValueObject {
-        ValueObject::__construct as construct;
-    }
+        ValueObject;
 
     /**
      * コンストラクタ

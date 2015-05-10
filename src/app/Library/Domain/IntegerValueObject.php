@@ -8,9 +8,7 @@ trait IntegerValueObject
 {
 
     use IntegerChecker,
-        ValueObject {
-        ValueObject::__construct as construct;
-    }
+        ValueObject;
 
     /**
      * コンストラクタ

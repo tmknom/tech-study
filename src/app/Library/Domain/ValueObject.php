@@ -17,7 +17,7 @@ trait ValueObject
      *
      * @param mixed $value
      */
-    public function __construct($value)
+    public function construct($value)
     {
         $this->completeConstruct('value', $value);
     }
