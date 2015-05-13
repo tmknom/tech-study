@@ -7,6 +7,7 @@ use App\Application\EventCrawler\ConnpassCrawlerApplication;
 use App\Application\EventCrawler\DoorkeeperCrawlerApplication;
 use App\Application\EventCrawler\PartakeCrawlerApplication;
 use App\Application\EventCrawler\ZusaarCrawlerApplication;
+use App\Application\EventList\EventListApplication;
 use App\Application\EventUrlListReference\EventUrlListReferenceApplication;
 use App\Application\SocialCrawler\FacebookCrawlerApplication;
 use App\Application\SocialCrawler\GooglePlusCrawlerApplication;
@@ -40,6 +41,7 @@ class ApplicationServiceProvider extends ServiceProvider
         $this->app->bindif(PocketCrawlerApplication::class, PocketCrawlerApplication::class);
         $this->app->bindif(GooglePlusCrawlerApplication::class, GooglePlusCrawlerApplication::class);
 
+        $this->app->bindif(EventListApplication::class, EventListApplication::class);
         $this->app->bindif(EventUrlListReferenceApplication::class, EventUrlListReferenceApplication::class);
     }
 

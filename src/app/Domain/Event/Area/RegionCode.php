@@ -29,7 +29,7 @@ class RegionCode
      */
     public function getName()
     {
-        return $this->codeMap[$this->getValue()];
+        return $this->codeMap()[$this->getValue()];
     }
 
     /**
@@ -40,16 +40,19 @@ class RegionCode
         return $this->getValue();
     }
 
-    private $codeMap = array(
-        '0' => '未定義',
-        '1' => '北海道',
-        '2' => '東北',
-        '3' => '関東',
-        '4' => '中部',
-        '5' => '近畿',
-        '6' => '中国',
-        '7' => '四国',
-        '8' => '九州',
-    );
+    private function codeMap()
+    {
+        return array(
+            '0' => '未定義',
+            '1' => '北海道',
+            '2' => '東北',
+            '3' => '関東',
+            '4' => '中部',
+            '5' => '近畿',
+            '6' => '中国',
+            '7' => '四国',
+            '8' => '九州',
+        );
+    }
 
 }

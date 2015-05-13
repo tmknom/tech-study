@@ -8,6 +8,7 @@ use App\Domain\EventCrawler\ConnpassCrawler;
 use App\Domain\EventCrawler\DoorkeeperCrawler;
 use App\Domain\EventCrawler\PartakeCrawler;
 use App\Domain\EventCrawler\ZusaarCrawler;
+use App\Domain\EventSummary\EventSummaryRepository;
 use App\Domain\EventUrlList\EventUrlListRepository;
 use App\Domain\Rating\Repository\FacebookRatingRepository;
 use App\Domain\Rating\Repository\GooglePlusRatingRepository;
@@ -25,6 +26,7 @@ use App\Infrastructure\EventCrawler\RestConnpassCrawler;
 use App\Infrastructure\EventCrawler\RestDoorkeeperCrawler;
 use App\Infrastructure\EventCrawler\RestPartakeCrawler;
 use App\Infrastructure\EventCrawler\RestZusaarCrawler;
+use App\Infrastructure\EventSummary\DbEventSummaryRepository;
 use App\Infrastructure\EventUrlList\DbEventUrlListRepository;
 use App\Infrastructure\Rating\Repository\DbFacebookRatingRepository;
 use App\Infrastructure\Rating\Repository\DbGooglePlusRatingRepository;
@@ -52,6 +54,7 @@ class DomainServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bindif(EventRepository::class, DbEventRepository::class);
+        $this->app->bindif(EventSummaryRepository::class, DbEventSummaryRepository::class);
         $this->app->bindif(EventUrlListRepository::class, DbEventUrlListRepository::class);
 
         $this->app->bindif(TwitterRatingRepository::class, DbTwitterRatingRepository::class);
